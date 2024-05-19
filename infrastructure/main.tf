@@ -1,28 +1,10 @@
-resource "azurerm_static_web_app" "static_web_app" {
-    name = var.STATIC_WEB_APP_NAME
-    resource_group_name = azurerm_resource_group.resource_group.name
-    location = azurerm_resource_group.resource_group.location
-    sku_tier = var.STATIC_WEB_APP_SKU
-}
-
-resource "azurerm_static_web_app_custom_domain" "static_web_app_custom_domain" {
-    static_web_app_id = azurerm_static_web_app.static_web_app.id
-    domain_name = "${var.DNS_TXT_RECORD_NAME}.${var.CUSTOM_DOMAIN_NAME}"
-    validation_type = "dns-txt-token"
-}
-
-resource "azurerm_dns_zone" "dns_zone" {
-    name = var.CUSTOM_DOMAIN_NAME
-    resource_group_name = azurerm_resource_group.resource_group.name
-}
-
-resource "azurerm_dns_txt_record" "dns_txt_record" {
-    name = var.DNS_TXT_RECORD_NAME
-    zone_name = azurerm_dns_zone.dns_zone.name
-    resource_group_name = azurerm_resource_group.resource_group.name
-    ttl = 300
-    record {
-        value = azurerm_static_web_app_custom_domain.static_web_app_custom_domain.validation_token == "" ? "validated" : azurerm_static_web_app_custom_domain.static_web_app_custom_domain.validation_token
-    }
+module "static_web_app" {
+    source = "github.com/noahspannbauer/noahspan-root/infrastructure/modules/static_web_app"
+    region = var.REGION
+    resource_group_name = data.azurerm_resource_group.resource_group.name
+    static_web_app_name = var.STATIC_WEB_APP_NAME
+    custom_domain_name_count = var.CUSTOM_DOMAIN_NAME_COUNT
+    domain_name = var.DOMAIN_NAME
+    subdomain_name = var.SUBDOMAIN_NAME
 }
 
