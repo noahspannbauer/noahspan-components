@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    isOpen: true,
+    isOpen: false,
     headerText: 'Header',
     size: '3xl'
   },
