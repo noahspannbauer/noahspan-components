@@ -29,7 +29,24 @@ export const Primary: Story = {
         <Button color='primary' onClick={onOpenCloseDrawer}>
           Open Drawer
         </Button>
-        <Drawer onClose={onOpenCloseDrawer} {...args}>
+        <Drawer
+          onClose={onOpenCloseDrawer}
+          footer={
+            <div className='flex gap-4 justify-end justify-self-center'>
+              <div>
+                <Button color='default' onClick={onOpenCloseDrawer}>
+                  Cancel
+                </Button>
+              </div>
+              <div>
+                <Button color='primary' onClick={onOpenCloseDrawer}>
+                  Save
+                </Button>
+              </div>
+            </div>
+          }
+          {...args}
+        >
           <p>Drawer content goes here.</p>
         </Drawer>
       </>

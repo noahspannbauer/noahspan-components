@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { FC, ReactNode } from 'react';
 import { Button, NextUIProvider } from '@nextui-org/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -20,15 +20,17 @@ export interface DrawerProps {
     | '6xl'
     | '7xl'
     | 'full';
-  children?: ReactElement;
+  children?: ReactNode;
+  footer?: ReactNode;
 }
 
-export const Drawer: React.FC<DrawerProps> = ({
+export const Drawer: FC<DrawerProps> = ({
   isOpen,
   headerText,
   onClose,
   size,
-  children
+  children,
+  footer
 }) => {
   return (
     <NextUIProvider>
@@ -56,8 +58,11 @@ export const Drawer: React.FC<DrawerProps> = ({
             </div>
           </div>
           <div>{children}</div>
+          <div className='absolute inset-x-0 bottom-0 h-16 pr-10 pb-10 pl-10'>
+            {footer}
+          </div>
         </div>
-        <div className='w-screen h-full' onClick={onClose} />
+        {/* <div className='w-screen h-full' onClick={onClose} /> */}
       </div>
     </NextUIProvider>
   );
