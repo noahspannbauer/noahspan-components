@@ -1,6 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '@nextui-org/react';
-import { Drawer } from './Drawer';
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+  DrawerFooter
+} from './Drawer';
 import { useArgs } from '@storybook/preview-api';
 
 const meta: Meta<typeof Drawer> = {
@@ -14,12 +20,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    isOpen: true,
-    headerText: 'Header',
-    size: '3xl'
+    hideCloseButton: true,
+    isOpen: false
   },
   render: function Render(args) {
-    const [{ isOpen }, updateArgs] = useArgs();
+    const [{ hideCloseButton, isOpen }, updateArgs] = useArgs();
     const onOpenCloseDrawer = () => {
       updateArgs({ isOpen: !isOpen });
     };
@@ -29,25 +34,27 @@ export const Primary: Story = {
         <Button color='primary' onClick={onOpenCloseDrawer}>
           Open Drawer
         </Button>
-        <Drawer
-          onClose={onOpenCloseDrawer}
-          footer={
-            <div className='flex gap-4 justify-end justify-self-center'>
-              <div>
-                <Button color='default' onClick={onOpenCloseDrawer}>
-                  Cancel
-                </Button>
+        <Drawer isOpen={isOpen} hideCloseButton={hideCloseButton} {...args}>
+          <DrawerContent>
+            <DrawerHeader>
+              <h2>Drawer Title</h2>
+            </DrawerHeader>
+            <DrawerBody>Drawer content goes here</DrawerBody>
+            <DrawerFooter>
+              <div className='flex gap-4 justify-end justify-self-center'>
+                <div>
+                  <Button color='default' onClick={onOpenCloseDrawer}>
+                    Cancel
+                  </Button>
+                </div>
+                <div>
+                  <Button color='primary' onClick={onOpenCloseDrawer}>
+                    Save
+                  </Button>
+                </div>
               </div>
-              <div>
-                <Button color='primary' onClick={onOpenCloseDrawer}>
-                  Save
-                </Button>
-              </div>
-            </div>
-          }
-          {...args}
-        >
-          <p>Drawer content goes here.</p>
+            </DrawerFooter>
+          </DrawerContent>
         </Drawer>
       </>
     );

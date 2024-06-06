@@ -1,3 +1,5 @@
+import './styles.css';
+
 export * from './components/drawer/Drawer';
 export * from './components/logo/Logo';
 export * from './components/plane/Plane';

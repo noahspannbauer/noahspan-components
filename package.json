@@ -1,11 +1,29 @@
 {
   "name": "@noahspan/noahspan-components",
-  "version": "0.1.4",
+  "version": "0.2.4",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
+  "main": "dist/noahspan-components.umd.js",
+  "module": "./dist/noahspan-components.es.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/noahspan-components.es.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/noahspan-components.umd.js"
+      }
+    },
+    "./noahspan-components.css": {
+      "import": "./dist/noahspan-components.css",
+      "require": "./dist/noahspan-components.css"
+    }
+  },
+  "sideEffects": false,
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
