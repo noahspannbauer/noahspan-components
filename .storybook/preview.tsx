@@ -1,17 +1,23 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
-import { NextUIProvider } from '@nextui-org/react';
 import '../src/styles.css';
 
 const preview: Preview = {
-  decorators: [
-    (Story) => (
-      <NextUIProvider>
-        <Story />
-      </NextUIProvider>
-    )
-  ],
+  decorators: [(Story) => <Story />],
   parameters: {
+    backgrounds: {
+      default: 'default',
+      values: [
+        {
+          name: 'default',
+          value: '#FFFFFF'
+        },
+        {
+          name: 'light',
+          value: '#f8fafc'
+        }
+      ]
+    },
     controls: {
       expanded: true,
       matchers: {

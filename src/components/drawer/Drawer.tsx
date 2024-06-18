@@ -1,38 +1,25 @@
 import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalProps
-} from '@nextui-org/react';
-import './styles.css';
+  Drawer as MaterialTailwindDrawer,
+  DrawerProps as MaterialTailwindDrawerProps
+} from '@material-tailwind/react';
 
-type ModalBaseProps = Omit<
-  ModalProps,
-  'className' | 'fullScreen' | 'closeButton' | 'animated' | 'blur'
+type DrawerBaseProps = Pick<
+  MaterialTailwindDrawerProps,
+  | 'open'
+  | 'size'
+  | 'placement'
+  | 'overlay'
+  | 'overlayRef'
+  | 'overlayProps'
+  | 'dismiss'
+  | 'onClose'
+  | 'transition'
+  | 'className'
+  | 'children'
 >;
 
-export const DrawerContent = ModalContent;
-export const DrawerHeader = ModalHeader;
-export const DrawerBody = ModalBody;
-export const DrawerFooter = ModalFooter;
+export interface DrawerProps extends DrawerBaseProps {}
 
-export const Drawer = ({ children, ...rest }: ModalBaseProps) => {
-  const { isOpen } = rest;
-
-  return (
-    <Modal
-      classNames={{
-        wrapper: 'w-full'
-      }}
-      className={`drawer drawer-animated ${isOpen ? 'drawer-animated-slide-in' : 'drawer-animated-slide-out'}`}
-      animated={false}
-      placement='top'
-      size='full'
-      {...rest}
-    >
-      {children}
-    </Modal>
-  );
+export const Drawer = ({ ...rest }: DrawerBaseProps) => {
+  return <MaterialTailwindDrawer {...rest} />;
 };

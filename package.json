@@ -1,6 +1,6 @@
 {
   "name": "@noahspan/noahspan-components",
-  "version": "0.2.5",
+  "version": "0.2.7",
   "type": "module",
   "files": [
     "dist"
@@ -51,7 +51,7 @@
     "@storybook/react-vite": "^8.0.10",
     "@storybook/test": "^8.0.10",
     "@types/node": "^20.12.10",
-    "@types/react": "^18.2.66",
+    "@types/react": "^18.2.39",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
@@ -83,7 +83,8 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@nextui-org/react": "^2.3.6",
+    "@material-tailwind/react": "^2.1.9",
+    "@tanstack/react-table": "^8.17.3",
     "framer-motion": "^11.1.9"
   },
   "lint-staged": {
@@ -95,5 +96,8 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "resolutions": {
+    "@types/react": "18.2.39"
   }
 }
