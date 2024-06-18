@@ -1,25 +1,15 @@
-import { useEffect, useState } from 'react';
 import {
-  MobileNav as MaterterialTailwindMobileNav,
-  MobileNavProps as MaterialTailwindMobileNavProps,
   Navbar as MaterialTailwindNavbar,
   NavbarProps as MaterialTailwindNavbarProps
 } from '@material-tailwind/react';
-import { Button } from '../button/Button';
-import { IconButton } from '../iconButton/IconButton';
 import { Typography } from '../typography/Typography';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-type MobileNavBaseProps = Pick<
-  MaterialTailwindMobileNavProps,
-  'open' | 'animate' | 'className' | 'children'
->;
+export interface NavbarBrandProps {
+  children?: React.ReactNode;
+}
 
-export interface MobileNavProps extends MobileNavBaseProps {}
-
-export const MobileNav = ({ ...rest }: MobileNavProps) => {
-  return <MaterterialTailwindMobileNav {...rest} />;
+export const NavbarBrand = ({ children }: NavbarBaseProps) => {
+  return <div className='flex items-center gap-2'>{children}</div>;
 };
 
 export interface NavbarItemProps {
@@ -43,6 +33,42 @@ export const NavbarItem = ({ name, url }: NavbarItemProps) => {
   );
 };
 
+export interface NavbarLinksProps {
+  items: NavbarItemProps[];
+  isMobile?: boolean;
+}
+
+export const NavbarLinks = ({ items, isMobile }: NavbarLinksProps) => {
+  const NavbarList = () => {
+    return (
+      <ul className='mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6'>
+        {items.map((item) => {
+          return <NavbarItem name={item.name} url={item.url} />;
+        })}
+      </ul>
+    );
+  };
+
+  return (
+    <>
+      {isMobile && <NavbarList />}
+      {!isMobile && (
+        <div className='hidden lg:block'>
+          <NavbarList />
+        </div>
+      )}
+    </>
+  );
+};
+
+export interface NavbarMenuProps {
+  children: React.ReactNode;
+}
+
+export const NavbarMenu = ({ children }: NavbarMenuProps) => {
+  return <>{children}</>;
+};
+
 type NavbarBaseProps = Pick<
   MaterialTailwindNavbarProps,
   | 'variant'
@@ -55,27 +81,11 @@ type NavbarBaseProps = Pick<
 >;
 
 export interface NavbarProps extends NavbarBaseProps {
-  items: NavbarItemProps[];
+  children: React.ReactNode;
   size?: string;
 }
 
-export const Navbar = ({ items, size, ...rest }: NavbarProps) => {
-  const [openNav, setOpenNav] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 960) {
-        setOpenNav(false);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    // return () => {
-    //     window.removeEventListener('resize', handleResize);
-    // }
-  }, []);
-
+export const Navbar = ({ children, size, ...rest }: NavbarProps) => {
   return (
     <>
       <MaterialTailwindNavbar
@@ -83,40 +93,8 @@ export const Navbar = ({ items, size, ...rest }: NavbarProps) => {
         {...rest}
       >
         <div className='container mx-auto flex items-center justify-between text-[#212121]'>
-          <img height={45} width={45} src='noahspan-logo.png' />
-          <div className='hidden lg:block'>
-            <ul className='mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6'>
-              {items.map((item) => {
-                return <NavbarItem name={item.name} url={item.url} />;
-              })}
-            </ul>
-          </div>
-          <div className='flex items-center gap-x-1'>
-            <Button variant='text' size='sm' className='hidden lg:inline-block'>
-              <span>Sign In</span>
-            </Button>
-          </div>
-          <IconButton
-            variant='text'
-            className='ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden'
-            ripple={false}
-            onClick={() => setOpenNav(!openNav)}
-          >
-            <FontAwesomeIcon icon={faBars} size='2x' />
-          </IconButton>
+          {children}
         </div>
-        <MobileNav open={openNav}>
-          <div className='container mx-auto'>
-            {items.map((item) => {
-              return <NavbarItem name={item.name} url={item.url} />;
-            })}
-            <div className='flex items-center gap-x-1'>
-              <Button fullWidth variant='text' size='sm' className=''>
-                <span>Sign In</span>
-              </Button>
-            </div>
-          </div>
-        </MobileNav>
       </MaterialTailwindNavbar>
     </>
   );
