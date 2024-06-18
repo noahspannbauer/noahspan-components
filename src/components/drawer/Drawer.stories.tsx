@@ -1,13 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '@nextui-org/react';
-import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerBody,
-  DrawerFooter
-} from './Drawer';
 import { useArgs } from '@storybook/preview-api';
+import { Drawer } from './Drawer';
+import { Button } from '../button/Button';
 
 const meta: Meta<typeof Drawer> = {
   title: 'Components/Drawer',
@@ -18,43 +12,29 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
-    hideCloseButton: true,
-    isOpen: false
+    open: false,
+    placement: 'right',
+    size: 1000
   },
   render: function Render(args) {
-    const [{ hideCloseButton, isOpen }, updateArgs] = useArgs();
+    const [{ open }, updateArgs] = useArgs();
+
     const onOpenCloseDrawer = () => {
-      updateArgs({ isOpen: !isOpen });
+      console.log(open);
+      updateArgs({ open: !open });
     };
 
     return (
       <>
-        <Button color='primary' onClick={onOpenCloseDrawer}>
-          Open Drawer
-        </Button>
-        <Drawer isOpen={isOpen} hideCloseButton={hideCloseButton} {...args}>
-          <DrawerContent>
-            <DrawerHeader>
-              <h2>Drawer Title</h2>
-            </DrawerHeader>
-            <DrawerBody>Drawer content goes here</DrawerBody>
-            <DrawerFooter>
-              <div className='flex gap-4 justify-end justify-self-center'>
-                <div>
-                  <Button color='default' onClick={onOpenCloseDrawer}>
-                    Cancel
-                  </Button>
-                </div>
-                <div>
-                  <Button color='primary' onClick={onOpenCloseDrawer}>
-                    Save
-                  </Button>
-                </div>
-              </div>
-            </DrawerFooter>
-          </DrawerContent>
+        <Button onClick={onOpenCloseDrawer}>Open Drawer</Button>
+        <Drawer
+          onClose={onOpenCloseDrawer}
+          // open={open}
+          {...args}
+        >
+          Drawer Content goes here
         </Drawer>
       </>
     );
