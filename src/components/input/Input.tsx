@@ -18,6 +18,11 @@ type InputBaseProps = Pick<
   | 'shrink'
   | 'inputRef'
   | 'placeholder'
+  | 'disabled'
+  | 'value'
+  | 'onChange'
+  | 'onBlur'
+  | 'name'
 >;
 
 export interface InputProps extends InputBaseProps {}
