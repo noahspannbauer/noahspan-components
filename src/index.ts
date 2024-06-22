@@ -5,6 +5,7 @@ export * from './components/button/Button';
 export * from './components/drawer/Drawer';
 export * from './components/iconButton/IconButton';
 export * from './components/input/Input';
+export * from './components/menu/Menu';
 export * from './components/navbar/Navbar';
 export * from './components/plane/Plane';
 export * from './components/puzzlePiece/PuzzlePiece';
