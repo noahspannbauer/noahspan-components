@@ -6,6 +6,7 @@ export * from './components/icons/chevronDown/ChevronDown';
 export * from './components/icons/chevronLeft/ChevronLeft';
 export * from './components/icons/chevronRight/ChevronRight';
 export * from './components/icons/chevronUp/ChevronUp';
+export * from './components/datePicker/DatePicker';
 export * from './components/drawer/Drawer';
 export * from './components/iconButton/IconButton';
 export * from './components/input/Input';
