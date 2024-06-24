@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ChevronDown } from './ChevronDown';
 
 const meta: Meta<typeof ChevronDown> = {
-  title: 'Components/Icons/ChevronUp',
+  title: 'Components/Icons/ChevronDown',
   component: ChevronDown
 } satisfies Meta<typeof ChevronDown>;
 
