@@ -1,19 +1,24 @@
-import { useState } from 'react';
-import { Input } from '../input/Input';
-import { Popover, PopoverContent, PopoverHandler } from '../popover/Popover';
-import { format } from 'date-fns';
-import { DayPicker } from 'react-day-picker';
+import React from 'react';
+import {
+  Input,
+  Popover,
+  PopoverHandler,
+  PopoverContent
+} from '@material-tailwind/react';
 import { ChevronLeft } from '../icons/chevronLeft/ChevronLeft';
 import { ChevronRight } from '../icons/chevronRight/ChevronRight';
+import { format } from 'date-fns';
+import { DayPicker } from 'react-day-picker';
 
 export const DatePicker = () => {
-  const [date, setDate] = useState<Date>();
+  const [date, setDate] = React.useState<Date>();
 
   return (
     <div className='p-24'>
       <Popover placement='bottom'>
         <PopoverHandler>
           <Input
+            crossOrigin={undefined}
             label='Select a Date'
             onChange={() => null}
             value={date ? format(date, 'PPP') : ''}
@@ -50,14 +55,8 @@ export const DatePicker = () => {
               day_hidden: 'invisible'
             }}
             components={{
-              IconLeft: () => (
-                <ChevronLeft />
-                // <ChevronLeftIcon {...props} className="h-4 w-4 stroke-2" />
-              ),
-              IconRight: () => (
-                <ChevronRight />
-                // <ChevronRightIcon {...props} className="h-4 w-4 stroke-2" />
-              )
+              IconLeft: () => <ChevronLeft />,
+              IconRight: () => <ChevronRight />
             }}
           />
         </PopoverContent>
