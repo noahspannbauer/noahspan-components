@@ -42,13 +42,14 @@ export const DrawerFooter = ({
 
 export interface DrawerHeaderProps {
   text: string;
+  onClose: () => void;
 }
 
-export const DrawerHeader = ({ text, ...rest }: DrawerHeaderProps) => {
+export const DrawerHeader = ({ text, onClose, ...rest }: DrawerHeaderProps) => {
   return (
     <div className='mb-6 flex items-center justify-between' {...rest}>
       <Typography variant='h3'>{text}</Typography>
-      <IconButton variant='text'>
+      <IconButton variant='text' onClick={onClose}>
         <XmarkIcon />
       </IconButton>
     </div>

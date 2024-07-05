@@ -29,7 +29,7 @@ export const Default: Story = {
       <>
         <Button onClick={onOpenCloseDrawer}>Open Drawer</Button>
         <Drawer onClose={onOpenCloseDrawer} {...args}>
-          <DrawerHeader text='Drawer Header' />
+          <DrawerHeader text='Drawer Header' onClose={onOpenCloseDrawer} />
           <DrawerBody className='mb-6'>
             Drawer Body content goes here
           </DrawerBody>
