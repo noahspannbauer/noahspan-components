@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CalendarIcon } from '../icons/calendar/CalendarIcon';
-import { ChevronLeft } from '../icons/chevronLeft/ChevronLeft';
-import { ChevronRight } from '../icons/chevronRight/ChevronRight';
+import { ChevronLeftIcon } from '../icons/chevronLeft/ChevronLeftIcon';
+import { ChevronRightIcon } from '../icons/chevronRight/ChevronRightIcon';
 import { Dialog, DialogBody } from '../dialog/Dialog';
 import { IconButton } from '../iconButton/IconButton';
 import { Input } from '../input/Input';
@@ -80,8 +80,8 @@ export const DatePicker = () => {
               day_hidden: 'invisible'
             }}
             components={{
-              IconLeft: () => <ChevronLeft />,
-              IconRight: () => <ChevronRight />
+              IconLeft: () => <ChevronLeftIcon />,
+              IconRight: () => <ChevronRightIcon />
             }}
           />
         </DialogBody>
