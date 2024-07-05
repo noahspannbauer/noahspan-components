@@ -6,7 +6,9 @@ import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 type FontAwesomeIconBaseProps = Pick<FontAwesomeIconProps, 'size'>;
 
-export const ChevronUp = ({ ...rest }: FontAwesomeIconBaseProps) => {
+export interface ChevronUpIconProps extends FontAwesomeIconBaseProps {}
+
+export const ChevronUpIcon = ({ ...rest }: ChevronUpIconProps) => {
   return (
     <span>
       <FontAwesomeIcon icon={faChevronUp} {...rest} />
