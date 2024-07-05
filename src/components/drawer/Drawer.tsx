@@ -1,7 +1,10 @@
 import {
+  IconButton,
   Drawer as MaterialTailwindDrawer,
   DrawerProps as MaterialTailwindDrawerProps
 } from '@material-tailwind/react';
+import { Typography } from '../typography/Typography';
+import { XmarkIcon } from '../icons/xMark/XmarkIcon';
 
 export interface DrawerBodyProps {
   className?: string;
@@ -38,19 +41,19 @@ export const DrawerFooter = ({
 };
 
 export interface DrawerHeaderProps {
-  className?: string;
-  children: React.ReactNode;
+  text: string;
 }
 
-export const DrawerHeader = ({
-  className,
-  children,
-  ...rest
-}: DrawerHeaderProps) => {
+export const DrawerHeader = ({ text, ...rest }: DrawerHeaderProps) => {
   return (
-    <div className={className} {...rest}>
-      {children}
-    </div>
+    <>
+      <div className='mb-6 flex items-center justify-between' {...rest}>
+        <Typography variant='h2'>{text}</Typography>
+        <IconButton variant='text'>
+          <XmarkIcon />
+        </IconButton>
+      </div>
+    </>
   );
 };
 

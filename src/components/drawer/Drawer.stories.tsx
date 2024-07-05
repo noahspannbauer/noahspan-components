@@ -2,9 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { useArgs } from '@storybook/preview-api';
 import { Drawer, DrawerBody, DrawerFooter, DrawerHeader } from './Drawer';
 import { Button } from '../button/Button';
-import { Typography } from '../typography/Typography';
-import { IconButton } from '../iconButton/IconButton';
-import { XmarkIcon } from '../icons/xMark/XmarkIcon';
 
 const meta: Meta<typeof Drawer> = {
   title: 'Components/Drawer',
@@ -37,12 +34,7 @@ export const Default: Story = {
           // open={open}
           {...args}
         >
-          <DrawerHeader>
-            <Typography variant='h2'>Drawer Header</Typography>
-            <IconButton>
-              <XmarkIcon />
-            </IconButton>
-          </DrawerHeader>
+          <DrawerHeader text='Drawer Header' />
           <DrawerBody>Drawer Body content goes here</DrawerBody>
           <DrawerFooter>Drawer Footer content goes here</DrawerFooter>
         </Drawer>
