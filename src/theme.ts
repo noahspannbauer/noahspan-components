@@ -2,7 +2,7 @@ export const theme = {
   dialog: {
     styles: {
       xs: {
-        width: '',
+        width: 'w-fit',
         minWidth: '',
         maxWidth: ''
       },

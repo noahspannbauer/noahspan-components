@@ -52,6 +52,7 @@ export const DatePicker = () => {
           open={isDialogOpen}
           handler={handleIsDialogOpen}
           className='!w-fit'
+          size='xs'
         >
           <DialogBody>
             <DayPicker
