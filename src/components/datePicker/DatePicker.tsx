@@ -1,34 +1,59 @@
-import React from 'react';
-import {
-  Input,
-  Popover,
-  PopoverHandler,
-  PopoverContent
-} from '@material-tailwind/react';
+import { useState } from 'react';
+import { CalendarIcon } from '../icons/calendar/CalendarIcon';
 import { ChevronLeft } from '../icons/chevronLeft/ChevronLeft';
 import { ChevronRight } from '../icons/chevronRight/ChevronRight';
+import { Dialog, DialogBody } from '../dialog/Dialog';
+import { IconButton } from '../iconButton/IconButton';
+import { Input } from '../input/Input';
 import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 
 export const DatePicker = () => {
-  const [date, setDate] = React.useState<Date>();
+  const [date, setDate] = useState<Date>();
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+
+  const handleIsDialogOpen = () => {
+    setIsDialogOpen(!isDialogOpen);
+  };
+
+  const handleDateSelected = (selectedDate: Date | undefined) => {
+    setDate(selectedDate);
+    handleIsDialogOpen();
+  };
 
   return (
-    <div className='p-24'>
-      <Popover placement='bottom'>
-        <PopoverHandler>
-          <Input
-            crossOrigin={undefined}
-            label='Select a Date'
-            onChange={() => null}
-            value={date ? format(date, 'PPP') : ''}
-          />
-        </PopoverHandler>
-        <PopoverContent>
+    <div className='relative flex w-full max-w-[24rem]'>
+      <Input
+        label='Date'
+        className='pr-20'
+        containerProps={{
+          className: 'min-w-0'
+        }}
+        value={date ? format(date, 'MM/dd/yyyy') : ''}
+      />
+      <IconButton
+        size='sm'
+        className='!absolute right-1 top-1 rounded'
+        onClick={handleIsDialogOpen}
+        variant='text'
+      >
+        <CalendarIcon />
+      </IconButton>
+      <Dialog
+        open={isDialogOpen}
+        handler={handleIsDialogOpen}
+        className='!w-fit'
+        size='xs'
+        style={{
+          minWidth: '320px !important',
+          maxWidth: '320px !important'
+        }}
+      >
+        <DialogBody>
           <DayPicker
             mode='single'
             selected={date}
-            onSelect={setDate}
+            onSelect={handleDateSelected}
             showOutsideDays
             className='border-0'
             classNames={{
@@ -39,7 +64,7 @@ export const DatePicker = () => {
                 'h-6 w-6 bg-transparent hover:bg-blue-gray-50 p-1 rounded-md transition-colors duration-300',
               nav_button_previous: 'absolute left-1.5',
               nav_button_next: 'absolute right-1.5',
-              table: 'w-full border-collapse',
+              table: 'border-collapse',
               head_row: 'flex font-medium text-gray-900',
               head_cell: 'm-0.5 w-9 font-normal text-sm',
               row: 'flex w-full mt-2',
@@ -59,8 +84,8 @@ export const DatePicker = () => {
               IconRight: () => <ChevronRight />
             }}
           />
-        </PopoverContent>
-      </Popover>
+        </DialogBody>
+      </Dialog>
     </div>
   );
 };
