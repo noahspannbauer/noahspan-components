@@ -48,7 +48,7 @@ export const DatePicker = () => {
       <Dialog
         open={isDialogOpen}
         handler={handleIsDialogOpen}
-        className='2xl:max-w-[300px]'
+        className='!w-fit'
       >
         <DialogBody>
           <DayPicker
