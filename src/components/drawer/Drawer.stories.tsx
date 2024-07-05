@@ -22,22 +22,17 @@ export const Default: Story = {
     const [{ open }, updateArgs] = useArgs();
 
     const onOpenCloseDrawer = () => {
-      console.log(open);
       updateArgs({ open: !open });
     };
 
     return (
       <>
         <Button onClick={onOpenCloseDrawer}>Open Drawer</Button>
-        <Drawer
-          onClose={onOpenCloseDrawer}
-          // open={open}
-          {...args}
-        >
+        <Drawer onClose={onOpenCloseDrawer} {...args}>
           <DrawerHeader text='Drawer Header' />
           <DrawerBody>Drawer Body content goes here</DrawerBody>
           <DrawerFooter>
-            <div className='mb-6 flex items-center justify-end'>
+            <div className='mb-6 flex items-center justify-end gap-4'>
               <Button variant='outlined' onClick={onOpenCloseDrawer}>
                 Cancel
               </Button>
