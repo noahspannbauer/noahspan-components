@@ -47,7 +47,7 @@ export interface DrawerHeaderProps {
 export const DrawerHeader = ({ text, ...rest }: DrawerHeaderProps) => {
   return (
     <div className='mb-6 flex items-center justify-between' {...rest}>
-      <Typography variant='h2'>{text}</Typography>
+      <Typography variant='h3'>{text}</Typography>
       <IconButton variant='text'>
         <XmarkIcon />
       </IconButton>
@@ -73,5 +73,5 @@ type DrawerBaseProps = Pick<
 export interface DrawerProps extends DrawerBaseProps {}
 
 export const Drawer = ({ ...rest }: DrawerBaseProps) => {
-  return <MaterialTailwindDrawer className='p-10' {...rest} />;
+  return <MaterialTailwindDrawer className='p-10 relative' {...rest} />;
 };

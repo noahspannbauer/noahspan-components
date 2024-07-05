@@ -32,7 +32,7 @@ export const Default: Story = {
           <DrawerHeader text='Drawer Header' />
           <DrawerBody>Drawer Body content goes here</DrawerBody>
           <DrawerFooter>
-            <div className='mb-6 flex items-center justify-end gap-4'>
+            <div className='mb-6 flex items-center justify-end gap-4 absolute bottom-0 right-0'>
               <Button variant='outlined' onClick={onOpenCloseDrawer}>
                 Cancel
               </Button>
