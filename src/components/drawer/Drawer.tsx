@@ -46,7 +46,7 @@ export interface DrawerHeaderProps {
 
 export const DrawerHeader = ({ text, ...rest }: DrawerHeaderProps) => {
   return (
-    <div className='mb-6 items-center justify-between' {...rest}>
+    <div className='mb-6 flex items-center justify-between' {...rest}>
       <Typography variant='h3'>{text}</Typography>
       <IconButton variant='text'>
         <XmarkIcon />
