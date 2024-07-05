@@ -72,6 +72,10 @@ type DrawerBaseProps = Pick<
 
 export interface DrawerProps extends DrawerBaseProps {}
 
-export const Drawer = ({ ...rest }: DrawerBaseProps) => {
-  return <MaterialTailwindDrawer className='p-10 relative' {...rest} />;
+export const Drawer = ({ children, ...rest }: DrawerBaseProps) => {
+  return (
+    <MaterialTailwindDrawer className='p-10' {...rest}>
+      <div className='relative'>{children}</div>
+    </MaterialTailwindDrawer>
+  );
 };
