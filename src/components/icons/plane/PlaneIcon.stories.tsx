@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ChevronUp } from './ChevronUp';
+import { PlaneIcon } from './PlaneIcon';
 
-const meta: Meta<typeof ChevronUp> = {
-  title: 'Components/Icons/ChevronUp',
-  component: ChevronUp
-} satisfies Meta<typeof ChevronUp>;
+const meta: Meta<typeof PlaneIcon> = {
+  title: 'Components/Icons/PlaneIcon',
+  component: PlaneIcon
+} satisfies Meta<typeof PlaneIcon>;
 
 export default meta;
 

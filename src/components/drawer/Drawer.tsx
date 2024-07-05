@@ -1,7 +1,60 @@
 import {
+  IconButton,
   Drawer as MaterialTailwindDrawer,
   DrawerProps as MaterialTailwindDrawerProps
 } from '@material-tailwind/react';
+import { Typography } from '../typography/Typography';
+import { XmarkIcon } from '../icons/xMark/XmarkIcon';
+
+export interface DrawerBodyProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
+export const DrawerBody = ({
+  className,
+  children,
+  ...rest
+}: DrawerBodyProps) => {
+  return (
+    <div className={className} {...rest}>
+      {children}
+    </div>
+  );
+};
+
+export interface DrawerFooterProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
+export const DrawerFooter = ({
+  className,
+  children,
+  ...rest
+}: DrawerFooterProps) => {
+  return (
+    <div className={className} {...rest}>
+      {children}
+    </div>
+  );
+};
+
+export interface DrawerHeaderProps {
+  text: string;
+  onClose: () => void;
+}
+
+export const DrawerHeader = ({ text, onClose, ...rest }: DrawerHeaderProps) => {
+  return (
+    <div className='mb-6 flex items-center justify-between' {...rest}>
+      <Typography variant='h3'>{text}</Typography>
+      <IconButton variant='text' onClick={onClose}>
+        <XmarkIcon />
+      </IconButton>
+    </div>
+  );
+};
 
 type DrawerBaseProps = Pick<
   MaterialTailwindDrawerProps,
@@ -21,5 +74,5 @@ type DrawerBaseProps = Pick<
 export interface DrawerProps extends DrawerBaseProps {}
 
 export const Drawer = ({ ...rest }: DrawerBaseProps) => {
-  return <MaterialTailwindDrawer {...rest} />;
+  return <MaterialTailwindDrawer className='p-10' {...rest} />;
 };

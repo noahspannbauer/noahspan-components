@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Plane } from './Plane';
+import { XmarkIcon } from './XmarkIcon';
 
-const meta: Meta<typeof Plane> = {
-  title: 'Components/Icons/Plane',
-  component: Plane
-} satisfies Meta<typeof Plane>;
+const meta: Meta<typeof XmarkIcon> = {
+  title: 'Components/Icons/XmarkIcon',
+  component: XmarkIcon
+} satisfies Meta<typeof XmarkIcon>;
 
 export default meta;
 
