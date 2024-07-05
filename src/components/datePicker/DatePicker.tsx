@@ -44,6 +44,10 @@ export const DatePicker = () => {
         handler={handleIsDialogOpen}
         className='!w-fit'
         size='xs'
+        style={{
+          minWidth: '320px !important',
+          maxWidth: '320px !important'
+        }}
       >
         <DialogBody>
           <DayPicker

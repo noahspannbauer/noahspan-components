@@ -44,7 +44,14 @@ export const DialogHeader = ({ ...rest }: DialogHeaderProps) => {
 
 type DialogBaseProps = Pick<
   MaterialTailwindDialogProps,
-  'open' | 'handler' | 'size' | 'dismiss' | 'animate' | 'className' | 'children'
+  | 'open'
+  | 'handler'
+  | 'size'
+  | 'dismiss'
+  | 'animate'
+  | 'className'
+  | 'children'
+  | 'style'
 >;
 
 export interface DialogProps extends DialogBaseProps {}
