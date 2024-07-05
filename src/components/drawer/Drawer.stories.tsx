@@ -36,7 +36,16 @@ export const Default: Story = {
         >
           <DrawerHeader text='Drawer Header' />
           <DrawerBody>Drawer Body content goes here</DrawerBody>
-          <DrawerFooter>Drawer Footer content goes here</DrawerFooter>
+          <DrawerFooter>
+            <div className='mb-6 flex items-center justify-between'>
+              <Button variant='outlined' onClick={onOpenCloseDrawer}>
+                Cancel
+              </Button>
+              <Button variant='filled' onClick={onOpenCloseDrawer}>
+                Save
+              </Button>
+            </div>
+          </DrawerFooter>
         </Drawer>
       </>
     );
