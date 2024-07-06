@@ -13,9 +13,6 @@ type Story = StoryObj<typeof meta>;
 export const ExtraSmall: Story = {
   args: {
     size: 'xs'
-  },
-  render: function Render(args) {
-    return <Spinner {...args}>Loading</Spinner>;
   }
 };
 
