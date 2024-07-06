@@ -12,7 +12,7 @@ export interface SpinnerProps extends SpinnerBaseProps {
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
-export const Spinner = ({ size, children, ...rest }: SpinnerProps) => {
+export const Spinner = ({ size, ...rest }: SpinnerProps) => {
   let style;
 
   switch (size) {
@@ -38,12 +38,10 @@ export const Spinner = ({ size, children, ...rest }: SpinnerProps) => {
     }
     case 'xl': {
       style = 'h-12 w-12';
+
+      break;
     }
   }
 
-  return (
-    <MaterialTailewindSprinner className={style} {...rest}>
-      {children}
-    </MaterialTailewindSprinner>
-  );
+  return <MaterialTailewindSprinner className={style} {...rest} />;
 };
