@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import {
   Spinner as MaterialTailewindSprinner,
   SpinnerProps as MaterialTailwindSpinnerProps
@@ -16,33 +15,31 @@ export interface SpinnerProps extends SpinnerBaseProps {
 export const Spinner = ({ size, ...rest }: SpinnerProps) => {
   let style;
 
-  useEffect(() => {
-    switch (size) {
-      case 'xs': {
-        style = 'h-4 w-4';
+  switch (size) {
+    case 'xs': {
+      style = 'h-4 w-4';
 
-        break;
-      }
-      case 'sm': {
-        style = 'h-6 w-6';
-
-        break;
-      }
-      case 'md': {
-        style = 'h-8 w-8';
-
-        break;
-      }
-      case 'lg': {
-        style = 'h-10 w-10';
-
-        break;
-      }
-      case 'xl': {
-        style = 'h-12 w-12';
-      }
+      break;
     }
-  }, [size]);
+    case 'sm': {
+      style = 'h-6 w-6';
+
+      break;
+    }
+    case 'md': {
+      style = 'h-8 w-8';
+
+      break;
+    }
+    case 'lg': {
+      style = 'h-10 w-10';
+
+      break;
+    }
+    case 'xl': {
+      style = 'h-12 w-12';
+    }
+  }
 
   return <MaterialTailewindSprinner className={style} {...rest} />;
 };

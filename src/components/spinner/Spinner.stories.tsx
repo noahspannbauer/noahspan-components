@@ -12,30 +12,35 @@ type Story = StoryObj<typeof meta>;
 
 export const ExtraSmall: Story = {
   args: {
-    size: 'xs'
+    size: 'xs',
+    children: 'Loading...'
   }
 };
 
 export const Small: Story = {
   args: {
-    size: 'sm'
+    size: 'sm',
+    children: 'Loading...'
   }
 };
 
 export const Medium: Story = {
   args: {
-    size: 'md'
+    size: 'md',
+    children: 'Loading...'
   }
 };
 
 export const Large: Story = {
   args: {
-    size: 'lg'
+    size: 'lg',
+    children: 'Loading...'
   }
 };
 
 export const ExtraLarge: Story = {
   args: {
-    size: 'xl'
+    size: 'xl',
+    children: 'Loading...'
   }
 };
