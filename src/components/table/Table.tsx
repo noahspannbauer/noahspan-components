@@ -111,7 +111,7 @@ export const Table = ({
   return (
     <div>
       <table
-        className='w-full min-w-max table-auto text-left border border-blue-gray-100 rounded-sm'
+        className='w-full min-w-max table-auto text-left border border-blue-gray-100 rounded'
         {...rest}
       >
         <TableHeader {...headerProps}>
