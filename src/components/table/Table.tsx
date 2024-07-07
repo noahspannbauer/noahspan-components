@@ -1,104 +1,176 @@
-// import {
-//     Table as NextUITable,
-//     TableProps as NextUITableProps,
-//     TableBody as NextUITableBody,
-//     TableBodyProps as NextUITableBodyProps,
-//     TableCell as NextUITableCell,
-//     TableCellProps as NextUITableCellProps,
-//     TableColumn as NextUITableColumn,
-//     TableColumnProps as NextUITableColumnProps,
-//     TableHeader as NextUITableHeader,
-//     TableHeaderProps as NextUITableHeaderProps,
-//     TableRow as NextUITableRow,
-//     TableRowProps as NextUITableRowProps
-// } from '@nextui-org/react';
-// import {
-//     flexRender,
-//     getCoreRowModel,
-//     useReactTable,
-//     ColumnDef,
-//     getSortedRowModel,
-//     SortingState
-// } from "@tanstack/react-table";
+import { useState } from 'react';
+import {
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+  ColumnDef,
+  getSortedRowModel,
+  SortingState
+} from '@tanstack/react-table';
 
-// type ColumnDefProps = {
-//     cellProps?: NextUITableCellProps;
-// }
+interface TableHeaderProps {
+  className?: string;
+  children?: React.ReactNode;
+}
 
-// export interface TableBodyProps extends NextUITableBodyProps<unknown> {}
+const TableHeader = ({ className, children, ...rest }: TableHeaderProps) => {
+  return (
+    <thead className={className} {...rest}>
+      {children}
+    </thead>
+  );
+};
 
-// export const TableBody = ({ ...rest }: TableBodyProps) => {
-//     return <NextUITableBody {...rest} />;
-// }
+interface TableHeaderCellProps {
+  className?: string;
+  children?: React.ReactNode;
+  onClick?: (event: unknown) => void;
+}
 
-// export interface TableCellProps extends NextUITableCellProps {}
+const TableHeaderCell = ({
+  className,
+  children,
+  onClick,
+  ...rest
+}: TableHeaderCellProps) => {
+  return (
+    <th className={className} onClick={onClick} {...rest}>
+      {children}
+    </th>
+  );
+};
 
-// export const TableCell = ({ ...rest }: TableCellProps) => {
-//     return <NextUITableCell {...rest} />;
-// }
+interface TableBodyProps {
+  children?: React.ReactNode;
+}
 
-// export interface TableColumnProps extends NextUITableColumnProps<unknown> {}
+const TableBody = ({ children, ...rest }: TableBodyProps) => {
+  return <tbody {...rest}>{children}</tbody>;
+};
 
-// export const TableColumn = ({ ...rest }: TableColumnProps) => {
-//     return <NextUITableColumn {...rest} />;
-// }
+interface TableRowProps {
+  className?: string;
+  children?: React.ReactNode;
+}
 
-// export interface TableHeaderProps extends NextUITableHeaderProps<unknown> {}
+const TableRow = ({ className, children, ...rest }: TableRowProps) => {
+  return (
+    <tr className={className} {...rest}>
+      {children}
+    </tr>
+  );
+};
 
-// export const TableHeader = ({ children, ...rest }: TableHeaderProps) => {
-//     return (
-//         <NextUITableHeader {...rest}>
-//             {children}
-//         </NextUITableHeader>
-//     )
-// }
+interface TableCellProps {
+  className?: string;
+  children?: React.ReactNode;
+}
 
-// export interface TableRowProps extends NextUITableRowProps {}
+const TableCell = ({ className, children, ...rest }: TableCellProps) => {
+  return (
+    <td className={className} {...rest}>
+      {children}
+    </td>
+  );
+};
 
-// export const TableRowProps = ({ ...rest }: TableRowProps) => {
-//     return <NextUITableRow {...rest} />
-// }
+type ColumnDefProps = {
+  cellProps?: TableCellProps;
+};
 
-// export type TableColumnDef = ColumnDef<unknown, unknown> & ColumnDefProps;
+export type TableColumnDef = ColumnDef<unknown, unknown> & ColumnDefProps;
 
-// export interface TableProps extends NextUITableProps {}
+export interface TableProps {
+  defaultData: unknown[];
+  columns: TableColumnDef[];
+  headerProps?: TableHeaderProps;
+  rowProps?: TableRowProps;
+}
 
-// export const Table = ({ ...rest }: TableProps) => {
-//     return (
-//         <div>
-//             <NextUITable {...rest}>
-//                 <NextUITableHeader>
-//                     {table.getHeaderGroups().map((headerGroup) => (
-//                         <NextUITableRow key={headerGroup.id}>
-//                             {headerGroup.headers.map((header) => {
-//                                 const columnDef: TableColumnDef = header.column.columnDef as TableColumnDef
+export const Table = ({
+  defaultData,
+  columns,
+  headerProps,
+  rowProps,
+  ...rest
+}: TableProps) => {
+  const [data, _setData] = useState(() => [...defaultData]);
+  const [sorting, setSorting] = useState<SortingState>([]);
 
-//                                 return (
-//                                     <NextUITableColumn
-//                                         className={
-//                                             header.column.getCanSort() ? 'cursor-pointer select-none' : ''
-//                                         }
-//                                         key={header.id}
-//                                         onClick={header.column.getToggleSortingHandler()}
-//                                         sorted={
-//                                             header.column.getIsSorted() === 'asc'
-//                                             ? 'ascending'
-//                                             : header.column.getIsSorted() === 'desc'
-//                                             ? 'descending'
-//                                             : undefined
-//                                         }
-//                                     >
-//                                         {header.isPlaceholder
-//                                             ? null
-//                                             : flexRender(columnDef.header, header.getContext())
-//                                         }
-//                                     </NextUITableColumn>
-//                                 )
-//                             })}
-//                         </NextUITableRow>
-//                     ))}
-//                 </NextUITableHeader>
-//             </NextUITable>
-//         </div>
-//     )
-// }
+  const table = useReactTable({
+    data,
+    columns,
+    state: {
+      sorting
+    },
+    onSortingChange: setSorting,
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel()
+  });
+
+  return (
+    <div>
+      <table
+        className='w-full min-w-max table-auto text-left border border-blue-gray-100 rounded'
+        {...rest}
+      >
+        <TableHeader {...headerProps}>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <TableRow
+              className='border-b border-blue-gray-100 bg-blue-gray-50 p-4'
+              key={headerGroup.id}
+            >
+              {headerGroup.headers.map((header) => {
+                const columnDef: TableColumnDef = header.column
+                  .columnDef as TableColumnDef;
+
+                return (
+                  <TableHeaderCell
+                    className='border-b border-blue-gray-100 bg-blue-gray-50 p-4'
+                    key={header.id}
+                    onClick={header.column.getToggleSortingHandler()}
+                    // sorted={
+                    //   header.column.getIsSorted() === 'asc'
+                    //     ? 'ascending'
+                    //     : header.column.getIsSorted() === 'desc'
+                    //     ? 'descending'
+                    //     : undefined
+                    // }
+                  >
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(columnDef.header, header.getContext())}
+                  </TableHeaderCell>
+                );
+              })}
+            </TableRow>
+          ))}
+        </TableHeader>
+        <TableBody>
+          {table.getRowModel().rows.map((row, index) => {
+            const isLast = index === table.getRowModel().rows.length - 1;
+            const styles = isLast ? 'p-4' : 'p-4 border-b border-blue-gray-50';
+
+            return (
+              <TableRow key={row.id} {...rowProps}>
+                {row.getVisibleCells().map((cell) => {
+                  const columnDef: TableColumnDef = cell.column
+                    .columnDef as TableColumnDef;
+
+                  return (
+                    <TableCell
+                      className={`${styles} ${columnDef.cellProps?.className}`}
+                      key={cell.id}
+                    >
+                      {flexRender(columnDef.cell, cell.getContext())}
+                    </TableCell>
+                  );
+                })}
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </table>
+    </div>
+  );
+};
