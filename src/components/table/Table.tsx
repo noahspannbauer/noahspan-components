@@ -110,7 +110,10 @@ export const Table = ({
 
   return (
     <div>
-      <table className='w-full min-w-max table-auto text-left' {...rest}>
+      <table
+        className='w-full min-w-max table-auto text-left border-b border-blue-gray-100'
+        {...rest}
+      >
         <TableHeader {...headerProps}>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow
