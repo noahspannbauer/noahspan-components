@@ -123,11 +123,7 @@ export const Table = ({
 
                 return (
                   <TableHeaderCell
-                    className={
-                      header.column.getCanSort()
-                        ? 'cursor-pointer select-none'
-                        : ''
-                    }
+                    className='border-b border-blue-gray-100 bg-blue-gray-50 p-4'
                     key={header.id}
                     onClick={header.column.getToggleSortingHandler()}
                     // sorted={
