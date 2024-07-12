@@ -1,5 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Card, CardBody, CardFooter, CardHeader } from './Card';
+import { Card, CardBody, CardFooter } from './Card';
+import { Typography } from '../typography/Typography';
+import { Button } from '../button/Button';
 
 const meta: Meta<typeof Card> = {
   title: 'Components/Card',
@@ -14,9 +16,15 @@ export const Simple: Story = {
   render: function Render() {
     return (
       <Card>
-        <CardHeader>Card header</CardHeader>
-        <CardBody>Card body</CardBody>
-        <CardFooter>Card footer</CardFooter>
+        <CardBody>
+          <Typography variant='h5' className='mb-2'>
+            Heading
+          </Typography>
+          <Typography>Card content goes here</Typography>
+        </CardBody>
+        <CardFooter>
+          <Button variant='filled'>Click Me</Button>
+        </CardFooter>
       </Card>
     );
   }
