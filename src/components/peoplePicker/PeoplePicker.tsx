@@ -37,7 +37,9 @@ export const PeoplePicker = ({
               })}
             {loading && (
               <ListItem {...listItemProps}>
-                <Spinner size='sm' />
+                <div className='grid justify-items-center'>
+                  <Spinner size='sm' />
+                </div>
               </ListItem>
             )}
           </List>
