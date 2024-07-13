@@ -13,6 +13,7 @@ export * from './components/iconButton/IconButton';
 export * from './components/input/Input';
 export * from './components/menu/Menu';
 export * from './components/navbar/Navbar';
+export * from './components/peoplePicker/PeoplePicker';
 export * from './components/icons/plane/PlaneIcon';
 export * from './components/icons/plus/PlusIcon';
 export * from './components/icons/puzzlePiece/PuzzlePieceIcon';
