@@ -1,6 +1,7 @@
 import { Card } from '../card/Card';
 import { Input, InputProps } from '../input/Input';
 import { List, ListProps, ListItem, ListItemProps } from '../list/List';
+import { Spinner } from '../spinner/Spinner';
 
 export type Person = {
   displayName: string;
@@ -11,6 +12,7 @@ export interface PeoplePickerProps {
   inputProps?: InputProps;
   listProps?: ListProps;
   listItemProps?: ListItemProps;
+  loading: boolean;
 }
 
 export const PeoplePicker = ({
@@ -18,6 +20,7 @@ export const PeoplePicker = ({
   inputProps,
   listProps,
   listItemProps,
+  loading,
   ...rest
 }: PeoplePickerProps) => {
   return (
@@ -26,11 +29,17 @@ export const PeoplePicker = ({
       {results.length > 0 && (
         <Card>
           <List {...listProps}>
-            {results.map((person: Person) => {
-              return (
-                <ListItem {...listItemProps}>{person.displayName}</ListItem>
-              );
-            })}
+            {!loading &&
+              results.map((person: Person) => {
+                return (
+                  <ListItem {...listItemProps}>{person.displayName}</ListItem>
+                );
+              })}
+            {loading && (
+              <ListItem {...listItemProps}>
+                <Spinner size='sm' />
+              </ListItem>
+            )}
           </List>
         </Card>
       )}

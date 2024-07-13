@@ -13,7 +13,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Outlined: Story = {
   args: {
-    results: []
+    results: [],
+    loading: false
   },
   render: function Render(args) {
     const [{ _results }, updateArgs] = useArgs();
