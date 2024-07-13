@@ -2,6 +2,7 @@ import './styles.css';
 
 export * from './components/accordion/Accordion';
 export * from './components/button/Button';
+export * from './components/card/Card';
 export * from './components/icons/chevronDown/ChevronDownIcon';
 export * from './components/icons/chevronLeft/ChevronLeftIcon';
 export * from './components/icons/chevronRight/ChevronRightIcon';
@@ -11,6 +12,7 @@ export * from './components/drawer/Drawer';
 export * from './components/icons/edit/EditIcon';
 export * from './components/iconButton/IconButton';
 export * from './components/input/Input';
+export * from './components/list/List';
 export * from './components/menu/Menu';
 export * from './components/navbar/Navbar';
 export * from './components/peoplePicker/PeoplePicker';
