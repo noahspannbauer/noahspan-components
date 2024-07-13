@@ -19,7 +19,19 @@ export const Outlined: Story = {
     const [{ _results }, updateArgs] = useArgs();
     const people: Person[] = [
       {
-        displayName: 'Noah Spannbauer'
+        displayName: 'Adam'
+      },
+      {
+        displayName: 'Catherine'
+      },
+      {
+        displayName: 'Nathan'
+      },
+      {
+        displayName: 'Noah'
+      },
+      {
+        displayName: 'Zoey'
       }
     ];
 
@@ -27,11 +39,17 @@ export const Outlined: Story = {
       event: React.ChangeEvent<HTMLInputElement>
     ): void => {
       const searchString: string = event.target.value;
-      const results: Person[] = people.filter((person: Person) => {
-        if (person.displayName.startsWith(searchString)) {
-          return person;
-        }
-      });
+      let results: Person[];
+
+      if (event.target.value !== '') {
+        results = people.filter((person: Person) => {
+          if (person.displayName.startsWith(searchString)) {
+            return person;
+          }
+        });
+      } else {
+        results = [];
+      }
 
       updateArgs({ results: results });
     };
@@ -39,6 +57,7 @@ export const Outlined: Story = {
     return (
       <PeoplePicker
         inputProps={{
+          label: 'Name',
           onChange: handleOnChange
         }}
         {...args}
