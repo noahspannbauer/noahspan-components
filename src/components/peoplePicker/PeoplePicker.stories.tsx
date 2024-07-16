@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useArgs } from '@storybook/preview-api';
-import { PeoplePicker, Person } from './PeoplePicker';
+import { PeoplePicker } from './PeoplePicker';
+import { Person } from '@microsoft/microsoft-graph-types';
 
 const meta: Meta<typeof PeoplePicker> = {
   title: 'Components/PeoplePicker',
@@ -44,7 +45,7 @@ export const Outlined: Story = {
 
       if (event.target.value !== '') {
         results = people.filter((person: Person) => {
-          if (person.displayName.startsWith(searchString)) {
+          if (person.displayName?.startsWith(searchString)) {
             return person;
           }
         });
