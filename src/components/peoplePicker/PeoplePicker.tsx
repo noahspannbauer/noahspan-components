@@ -2,10 +2,7 @@ import { Card } from '../card/Card';
 import { Input, InputProps } from '../input/Input';
 import { List, ListProps, ListItem, ListItemProps } from '../list/List';
 import { Spinner } from '../spinner/Spinner';
-
-export type Person = {
-  displayName: string;
-};
+import { Person } from '@microsoft/microsoft-graph-types';
 
 export interface PeoplePickerProps {
   results: Person[];
