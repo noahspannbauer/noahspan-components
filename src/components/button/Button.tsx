@@ -14,6 +14,7 @@ type ButtonBaseProps = Pick<
   | 'children'
   | 'loading'
   | 'onClick'
+  | 'type'
 >;
 
 export interface ButtonProps extends ButtonBaseProps {}
