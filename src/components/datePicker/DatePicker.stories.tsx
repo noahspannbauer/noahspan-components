@@ -10,5 +10,11 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Outlined: Story = {};
-
+export const Outlined: Story = {
+  args: {
+    inputProps: {
+      label: 'Date',
+      className: 'pr-20'
+    }
+  }
+};
