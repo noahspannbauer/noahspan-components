@@ -1,6 +1,6 @@
 {
   "name": "@noahspan/noahspan-components",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "type": "module",
   "files": [
     "dist"
@@ -51,8 +51,8 @@
     "@storybook/react-vite": "^8.0.10",
     "@storybook/test": "^8.0.10",
     "@types/node": "^20.12.10",
-    "@types/react": "^18.2.39",
-    "@types/react-dom": "^18.2.22",
+    "@types/react": "^18.2.19",
+    "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
     "@vitejs/plugin-react": "^4.2.1",

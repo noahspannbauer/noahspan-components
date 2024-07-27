@@ -32,3 +32,12 @@ export const Static: Story = {
     variant: 'static'
   }
 };
+
+export const Error: Story = {
+  args: {
+    label: 'Error',
+    placeholder: 'Error',
+    error: true,
+    helperText: 'Invalid value'
+  }
+};

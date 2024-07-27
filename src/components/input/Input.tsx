@@ -25,8 +25,19 @@ type InputBaseProps = Pick<
   | 'name'
 >;
 
-export interface InputProps extends InputBaseProps {}
+export interface InputProps extends InputBaseProps {
+  helperText?: string;
+}
 
-export const Input = ({ ...rest }: InputProps) => {
-  return <MaterialTailwindInput crossOrigin={undefined} {...rest} />;
+export const Input = ({ helperText, ...rest }: InputProps) => {
+  return (
+    <div className='relative'>
+      <MaterialTailwindInput crossOrigin={undefined} {...rest} />
+      {helperText && helperText.length > 0 && (
+        <span className='absolue mt-3 mr-1 mb-0 ml-3 text-xs text-red-500'>
+          {helperText}
+        </span>
+      )}
+    </div>
+  );
 };
