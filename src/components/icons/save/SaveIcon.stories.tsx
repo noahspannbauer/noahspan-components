@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SaveIcon } from './SaveIcon';
 
 const meta: Meta<typeof SaveIcon> = {
-  title: 'Components/Icons/PlaneIcon',
+  title: 'Components/Icons/SaveIcon',
   component: SaveIcon
 } satisfies Meta<typeof SaveIcon>;
 
