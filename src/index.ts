@@ -19,6 +19,8 @@ export * from './components/peoplePicker/PeoplePicker';
 export * from './components/icons/plane/PlaneIcon';
 export * from './components/icons/plus/PlusIcon';
 export * from './components/icons/puzzlePiece/PuzzlePieceIcon';
+export * from './components/icons/save/SaveIcon';
 export * from './components/select/Select';
+export * from './components/icons/trash/TrashIcon';
 export * from './components/typography/Typography';
 export * from './components/icons/xMark/XmarkIcon';
