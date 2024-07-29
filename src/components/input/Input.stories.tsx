@@ -41,3 +41,19 @@ export const Error: Story = {
     helperText: 'Invalid value'
   }
 };
+
+export const NoLabel: Story = {
+  args: {
+    placeholder: 'No Label',
+    variant: 'outlined'
+  }
+};
+
+export const NoLabelError: Story = {
+  args: {
+    placeholder: 'No Label',
+    variant: 'outlined',
+    error: true,
+    helperText: 'Invalid value'
+  }
+};
