@@ -35,16 +35,16 @@ export const Input = ({ helperText, ...rest }: InputProps) => {
 
   useEffect(() => {
     if (!rest.label) {
-      const newProps = { ...props };
+      const newProps = { ...rest };
 
       if (!newProps.error) {
-        newProps.className = `${newProps.className} !border-t-blue-gray-200 focus:!border-t-gray-900`;
+        newProps.className = `${newProps.className ? newProps.className : ''} !border-t-blue-gray-200 focus:!border-t-gray-900`;
         newProps.labelProps = {
           ...newProps.labelProps,
           className: 'before:content-none after:content-none'
         };
       } else {
-        newProps.className = `${newProps.className} !border-t-red-500 focus:!border-red-500`;
+        newProps.className = `${newProps.className ? newProps.className : ''} !border-t-red-500 focus:!border-red-500`;
         newProps.labelProps = {
           ...newProps.labelProps,
           className: 'before:content-none after:content-none'
@@ -53,7 +53,7 @@ export const Input = ({ helperText, ...rest }: InputProps) => {
 
       setProps(newProps);
     }
-  }, []);
+  }, [rest.className, rest.label, rest.labelProps]);
 
   return (
     <div className='relative'>
