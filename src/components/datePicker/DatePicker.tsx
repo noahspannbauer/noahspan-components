@@ -20,11 +20,7 @@ export interface DatePickerProps {
 }
 
 const defaultInputProps = {
-  className:
-    'rounded-r-none relative !border-t-blue-gray-200 focus:!border-t-gray-900',
-  labelProps: {
-    className: 'before:content-none after:content-none'
-  },
+  className: 'rounded-r-none relative',
   placeholder: 'MM/DD/YYYY'
 };
 
@@ -57,7 +53,7 @@ export const DatePicker = ({
         ...inputProps,
         ...defaultInputProps
       };
-
+      console.log(newInputProps);
       setInputPropsState(newInputProps);
     }
   }, []);
@@ -73,7 +69,7 @@ export const DatePicker = ({
       if (value.toString().length === 10) {
         if (isNaN(new Date(value).getTime())) {
           newInputProps.helperText = 'Invalid date';
-          newInputProps.className = `rounded-r-none !border-t-red-500 focus:!border-red-500`;
+          newInputProps.className = `rounded-r-none`;
         } else {
           newInputProps.className = defaultInputProps.className;
           newInputProps.helperText = '';
@@ -89,7 +85,7 @@ export const DatePicker = ({
   }, [inputProps?.value]);
 
   return (
-    <div className='relative flex w-full max-w-[24rem]'>
+    <div className='relative flex w-full max-w-[24rem] z-50'>
       <Input {...inputPropsState} onChange={onDateChanged} />
       <Popover placement='bottom'>
         <PopoverHandler>

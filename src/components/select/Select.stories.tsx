@@ -58,3 +58,56 @@ export const Static: Story = {
     );
   }
 };
+
+export const Error: Story = {
+  args: {
+    error: true,
+    helperText: 'Invalid Selection',
+    label: 'Error',
+    variant: 'outlined'
+  },
+  render: function Render(args) {
+    return (
+      <Select {...args}>
+        <Option>Apples</Option>
+        <Option>Bananas</Option>
+        <Option>Cranberries</Option>
+        <Option>Dragonfruit</Option>
+      </Select>
+    );
+  }
+};
+
+export const NoLabel: Story = {
+  args: {
+    variant: 'outlined'
+  },
+  render: function Render(args) {
+    return (
+      <Select {...args}>
+        <Option>Apples</Option>
+        <Option>Bananas</Option>
+        <Option>Cranberries</Option>
+        <Option>Dragonfruit</Option>
+      </Select>
+    );
+  }
+};
+
+export const NoLabelError: Story = {
+  args: {
+    error: true,
+    helperText: 'Invalid Selection',
+    variant: 'outlined'
+  },
+  render: function Render(args) {
+    return (
+      <Select {...args}>
+        <Option>Apples</Option>
+        <Option>Bananas</Option>
+        <Option>Cranberries</Option>
+        <Option>Dragonfruit</Option>
+      </Select>
+    );
+  }
+};
