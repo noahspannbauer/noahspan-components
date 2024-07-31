@@ -74,5 +74,10 @@ type DrawerBaseProps = Pick<
 export interface DrawerProps extends DrawerBaseProps {}
 
 export const Drawer = ({ ...rest }: DrawerBaseProps) => {
-  return <MaterialTailwindDrawer className='p-10 overflow-y-auto' {...rest} />;
+  return (
+    <MaterialTailwindDrawer
+      className='p-10 overflow-y-auto !z-[9995]'
+      {...rest}
+    />
+  );
 };

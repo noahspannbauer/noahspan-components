@@ -90,14 +90,14 @@ export const DatePicker = ({
       <Popover placement='bottom'>
         <PopoverHandler>
           <IconButton
-            className='flex h-10 items-center gap-2 rounded-l-none border border-l-0 border-blue-gray-200 bg-blue-gray-500/10 pl-3'
+            className='flex h-10 items-center gap-2 rounded-l-none border border-l-0 border-blue-gray-200 bg-blue-gray-500/10 pl-3 min-w-[40px] max-w-[40px]'
             variant='text'
             color='blue-gray'
           >
             <CalendarIcon />
           </IconButton>
         </PopoverHandler>
-        <PopoverContent>
+        <PopoverContent className='z-[9996]'>
           <DayPicker
             mode='single'
             selected={date}
