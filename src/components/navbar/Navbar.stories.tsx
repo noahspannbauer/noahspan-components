@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 
 export const New: Story = {
   args: {
-    size: '2000px'
+    size: '100%'
   },
   parameters: {
     backgrounds: {

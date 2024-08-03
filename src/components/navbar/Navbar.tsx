@@ -41,7 +41,7 @@ export interface NavbarLinksProps {
 export const NavbarLinks = ({ items, isMobile }: NavbarLinksProps) => {
   const NavbarList = () => {
     return (
-      <ul className='mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6'>
+      <ul className='mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 '>
         {items.map((item) => {
           return <NavbarItem name={item.name} url={item.url} />;
         })}
@@ -89,7 +89,7 @@ export const Navbar = ({ children, size, ...rest }: NavbarProps) => {
   return (
     <>
       <MaterialTailwindNavbar
-        className={`mx-auto max-w-screen-xl px-4 py-2 lg:px-8 lg:py-4 ${size ? `w-[${size}]` : ''}`}
+        className={`px-4 py-2 lg:px-8 lg:py-4 ${size ? `w-[${size}]` : ''}`}
         {...rest}
       >
         <div className='container mx-auto flex items-center justify-between text-[#212121]'>
