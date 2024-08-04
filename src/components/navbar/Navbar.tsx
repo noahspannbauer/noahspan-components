@@ -3,6 +3,7 @@ import {
   NavbarProps as MaterialTailwindNavbarProps
 } from '@material-tailwind/react';
 import { Typography } from '../typography/Typography';
+import { ThemeProvider } from '../../theme/ThemeProvider';
 
 export interface NavbarBrandProps {
   children?: React.ReactNode;
@@ -85,9 +86,23 @@ export interface NavbarProps extends NavbarBaseProps {
   size?: string;
 }
 
+const theme = {
+  navbar: {
+    styles: {
+      base: {
+        navbar: {
+          initial: {
+            maxWidth: ''
+          }
+        }
+      }
+    }
+  }
+};
+
 export const Navbar = ({ children, size, ...rest }: NavbarProps) => {
   return (
-    <>
+    <ThemeProvider value={theme}>
       <MaterialTailwindNavbar
         className={`px-4 py-2 lg:px-8 lg:py-4 ${size ? `w-[${size}]` : ''}`}
         {...rest}
@@ -96,6 +111,6 @@ export const Navbar = ({ children, size, ...rest }: NavbarProps) => {
           {children}
         </div>
       </MaterialTailwindNavbar>
-    </>
+    </ThemeProvider>
   );
 };
