@@ -92,7 +92,7 @@ const theme = {
       base: {
         navbar: {
           initial: {
-            maxWidth: 'max-w-screen-2xl'
+            maxWidth: ''
           }
         }
       }
