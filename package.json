@@ -1,6 +1,6 @@
 {
   "name": "@noahspan/noahspan-components",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "type": "module",
   "files": [
     "dist"
