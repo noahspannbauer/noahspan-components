@@ -53,11 +53,13 @@ const states = [
   'Wyoming'
 ];
 
-export interface StateSelectProps extends SelectProps {}
+type StateSelectBaseProps = Omit<SelectProps, 'children'>;
 
-export const StateSelect = () => {
+export interface StateSelectProps extends StateSelectBaseProps {}
+
+export const StateSelect = ({ ...rest }: StateSelectProps) => {
   return (
-    <Select variant='standard'>
+    <Select {...rest}>
       {states.map((state) => (
         <Option>{state}</Option>
       ))}
