@@ -14,10 +14,13 @@ type ListItemBaseProps = Pick<
   'ripple' | 'selected' | 'disabled' | 'className' | 'children'
 >;
 
-export interface ListItemProps extends ListItemBaseProps {}
+export interface ListItemProps extends ListItemBaseProps {
+  id?: string;
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+}
 
-export const ListItem = ({ ...rest }: ListItemProps) => {
-  return <MaterialTailwindListItem {...rest} />;
+export const ListItem = ({ onClick, ...rest }: ListItemProps) => {
+  return <MaterialTailwindListItem onClick={onClick} {...rest} />;
 };
 
 type ListItemPrefixBaseProps = Pick<

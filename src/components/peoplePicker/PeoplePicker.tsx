@@ -29,7 +29,13 @@ export const PeoplePicker = ({
             {!loading &&
               results.map((person: Person) => {
                 return (
-                  <ListItem {...listItemProps}>{person.displayName}</ListItem>
+                  <ListItem
+                    id={person.userPrincipalName!}
+                    key={person.userPrincipalName}
+                    {...listItemProps}
+                  >
+                    {person.displayName}
+                  </ListItem>
                 );
               })}
             {loading && (
