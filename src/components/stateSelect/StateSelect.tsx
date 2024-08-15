@@ -61,7 +61,7 @@ export const StateSelect = ({ ...rest }: StateSelectProps) => {
   return (
     <Select {...rest}>
       {states.map((state) => (
-        <Option>{state}</Option>
+        <Option value={state}>{state}</Option>
       ))}
     </Select>
   );
