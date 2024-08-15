@@ -15,24 +15,37 @@ type Story = StoryObj<typeof meta>;
 export const Outlined: Story = {
   args: {
     results: [],
-    loading: false
+    loading: false,
+    listItemProps: {
+      children: null,
+      onClick: (event: React.MouseEvent<HTMLDivElement>) => {
+        const divElement: HTMLDivElement = event.target as HTMLDivElement;
+
+        console.log(divElement.id);
+      }
+    }
   },
   render: function Render(args) {
     const [{ _results }, updateArgs] = useArgs();
     const people: Person[] = [
       {
+        userPrincipalName: 'adam@someplace.com',
         displayName: 'Adam'
       },
       {
+        userPrincipalName: 'catherine@someplace.com',
         displayName: 'Catherine'
       },
       {
+        userPrincipalName: 'nathan@someplace.com',
         displayName: 'Nathan'
       },
       {
+        userPrincipalName: 'noah@someplace.com',
         displayName: 'Noah'
       },
       {
+        userPrincipalName: 'zoey@someplace.com',
         displayName: 'Zoey'
       }
     ];
