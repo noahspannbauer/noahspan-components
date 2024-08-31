@@ -111,12 +111,12 @@ export const Table = ({
   return (
     <div>
       <table className='w-full min-w-max table-auto text-left' {...rest}>
-        <TableHeader
-          className='bg-blue-gray-50 p-4 rounded-lg'
-          {...headerProps}
-        >
+        <TableHeader {...headerProps}>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow className='bg-blue-gray-50 p-4' key={headerGroup.id}>
+            <TableRow
+              className='bg-blue-gray-50 p-4 rounded-lg'
+              key={headerGroup.id}
+            >
               {headerGroup.headers.map((header) => {
                 const columnDef: TableColumnDef = header.column
                   .columnDef as TableColumnDef;
