@@ -114,7 +114,7 @@ export const Table = ({
         <TableHeader {...headerProps}>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow
-              className='bg-blue-gray-50 p-4 rounded-lg'
+              className='bg-blue-gray-50 rounded-lg'
               key={headerGroup.id}
             >
               {headerGroup.headers.map((header) => {
@@ -123,6 +123,7 @@ export const Table = ({
 
                 return (
                   <TableHeaderCell
+                    className='p-4'
                     key={header.id}
                     onClick={header.column.getToggleSortingHandler()}
                     // sorted={
