@@ -120,7 +120,7 @@ export const Table = ({
 
                 return (
                   <TableHeaderCell
-                    className='bg-blue-gray-50 p-4'
+                    className='bg-blue-gray-50 p-4 rounded-md'
                     key={header.id}
                     onClick={header.column.getToggleSortingHandler()}
                     // sorted={
