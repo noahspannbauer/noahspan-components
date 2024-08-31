@@ -19,6 +19,6 @@ type ButtonBaseProps = Pick<
 
 export interface ButtonProps extends ButtonBaseProps {}
 
-export const Button = ({ ...rest }: ButtonBaseProps) => {
+export const Button = ({ ...rest }: ButtonProps) => {
   return <MaterialTailwindButton {...rest} />;
 };

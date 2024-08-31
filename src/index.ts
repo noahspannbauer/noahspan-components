@@ -1,12 +1,16 @@
 import './styles.css';
 
 export * from './components/accordion/Accordion';
+export * from './components/alert/Alert';
 export * from './components/button/Button';
 export * from './components/card/Card';
 export * from './components/icons/chevronDown/ChevronDownIcon';
 export * from './components/icons/chevronLeft/ChevronLeftIcon';
 export * from './components/icons/chevronRight/ChevronRightIcon';
 export * from './components/icons/chevronUp/ChevronUpIcon';
+export * from './components/icons/circleCheck/CircleCheck';
+export * from './components/icons/circleInfo/CircleInfo';
+export * from './components/icons/circleXmark/CircleXmark';
 export * from './components/datePicker/DatePicker';
 export * from './components/drawer/Drawer';
 export * from './components/icons/edit/EditIcon';
@@ -21,7 +25,9 @@ export * from './components/icons/plus/PlusIcon';
 export * from './components/icons/puzzlePiece/PuzzlePieceIcon';
 export * from './components/icons/save/SaveIcon';
 export * from './components/select/Select';
+export * from './components/spinner/Spinner';
 export * from './components/stateSelect/StateSelect';
 export * from './components/icons/trash/TrashIcon';
+export * from './components/icons/triangleExclamation/TriangleExclamation';
 export * from './components/typography/Typography';
 export * from './components/icons/xMark/XmarkIcon';
