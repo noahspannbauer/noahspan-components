@@ -3,6 +3,9 @@ import { IconButton } from '../iconButton/IconButton';
 import { Table, TableColumnDef } from './Table';
 import { EllipsisVerticalIcon } from '../icons/ellipsesVertical/EllipsisVertical';
 import { Menu, MenuHandler, MenuItem, MenuList } from '../menu/Menu';
+import { EyeIcon } from '../icons/eye/EyeIcon';
+import { PenIcon } from '../icons/pen/PenIcon';
+import { TrashIcon } from '../icons/trash/TrashIcon';
 
 const meta: Meta<typeof Table> = {
   title: 'Components/Table',
@@ -107,14 +110,23 @@ const columns: TableColumnDef[] = [
           <MenuHandler>
             <div>
               <IconButton variant='text'>
-                <EllipsisVerticalIcon size='lg' />
+                <EllipsisVerticalIcon size='xl' />
               </IconButton>
             </div>
           </MenuHandler>
           <MenuList>
-            <MenuItem>Edit</MenuItem>
-            <MenuItem>View</MenuItem>
-            <MenuItem>Delete</MenuItem>
+            <MenuItem>
+              <PenIcon size='sm' />
+              Edit
+            </MenuItem>
+            <MenuItem>
+              <EyeIcon size='sm' />
+              View
+            </MenuItem>
+            <MenuItem>
+              <TrashIcon size='sm' />
+              Delete
+            </MenuItem>
           </MenuList>
         </Menu>
       );

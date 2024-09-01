@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { PenIcon } from './Pen';
+import { EyeIcon } from './EyeIcon';
 
-const meta: Meta<typeof PenIcon> = {
-  title: 'Components/Icons/Pen',
-  component: PenIcon
-} satisfies Meta<typeof PenIcon>;
+const meta: Meta<typeof EyeIcon> = {
+  title: 'Components/Icons/Eye',
+  component: EyeIcon
+} satisfies Meta<typeof EyeIcon>;
 
 export default meta;
 
