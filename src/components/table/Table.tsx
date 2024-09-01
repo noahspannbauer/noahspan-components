@@ -148,10 +148,7 @@ export const Table = ({
           ))}
         </TableHeader>
         <TableBody>
-          {table.getRowModel().rows.map((row, index) => {
-            const isLast = index === table.getRowModel().rows.length - 1;
-            const styles = isLast ? 'p-4' : 'p-4 border-b border-blue-gray-50';
-
+          {table.getRowModel().rows.map((row) => {
             return (
               <TableRow key={row.id} {...rowProps}>
                 {row.getVisibleCells().map((cell) => {
@@ -160,7 +157,7 @@ export const Table = ({
 
                   return (
                     <TableCell
-                      className={`${styles} ${columnDef.cellProps?.className}`}
+                      className={`${columnDef.cellProps?.className}`}
                       key={cell.id}
                     >
                       {flexRender(columnDef.cell, cell.getContext())}
