@@ -100,7 +100,7 @@ const columns: TableColumnDef[] = [
     header: 'Actions',
     cell: () => {
       return (
-        <Menu>
+        <Menu placement='bottom'>
           <MenuHandler>
             <IconButton variant='text'>
               <EllipsisVerticalIcon size='lg' />
