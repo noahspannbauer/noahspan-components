@@ -102,7 +102,7 @@ const columns: TableColumnDef[] = [
       return (
         <Menu>
           <MenuHandler>
-            <IconButton variant='filled'>
+            <IconButton variant='text'>
               <EllipsisVerticalIcon size='lg' />
             </IconButton>
           </MenuHandler>
