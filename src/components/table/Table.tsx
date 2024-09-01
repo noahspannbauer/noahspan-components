@@ -117,12 +117,12 @@ export const Table = ({
               {headerGroup.headers.map((header, index) => {
                 const columnDef: TableColumnDef = header.column
                   .columnDef as TableColumnDef;
-                let styles = 'bg-blue-gray-50';
+                let styles = 'bg-blue-gray-50 p-4';
 
                 if (index === 0) {
                   styles = `${styles} rounded-l-lg`;
                 } else if (index === table.getRowModel().rows.length - 1) {
-                  styles = styles = `${styles} rounded-r-lg`;
+                  styles = `${styles} rounded-r-lg`;
                 }
 
                 return (
