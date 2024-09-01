@@ -113,17 +113,21 @@ export const Table = ({
       <table className='w-full min-w-max table-auto text-left' {...rest}>
         <TableHeader {...headerProps}>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow
-              className='bg-blue-gray-50 rounded-lg'
-              key={headerGroup.id}
-            >
-              {headerGroup.headers.map((header) => {
+            <TableRow key={headerGroup.id}>
+              {headerGroup.headers.map((header, index) => {
                 const columnDef: TableColumnDef = header.column
                   .columnDef as TableColumnDef;
+                let styles = 'bg-blue-gray-50';
+
+                if (index === 0) {
+                  styles = `${styles} rounded-l-lg`;
+                } else if (index === table.getRowModel().rows.length - 1) {
+                  styles = styles = `${styles} rounded-r-lg`;
+                }
 
                 return (
                   <TableHeaderCell
-                    className='p-4'
+                    className={styles}
                     key={header.id}
                     onClick={header.column.getToggleSortingHandler()}
                     // sorted={
