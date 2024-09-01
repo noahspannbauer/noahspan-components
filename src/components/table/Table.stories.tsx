@@ -115,16 +115,16 @@ const columns: TableColumnDef[] = [
             </div>
           </MenuHandler>
           <MenuList>
-            <MenuItem className='flex justify-center gap-3'>
+            <MenuItem className='flex gap-3'>
               <PenIcon size='sm' />
               Edit
             </MenuItem>
-            <MenuItem className='flex justify-center gap-3'>
+            <MenuItem className='flex gap-3'>
               <EyeIcon size='sm' />
               View
             </MenuItem>
             <hr className='my-3' />
-            <MenuItem className='flex justify-center gap-3'>
+            <MenuItem className='flex gap-3'>
               <TrashIcon size='sm' />
               Delete
             </MenuItem>
