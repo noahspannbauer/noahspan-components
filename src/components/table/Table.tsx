@@ -111,7 +111,7 @@ export const Table = ({
   return (
     <div>
       <table className='w-full min-w-max table-auto text-left' {...rest}>
-        <TableHeader {...headerProps}>
+        <TableHeader className='mb-2' {...headerProps}>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header, index) => {
