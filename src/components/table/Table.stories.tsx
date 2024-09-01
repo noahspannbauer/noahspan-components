@@ -6,6 +6,7 @@ import { Menu, MenuHandler, MenuItem, MenuList } from '../menu/Menu';
 import { EyeIcon } from '../icons/eye/EyeIcon';
 import { PenIcon } from '../icons/pen/PenIcon';
 import { TrashIcon } from '../icons/trash/TrashIcon';
+import { Typography } from '@material-tailwind/react';
 
 const meta: Meta<typeof Table> = {
   title: 'Components/Table',
@@ -117,15 +118,16 @@ const columns: TableColumnDef[] = [
           <MenuList>
             <MenuItem>
               <PenIcon size='sm' />
-              Edit
+              <Typography>Edit</Typography>
             </MenuItem>
             <MenuItem>
               <EyeIcon size='sm' />
-              View
+              <Typography>View</Typography>
             </MenuItem>
+            <hr className='my-3' />
             <MenuItem>
               <TrashIcon size='sm' />
-              Delete
+              <Typography>Delete</Typography>
             </MenuItem>
           </MenuList>
         </Menu>
