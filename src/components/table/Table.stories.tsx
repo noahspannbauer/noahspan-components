@@ -117,17 +117,21 @@ const columns: TableColumnDef[] = [
           </MenuHandler>
           <MenuList>
             <MenuItem>
-              <PenIcon size='sm' />
-              <Typography>Edit</Typography>
+              <Typography variant='small'>
+                <PenIcon size='sm' />
+                Edit
+              </Typography>
             </MenuItem>
             <MenuItem>
-              <EyeIcon size='sm' />
-              <Typography>View</Typography>
+              <Typography variant='small'>
+                <EyeIcon size='sm' /> View
+              </Typography>
             </MenuItem>
             <hr className='my-3' />
             <MenuItem>
-              <TrashIcon size='sm' />
-              <Typography>Delete</Typography>
+              <Typography variant='small'>
+                <TrashIcon size='sm' /> Delete
+              </Typography>
             </MenuItem>
           </MenuList>
         </Menu>
