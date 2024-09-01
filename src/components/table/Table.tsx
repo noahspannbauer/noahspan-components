@@ -157,7 +157,7 @@ export const Table = ({
 
                   return (
                     <TableCell
-                      className={`${columnDef.cellProps?.className}`}
+                      className={`p-4 ${columnDef.cellProps?.className}`}
                       key={cell.id}
                     >
                       {flexRender(columnDef.cell, cell.getContext())}
