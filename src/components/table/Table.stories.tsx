@@ -124,6 +124,9 @@ const columns: TableColumnDef[] = [
 export const Basic: Story = {
   args: {
     defaultData: data,
-    columns: columns
+    columns: columns,
+    rowProps: {
+      className: 'hover:bg-blue-gray-50'
+    }
   }
 };

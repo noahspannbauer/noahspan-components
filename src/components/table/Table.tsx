@@ -117,7 +117,7 @@ export const Table = ({
               {headerGroup.headers.map((header, index) => {
                 const columnDef: TableColumnDef = header.column
                   .columnDef as TableColumnDef;
-                let styles = 'bg-blue-gray-50 p-4 uppercase font-bold text-xs';
+                let styles = 'bg-blue-gray-50 p-3 uppercase font-bold text-xs';
 
                 if (index === 0) {
                   styles = `${styles} rounded-l-lg`;
