@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '../button/Button';
+import { IconButton } from '../iconButton/IconButton';
 import { Table, TableColumnDef } from './Table';
+import { EllipsisVerticalIcon } from '../icons/ellipsesVertical/EllipsisVertical';
+import { Menu, MenuHandler, MenuItem, MenuList } from '../menu/Menu';
 
 const meta: Meta<typeof Table> = {
   title: 'Components/Table',
@@ -49,33 +51,6 @@ const data: Person[] = [
 
 const columns: TableColumnDef[] = [
   {
-    id: 'actions',
-    header: 'Actions',
-    cell: (props) => {
-      const showAlert = () => {
-        const person: Person = props.row.original as Person;
-
-        alert(`${
-          person.lastName.charAt(0).toUpperCase() + person.lastName.slice(1)
-        }, ${
-          person.firstName.charAt(0).toUpperCase() + person.lastName.slice(1)
-        }\n
-          Age: ${person.age}\n
-          Visits: ${person.visits}\n
-          Status: ${person.status}\n
-          Progress: ${person.progress}
-        `);
-      };
-
-      return (
-        <Button variant='filled' onClick={showAlert}>
-          Details
-        </Button>
-      );
-    },
-    enableSorting: false
-  },
-  {
     accessorKey: 'firstName',
     header: 'First Name',
     cell: ({ getValue }) => (
@@ -119,6 +94,27 @@ const columns: TableColumnDef[] = [
     cellProps: {
       className: 'text-right'
     }
+  },
+  {
+    id: 'actions',
+    header: 'Actions',
+    cell: () => {
+      return (
+        <Menu>
+          <MenuHandler>
+            <IconButton variant='filled'>
+              <EllipsisVerticalIcon size='lg' />
+            </IconButton>
+          </MenuHandler>
+          <MenuList>
+            <MenuItem>Edit</MenuItem>
+            <MenuItem>View</MenuItem>
+            <MenuItem>Delete</MenuItem>
+          </MenuList>
+        </Menu>
+      );
+    },
+    enableSorting: false
   }
 ];
 
