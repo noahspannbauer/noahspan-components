@@ -98,6 +98,9 @@ const columns: TableColumnDef[] = [
   {
     id: 'actions',
     header: 'Actions',
+    cellProps: {
+      className: 'text-center'
+    },
     cell: () => {
       return (
         <Menu placement='bottom'>
