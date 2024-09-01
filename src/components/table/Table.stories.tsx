@@ -103,7 +103,7 @@ const columns: TableColumnDef[] = [
     },
     cell: () => {
       return (
-        <Menu placement='bottom'>
+        <Menu placement='bottom-end'>
           <MenuHandler>
             <div>
               <IconButton variant='text'>
