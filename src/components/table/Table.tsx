@@ -121,7 +121,7 @@ export const Table = ({
 
                 if (index === 0) {
                   styles = `${styles} rounded-l-lg`;
-                } else if (index === table.getRowModel().rows.length - 1) {
+                } else if (index === headerGroup.headers.length - 1) {
                   styles = `${styles} rounded-r-lg`;
                 }
 
