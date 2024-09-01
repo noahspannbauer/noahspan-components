@@ -105,9 +105,11 @@ const columns: TableColumnDef[] = [
       return (
         <Menu placement='bottom'>
           <MenuHandler>
-            <IconButton variant='text'>
-              <EllipsisVerticalIcon size='lg' />
-            </IconButton>
+            <div>
+              <IconButton variant='text'>
+                <EllipsisVerticalIcon size='lg' />
+              </IconButton>
+            </div>
           </MenuHandler>
           <MenuList>
             <MenuItem>Edit</MenuItem>
