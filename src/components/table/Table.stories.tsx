@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '../button/Button';
+import { IconButton } from '../iconButton/IconButton';
 import { Table, TableColumnDef } from './Table';
+import { EllipsisVerticalIcon } from '../icons/ellipsesVertical/EllipsisVertical';
+import { Menu, MenuHandler, MenuItem, MenuList } from '../menu/Menu';
+import { EyeIcon } from '../icons/eye/EyeIcon';
+import { PenIcon } from '../icons/pen/PenIcon';
+import { TrashIcon } from '../icons/trash/TrashIcon';
 
 const meta: Meta<typeof Table> = {
   title: 'Components/Table',
@@ -49,33 +54,6 @@ const data: Person[] = [
 
 const columns: TableColumnDef[] = [
   {
-    id: 'actions',
-    header: 'Actions',
-    cell: (props) => {
-      const showAlert = () => {
-        const person: Person = props.row.original as Person;
-
-        alert(`${
-          person.lastName.charAt(0).toUpperCase() + person.lastName.slice(1)
-        }, ${
-          person.firstName.charAt(0).toUpperCase() + person.lastName.slice(1)
-        }\n
-          Age: ${person.age}\n
-          Visits: ${person.visits}\n
-          Status: ${person.status}\n
-          Progress: ${person.progress}
-        `);
-      };
-
-      return (
-        <Button variant='filled' onClick={showAlert}>
-          Details
-        </Button>
-      );
-    },
-    enableSorting: false
-  },
-  {
     accessorKey: 'firstName',
     header: 'First Name',
     cell: ({ getValue }) => (
@@ -119,12 +97,51 @@ const columns: TableColumnDef[] = [
     cellProps: {
       className: 'text-right'
     }
+  },
+  {
+    id: 'actions',
+    header: 'Actions',
+    cellProps: {
+      className: 'text-center'
+    },
+    cell: () => {
+      return (
+        <Menu placement='bottom-end'>
+          <MenuHandler>
+            <div>
+              <IconButton variant='text'>
+                <EllipsisVerticalIcon size='xl' />
+              </IconButton>
+            </div>
+          </MenuHandler>
+          <MenuList>
+            <MenuItem className='flex gap-3'>
+              <PenIcon size='lg' />
+              Edit
+            </MenuItem>
+            <MenuItem className='flex gap-3'>
+              <EyeIcon size='lg' />
+              View
+            </MenuItem>
+            <hr className='my-3' />
+            <MenuItem className='flex gap-3'>
+              <TrashIcon size='lg' />
+              Delete
+            </MenuItem>
+          </MenuList>
+        </Menu>
+      );
+    },
+    enableSorting: false
   }
 ];
 
 export const Basic: Story = {
   args: {
     defaultData: data,
-    columns: columns
+    columns: columns,
+    rowProps: {
+      className: 'hover:bg-blue-gray-50'
+    }
   }
 };

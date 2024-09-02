@@ -110,23 +110,24 @@ export const Table = ({
 
   return (
     <div>
-      <table
-        className='w-full min-w-max table-auto text-left border border-blue-gray-100 rounded'
-        {...rest}
-      >
-        <TableHeader {...headerProps}>
+      <table className='w-full min-w-max table-auto text-left' {...rest}>
+        <TableHeader className='mb-2' {...headerProps}>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow
-              className='border-b border-blue-gray-100 bg-blue-gray-50 p-4'
-              key={headerGroup.id}
-            >
-              {headerGroup.headers.map((header) => {
+            <TableRow key={headerGroup.id}>
+              {headerGroup.headers.map((header, index) => {
                 const columnDef: TableColumnDef = header.column
                   .columnDef as TableColumnDef;
+                let styles = 'bg-blue-gray-50 p-3 uppercase font-bold text-xs';
+
+                if (index === 0) {
+                  styles = `${styles} rounded-l-lg`;
+                } else if (index === headerGroup.headers.length - 1) {
+                  styles = `${styles} rounded-r-lg`;
+                }
 
                 return (
                   <TableHeaderCell
-                    className='border-b border-blue-gray-100 bg-blue-gray-50 p-4'
+                    className={styles}
                     key={header.id}
                     onClick={header.column.getToggleSortingHandler()}
                     // sorted={
@@ -147,10 +148,7 @@ export const Table = ({
           ))}
         </TableHeader>
         <TableBody>
-          {table.getRowModel().rows.map((row, index) => {
-            const isLast = index === table.getRowModel().rows.length - 1;
-            const styles = isLast ? 'p-4' : 'p-4 border-b border-blue-gray-50';
-
+          {table.getRowModel().rows.map((row) => {
             return (
               <TableRow key={row.id} {...rowProps}>
                 {row.getVisibleCells().map((cell) => {
@@ -159,7 +157,7 @@ export const Table = ({
 
                   return (
                     <TableCell
-                      className={`${styles} ${columnDef.cellProps?.className}`}
+                      className={`p-4 ${columnDef.cellProps?.className}`}
                       key={cell.id}
                     >
                       {flexRender(columnDef.cell, cell.getContext())}
