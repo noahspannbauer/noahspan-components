@@ -30,6 +30,7 @@ export * from './components/icons/save/SaveIcon';
 export * from './components/select/Select';
 export * from './components/spinner/Spinner';
 export * from './components/stateSelect/StateSelect';
+export * from './components/table/Table';
 export * from './components/icons/trash/TrashIcon';
 export * from './components/icons/triangleExclamation/TriangleExclamation';
 export * from './components/typography/Typography';

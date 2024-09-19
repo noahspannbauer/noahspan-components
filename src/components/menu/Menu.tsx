@@ -22,10 +22,12 @@ type MenuItemBaseProps = Pick<
   'disabled' | 'className' | 'children'
 >;
 
-export interface MenuItemProps extends MenuItemBaseProps {}
+export interface MenuItemProps extends MenuItemBaseProps {
+  onClick?: () => void;
+}
 
-export const MenuItem = ({ ...rest }: MenuItemProps) => {
-  return <MaterialTailwindMenuItem {...rest} />;
+export const MenuItem = ({ onClick, ...rest }: MenuItemProps) => {
+  return <MaterialTailwindMenuItem onClick={onClick} {...rest} />;
 };
 
 type MenuListBaseProps = Pick<
