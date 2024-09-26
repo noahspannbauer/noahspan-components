@@ -28,6 +28,7 @@ export * from './components/icons/plus/PlusIcon';
 export * from './components/icons/puzzlePiece/PuzzlePieceIcon';
 export * from './components/icons/save/SaveIcon';
 export * from './components/select/Select';
+export * from './components/icons/signOut/SignOut';
 export * from './components/spinner/Spinner';
 export * from './components/stateSelect/StateSelect';
 export * from './components/table/Table';
