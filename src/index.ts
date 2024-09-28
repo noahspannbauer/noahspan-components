@@ -2,6 +2,7 @@ import './styles.css';
 
 export * from './components/accordion/Accordion';
 export * from './components/alert/Alert';
+export * from './components/avatar/Avatar';
 export * from './components/button/Button';
 export * from './components/card/Card';
 export * from './components/icons/chevronDown/ChevronDownIcon';
