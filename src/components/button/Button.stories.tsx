@@ -43,3 +43,13 @@ export const Text: Story = {
     return <Button {...args}>Text</Button>;
   }
 };
+
+export const Disabled: Story = {
+  args: {
+    variant: 'outlined',
+    disabled: true
+  },
+  render: function Render(args) {
+    return <Button {...args}>Disabled</Button>;
+  }
+};
