@@ -57,3 +57,13 @@ export const NoLabelError: Story = {
     helperText: 'Invalid value'
   }
 };
+
+export const Number: Story = {
+  args: {
+    label: 'Number',
+    placeholder: '0',
+    type: 'number',
+    step: '.1',
+    min: '0'
+  }
+};
