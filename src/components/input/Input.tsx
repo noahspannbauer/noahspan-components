@@ -24,6 +24,9 @@ type InputBaseProps = Pick<
   | 'onChange'
   | 'onBlur'
   | 'name'
+  | 'type'
+  | 'step'
+  | 'min'
 >;
 
 export interface InputProps extends InputBaseProps {
