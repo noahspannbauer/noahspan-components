@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Accordion, AccordionBody, AccordionHeader } from './Accordion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { Accordion, AccordionDetails, AccordionSummary } from './Accordion';
+import { useArgs } from '@storybook/preview-api';
+import { ChevronDownIcon } from '../icons/chevronDown/ChevronDownIcon';
+import { Typography } from '../typography/Typography';
 
 const meta: Meta<typeof Accordion> = {
   title: 'Components/Accordion',
@@ -14,47 +14,48 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  args: {
+    expanded: false
+  },
   parameters: {
     layout: 'padded'
   },
   render: function Render() {
-    const [open, setOpen] = useState(0);
+    const [{ expanded }, updateArgs] = useArgs();
 
-    const handleOpen = (value: number) => {
-      setOpen(open === value ? 0 : value);
+    const handleChange = (
+      _event: React.SyntheticEvent,
+      expanded: boolean,
+      panel: string
+    ) => {
+      updateArgs({ expanded: expanded ? panel : false });
     };
 
     return (
       <>
         <Accordion
-          open={open === 1}
-          icon={
-            open === 1 ? (
-              <FontAwesomeIcon icon={faChevronUp} />
-            ) : (
-              <FontAwesomeIcon icon={faChevronDown} />
-            )
+          expanded={expanded === 'panel1'}
+          onChange={(event, expanded) =>
+            handleChange(event, expanded, 'panel1')
           }
         >
-          <AccordionHeader onClick={() => handleOpen(1)}>
+          <AccordionSummary expandIcon={<ChevronDownIcon />}>
             Accordion 1 Header
-          </AccordionHeader>
-          <AccordionBody>Accordion 1 Body</AccordionBody>
+          </AccordionSummary>
+          <AccordionDetails>Accordion 1 Body</AccordionDetails>
         </Accordion>
         <Accordion
-          open={open === 2}
-          icon={
-            open === 2 ? (
-              <FontAwesomeIcon icon={faChevronUp} />
-            ) : (
-              <FontAwesomeIcon icon={faChevronDown} />
-            )
+          expanded={expanded === 'panel2'}
+          onChange={(event, expanded) =>
+            handleChange(event, expanded, 'panel2')
           }
         >
-          <AccordionHeader onClick={() => handleOpen(2)}>
-            Accordion 2 Header
-          </AccordionHeader>
-          <AccordionBody>Accordion 2 Body</AccordionBody>
+          <AccordionSummary expandIcon={<ChevronDownIcon />}>
+            <Typography>Accordion 2 Header</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>Accordion 2 Body</Typography>
+          </AccordionDetails>
         </Accordion>
       </>
     );

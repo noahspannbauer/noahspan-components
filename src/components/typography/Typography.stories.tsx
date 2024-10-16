@@ -52,23 +52,30 @@ export const H6: Story = {
   }
 };
 
-export const Lead: Story = {
+export const Subtitle1: Story = {
   args: {
-    variant: 'lead',
-    children: 'Lead'
+    variant: 'subtitle1',
+    children: 'Subtitle 1'
   }
 };
 
-export const Paragraph: Story = {
+export const Subtitle2: Story = {
   args: {
-    variant: 'paragraph',
-    children: 'Paragraph'
+    variant: 'subtitle2',
+    children: 'Subtitle 2'
   }
 };
 
-export const Small: Story = {
+export const Body1: Story = {
   args: {
-    variant: 'small',
-    children: 'Small'
+    variant: 'body1',
+    children: 'Body 1'
+  }
+};
+
+export const Body2: Story = {
+  args: {
+    variant: 'body2',
+    children: 'Body 2'
   }
 };

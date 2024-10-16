@@ -39,7 +39,7 @@ export const Prefix: Story = {
             </ListItemPrefix>
             <div>
               <Typography variant='h6'>Flying</Typography>
-              <Typography variant='small'>flying.noahspannbauer.com</Typography>
+              <Typography variant='body1'>flying.noahspannbauer.com</Typography>
             </div>
           </ListItem>
           <ListItem>
@@ -48,7 +48,7 @@ export const Prefix: Story = {
             </ListItemPrefix>
             <div>
               <Typography variant='h6'>Components</Typography>
-              <Typography variant='small'>
+              <Typography variant='body1'>
                 components.noahspannbauer.com
               </Typography>
             </div>

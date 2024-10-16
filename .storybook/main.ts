@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
+    '@storybook/addon-styling',
     {
       name: '@storybook/addon-postcss',
       options: {
@@ -26,6 +27,21 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: 'tag'
+  },
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      compilerOptions: {
+        allowSyntheticDefaultImports: false,
+        esModuleInterop: false
+      },
+      shouldExtractLiteralValuesFromEnum: true,
+      shouldRemoveUndefinedFromOptional: true,
+      propFilter: (prop) =>
+        prop.parent
+          ? !/node_modules\/(?!@mui)/.test(prop.parent.fileName)
+          : true
+    }
   }
 };
 
