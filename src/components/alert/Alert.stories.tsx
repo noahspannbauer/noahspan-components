@@ -8,32 +8,32 @@ const meta: Meta<typeof Alert> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Alert>;
 
 export const Info: Story = {
   args: {
     children: 'This is an info alert',
-    intent: 'info'
+    severity: 'info'
   }
 };
 
 export const Warning: Story = {
   args: {
     children: 'This is a warning alert',
-    intent: 'warning'
+    severity: 'warning'
   }
 };
 
 export const Error: Story = {
   args: {
     children: 'This is an error alert',
-    intent: 'error'
+    severity: 'error'
   }
 };
 
 export const Success: Story = {
   args: {
     children: 'This is a success alert',
-    intent: 'success'
+    severity: 'success'
   }
 };

@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Menu, MenuHandler, MenuItem, MenuList } from './Menu';
+import { useArgs } from '@storybook/preview-api';
+import { Menu, MenuItem } from './Menu';
 import { Button } from '../button/Button';
+import { fn } from '@storybook/test';
 
 const meta: Meta<typeof Menu> = {
   title: 'Components/Menu',
@@ -13,23 +15,32 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    placement: 'bottom'
+    open: false,
+    onTransitionEnter: fn()
   },
   parameters: {
     layout: 'padded'
   },
-  render: function Render(args) {
+  render: () => {
+    const [{ open }, updateArgs] = useArgs();
+
+    const handleClick = () => {
+      updateArgs({ open: !open });
+    };
+
+    const onOpenCloseMenu = () => {
+      updateArgs({ open: !open });
+    };
+
     return (
-      <Menu {...args}>
-        <MenuHandler>
-          <Button>Menu</Button>
-        </MenuHandler>
-        <MenuList>
-          <MenuItem>Item 1</MenuItem>
-          <MenuItem>Item 2</MenuItem>
-          <MenuItem>Item 3</MenuItem>
-        </MenuList>
-      </Menu>
+      <>
+        <Button label='Open Menu' onClick={handleClick} variant='contained' />
+        <Menu open={open}>
+          <MenuItem onClick={onOpenCloseMenu}>Item 1</MenuItem>
+          <MenuItem onClick={onOpenCloseMenu}>Item 2</MenuItem>
+          <MenuItem onClick={onOpenCloseMenu}>Item 3</MenuItem>
+        </Menu>
+      </>
     );
   }
 };

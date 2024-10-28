@@ -27,6 +27,7 @@ module.exports = {
         varsIgnorePattern: '^_',
         ignoreRestSiblings: true
       }
-    ]
+    ],
+    '@typescript-eslint/no-explicit-any': 'off'
   }
 };

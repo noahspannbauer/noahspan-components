@@ -13,6 +13,10 @@ type Story = StoryObj<typeof Avatar>;
 export const Circular: Story = {
   args: {
     src: '/avatar.png',
+    imgProps: {
+      height: 40,
+      width: 40
+    },
     variant: 'circular'
   }
 };

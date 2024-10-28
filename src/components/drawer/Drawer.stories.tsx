@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useArgs } from '@storybook/preview-api';
-import { Drawer, DrawerBody, DrawerFooter, DrawerHeader } from './Drawer';
+import { Drawer } from './Drawer';
 import { Button } from '../button/Button';
+import { fn } from '@storybook/test';
 
 const meta: Meta<typeof Drawer> = {
   title: 'Components/Drawer',
@@ -15,8 +16,16 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     open: false,
-    placement: 'right',
-    size: 1000
+    anchor: 'right',
+    PaperProps: {
+      sx: {
+        width: '1000px'
+      }
+    },
+    sx: {
+      width: '1000px'
+    },
+    onTransitionEnter: fn()
   },
   render: function Render(args) {
     const [{ open }, updateArgs] = useArgs();
@@ -27,9 +36,20 @@ export const Default: Story = {
 
     return (
       <>
-        <Button onClick={onOpenCloseDrawer}>Open Drawer</Button>
+        <Button
+          variant='contained'
+          onClick={onOpenCloseDrawer}
+          label='Open Drawer'
+        >
+          Open Drawer
+        </Button>
         <Drawer onClose={onOpenCloseDrawer} {...args}>
-          <DrawerHeader text='Drawer Header' onClose={onOpenCloseDrawer} />
+          <Button
+            onClick={onOpenCloseDrawer}
+            label='Close Drawer'
+            variant='contained'
+          />
+          {/* <DrawerHeader text='Drawer Header' onClose={onOpenCloseDrawer} />
           <DrawerBody className='mb-6'>
             Drawer Body content goes here
           </DrawerBody>
@@ -42,7 +62,7 @@ export const Default: Story = {
                 Save
               </Button>
             </div>
-          </DrawerFooter>
+          </DrawerFooter> */}
         </Drawer>
       </>
     );

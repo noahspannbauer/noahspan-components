@@ -1,54 +1,28 @@
 import {
-  Card as MaterialTailwindCard,
-  CardProps as MaterialTailwindCardProps,
-  CardBody as MaterialTailwindCardBody,
-  CardBodyProps as MaterialTailwindCardBodyProps,
-  CardFooter as MaterialTailwindCardFooter,
-  CardFooterProps as MaterialTailwindCardFooterProps,
-  CardHeader as MaterialTailwindCardHeader,
-  CardHeaderProps as MaterialTailwindCardHeaderProps
-} from '@material-tailwind/react';
+  Card as MuiCard,
+  CardProps as MuiCardProps,
+  CardContent as MuiCardContent,
+  CardContentProps as MuiCardContentProps
+} from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '../../theme';
 
-type CardBodyBaseProps = Pick<
-  MaterialTailwindCardBodyProps,
-  'className' | 'children'
->;
+type CardContentBaseProps = MuiCardContentProps;
 
-export interface CardBodyProps extends CardBodyBaseProps {}
+export interface CardContentProps extends CardContentBaseProps {}
 
-export const CardBody = ({ ...rest }: CardBodyProps) => {
-  return <MaterialTailwindCardBody {...rest} />;
+export const CardContent = ({ ...rest }: CardContentProps) => {
+  return <MuiCardContent {...rest} />;
 };
 
-type CardFooterBaseProps = Pick<
-  MaterialTailwindCardFooterProps,
-  'divider' | 'className' | 'children'
->;
-
-export interface CardFooterProps extends CardFooterBaseProps {}
-
-export const CardFooter = ({ ...rest }: CardFooterProps) => {
-  return <MaterialTailwindCardFooter {...rest} />;
-};
-
-type CardHeaderBaseProps = Pick<
-  MaterialTailwindCardHeaderProps,
-  'variant' | 'color' | 'shadow' | 'floated' | 'className' | 'children'
->;
-
-export interface CardHeaderProps extends CardHeaderBaseProps {}
-
-export const CardHeader = ({ ...rest }: CardHeaderProps) => {
-  return <MaterialTailwindCardHeader {...rest} />;
-};
-
-type CardBaseProps = Pick<
-  MaterialTailwindCardProps,
-  'variant' | 'color' | 'shadow' | 'className' | 'children'
->;
+type CardBaseProps = MuiCardProps;
 
 export interface CardProps extends CardBaseProps {}
 
 export const Card = ({ ...rest }: CardProps) => {
-  return <MaterialTailwindCard {...rest} />;
+  return (
+    <ThemeProvider theme={theme}>
+      <MuiCard {...rest} />
+    </ThemeProvider>
+  );
 };

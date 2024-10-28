@@ -1,16 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { IconButton } from '../iconButton/IconButton';
-import { Table, TableColumnDef } from './Table';
-import { EllipsisVerticalIcon } from '../icons/ellipsesVertical/EllipsisVertical';
-import { Menu, MenuHandler, MenuItem, MenuList } from '../menu/Menu';
-import { EyeIcon } from '../icons/eye/EyeIcon';
-import { PenIcon } from '../icons/pen/PenIcon';
-import { TrashIcon } from '../icons/trash/TrashIcon';
+import { DataTable, TableColumnDef } from './Table';
 
-const meta: Meta<typeof Table> = {
+const meta: Meta<typeof DataTable> = {
   title: 'Components/Table',
-  component: Table
-} satisfies Meta<typeof Table>;
+  component: DataTable
+} satisfies Meta<typeof DataTable>;
 
 export default meta;
 
@@ -77,14 +71,14 @@ const columns: TableColumnDef[] = [
     accessorKey: 'age',
     header: 'Age',
     cellProps: {
-      className: 'text-right'
+      align: 'right'
     }
   },
   {
     accessorKey: 'visits',
     header: 'Visits',
     cellProps: {
-      className: 'text-right'
+      align: 'right'
     }
   },
   {
@@ -95,44 +89,8 @@ const columns: TableColumnDef[] = [
     accessorKey: 'progress',
     header: 'Progress',
     cellProps: {
-      className: 'text-right'
+      align: 'right'
     }
-  },
-  {
-    id: 'actions',
-    header: 'Actions',
-    cellProps: {
-      className: 'text-center'
-    },
-    cell: () => {
-      return (
-        <Menu placement='bottom-end'>
-          <MenuHandler>
-            <div>
-              <IconButton variant='text'>
-                <EllipsisVerticalIcon size='xl' />
-              </IconButton>
-            </div>
-          </MenuHandler>
-          <MenuList>
-            <MenuItem className='flex gap-3'>
-              <PenIcon size='lg' />
-              Edit
-            </MenuItem>
-            <MenuItem className='flex gap-3'>
-              <EyeIcon size='lg' />
-              View
-            </MenuItem>
-            <hr className='my-3' />
-            <MenuItem className='flex gap-3'>
-              <TrashIcon size='lg' />
-              Delete
-            </MenuItem>
-          </MenuList>
-        </Menu>
-      );
-    },
-    enableSorting: false
   }
 ];
 

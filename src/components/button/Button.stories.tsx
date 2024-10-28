@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
+import { SaveIcon } from '../icons/save/SaveIcon';
+import { CircleXmarkIcon } from '../icons/circleXmark/CircleXmark';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
@@ -8,48 +10,20 @@ const meta: Meta<typeof Button> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Button>;
 
-export const Filled: Story = {
-  args: {},
-  render: function Render(args) {
-    return <Button {...args}>Filled</Button>;
+export const Primary: Story = {
+  args: {
+    label: 'Save',
+    startIcon: <SaveIcon />,
+    variant: 'contained'
   }
 };
 
-export const Gradient: Story = {
+export const Secondary: Story = {
   args: {
-    variant: 'gradient'
-  },
-  render: function Render(args) {
-    return <Button {...args}>Gradient</Button>;
-  }
-};
-
-export const Outlined: Story = {
-  args: {
+    label: 'Cancel',
+    startIcon: <CircleXmarkIcon />,
     variant: 'outlined'
-  },
-  render: function Render(args) {
-    return <Button {...args}>Outlined</Button>;
-  }
-};
-
-export const Text: Story = {
-  args: {
-    variant: 'text'
-  },
-  render: function Render(args) {
-    return <Button {...args}>Text</Button>;
-  }
-};
-
-export const Disabled: Story = {
-  args: {
-    variant: 'outlined',
-    disabled: true
-  },
-  render: function Render(args) {
-    return <Button {...args}>Disabled</Button>;
   }
 };
