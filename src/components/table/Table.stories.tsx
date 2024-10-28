@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Table, TableColumnDef } from './Table';
+import { DataTable, TableColumnDef } from './Table';
 
-const meta: Meta<typeof Table> = {
+const meta: Meta<typeof DataTable> = {
   title: 'Components/Table',
-  component: Table
-} satisfies Meta<typeof Table>;
+  component: DataTable
+} satisfies Meta<typeof DataTable>;
 
 export default meta;
 
@@ -71,14 +71,14 @@ const columns: TableColumnDef[] = [
     accessorKey: 'age',
     header: 'Age',
     cellProps: {
-      className: 'text-right'
+      align: 'right'
     }
   },
   {
     accessorKey: 'visits',
     header: 'Visits',
     cellProps: {
-      className: 'text-right'
+      align: 'right'
     }
   },
   {
@@ -89,7 +89,7 @@ const columns: TableColumnDef[] = [
     accessorKey: 'progress',
     header: 'Progress',
     cellProps: {
-      className: 'text-right'
+      align: 'right'
     }
   }
 ];

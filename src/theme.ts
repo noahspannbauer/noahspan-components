@@ -74,6 +74,18 @@ const theme = createTheme({
           borderRadius: 10
         }
       }
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          borderBottom: 'none'
+        }
+      }
+    },
+    MuiTextField: {
+      defaultProps: {
+        size: 'small'
+      }
     }
   }
 });
