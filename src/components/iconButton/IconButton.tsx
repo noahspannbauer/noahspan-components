@@ -1,15 +1,12 @@
 import {
-  IconButton as MaterialTailwindIconButton,
-  IconButtonProps as MaterialTailwindIconButtonProps
-} from '@material-tailwind/react';
+  IconButton as MuiIconButton,
+  IconButtonProps as MuiIconButtonProps
+} from '@mui/material';
 
-type IconButtonBaseProps = Pick<
-  MaterialTailwindIconButtonProps,
-  'variant' | 'size' | 'color' | 'ripple' | 'className' | 'children' | 'onClick'
->;
+type IconButtonBaseProps = MuiIconButtonProps;
 
 export interface IconButtonProps extends IconButtonBaseProps {}
 
 export const IconButton = ({ ...rest }: IconButtonProps) => {
-  return <MaterialTailwindIconButton {...rest} />;
+  return <MuiIconButton {...rest} />;
 };

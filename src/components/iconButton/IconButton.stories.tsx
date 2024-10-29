@@ -12,49 +12,10 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Filled: Story = {
-  render: function Render() {
+export const Default: Story = {
+  render: () => {
     return (
       <IconButton>
-        <FontAwesomeIcon icon={faPlus} />
-      </IconButton>
-    );
-  }
-};
-
-export const Gradient: Story = {
-  args: {
-    variant: 'gradient'
-  },
-  render: function Render(args) {
-    return (
-      <IconButton {...args}>
-        <FontAwesomeIcon icon={faPlus} />
-      </IconButton>
-    );
-  }
-};
-
-export const Outlined: Story = {
-  args: {
-    variant: 'outlined'
-  },
-  render: function Render(args) {
-    return (
-      <IconButton {...args}>
-        <FontAwesomeIcon icon={faPlus} />
-      </IconButton>
-    );
-  }
-};
-
-export const Text: Story = {
-  args: {
-    variant: 'text'
-  },
-  render: function Render(args) {
-    return (
-      <IconButton {...args}>
         <FontAwesomeIcon icon={faPlus} />
       </IconButton>
     );
