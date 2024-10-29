@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Navbar } from './Navbar';
 import { Avatar } from '../avatar/Avatar';
 import { Button } from '../button/Button';
