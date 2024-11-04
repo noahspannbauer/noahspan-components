@@ -34,7 +34,9 @@ export const Default: Story = {
 
     return (
       <>
-        <Button label='Open Menu' onClick={handleClick} variant='contained' />
+        <Button onClick={handleClick} variant='contained'>
+          Open Menu
+        </Button>
         <Menu open={open}>
           <MenuItem onClick={onOpenCloseMenu}>Item 1</MenuItem>
           <MenuItem onClick={onOpenCloseMenu}>Item 2</MenuItem>

@@ -9,7 +9,7 @@ export interface PaperProps extends PaperBaseProps {}
 export const Paper = ({ ...rest }: PaperProps) => {
   return (
     <ThemeProvider theme={theme}>
-      <MuiPaper {...rest}>Blah</MuiPaper>
+      <MuiPaper {...rest} />
     </ThemeProvider>
   );
 };

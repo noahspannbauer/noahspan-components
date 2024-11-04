@@ -36,19 +36,13 @@ export const Default: Story = {
 
     return (
       <>
-        <Button
-          variant='contained'
-          onClick={onOpenCloseDrawer}
-          label='Open Drawer'
-        >
+        <Button variant='contained' onClick={onOpenCloseDrawer}>
           Open Drawer
         </Button>
         <Drawer onClose={onOpenCloseDrawer} {...args}>
-          <Button
-            onClick={onOpenCloseDrawer}
-            label='Close Drawer'
-            variant='contained'
-          />
+          <Button onClick={onOpenCloseDrawer} variant='contained'>
+            Close Drawer
+          </Button>
           {/* <DrawerHeader text='Drawer Header' onClose={onOpenCloseDrawer} />
           <DrawerBody className='mb-6'>
             Drawer Body content goes here

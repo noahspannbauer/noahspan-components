@@ -8,7 +8,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from '../../theme';
 
 export interface NavbarProps {
-  handlePageClick?: () => void;
+  handlePageClick?: (url: string) => void;
   handleSignIn: () => void;
   isAuthenticated: boolean;
   logo: React.ReactNode;
@@ -51,10 +51,11 @@ export const Navbar = ({
               pages.map((page) => (
                 <Button
                   key={page.name}
-                  label={page.name}
-                  onClick={handlePageClick}
+                  onClick={() => handlePageClick!(page.url)}
                   sx={{ my: 2, color: '#212121', display: 'block' }}
-                />
+                >
+                  {page.name}
+                </Button>
               ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
@@ -88,7 +89,7 @@ export const Navbar = ({
                 </>
               )}
               {!isAuthenticated && (
-                <Button label='Sign In' onClick={handleSignIn} />
+                <Button onClick={handleSignIn}>Sign In</Button>
               )}
             </>
           </Box>

@@ -8,13 +8,13 @@ import theme from '../../theme';
 type ButtonBaseProps = MuiButtonProps;
 
 export interface ButtonProps extends ButtonBaseProps {
-  label?: string;
+  loading?: boolean;
 }
 
-export const Button = ({ label, ...rest }: ButtonProps) => {
+export const Button = ({ loading, ...rest }: ButtonProps) => {
   return (
     <ThemeProvider theme={theme}>
-      <MuiButton {...rest}>{label}</MuiButton>
+      <MuiButton {...rest} />
     </ThemeProvider>
   );
 };

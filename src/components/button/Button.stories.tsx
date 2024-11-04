@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
-    label: 'Save',
+    children: 'Save',
     startIcon: <SaveIcon />,
     variant: 'contained'
   }
@@ -22,7 +22,7 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   args: {
-    label: 'Cancel',
+    children: 'Cancel',
     startIcon: <CircleXmarkIcon />,
     variant: 'outlined'
   }

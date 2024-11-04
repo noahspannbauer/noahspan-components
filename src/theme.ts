@@ -37,7 +37,7 @@ const theme = createTheme({
     },
     MuiButton: {
       defaultProps: {
-        size: 'large'
+        size: 'small'
       },
       styleOverrides: {
         root: {
@@ -65,13 +65,18 @@ const theme = createTheme({
         }
       }
     },
+    MuiCircularProgress: {
+      defaultProps: {
+        color: 'primary'
+      }
+    },
     MuiSelect: {
       defaultProps: {
         size: 'small'
       },
       styleOverrides: {
         nativeInput: {
-          borderRadius: 10
+          borderRadius: 9
         }
       }
     },
@@ -85,6 +90,13 @@ const theme = createTheme({
     MuiTextField: {
       defaultProps: {
         size: 'small'
+      },
+      styleOverrides: {
+        root: {
+          '& .MuiOutlinedInput-root': {
+            borderRadius: 9
+          }
+        }
       }
     }
   }

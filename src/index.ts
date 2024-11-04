@@ -17,6 +17,7 @@ export * from './components/drawer/Drawer';
 export * from './components/icons/edit/EditIcon';
 export * from './components/icons/ellipsesVertical/EllipsisVertical';
 export * from './components/icons/eye/EyeIcon';
+export * from './components/grid/Grid';
 export * from './components/iconButton/IconButton';
 export * from './components/input/Input';
 export * from './components/list/List';
