@@ -1,61 +1,52 @@
 import {
-  Dialog as MaterialTailwindDialog,
-  DialogProps as MaterialTailwindDialogProps,
-  DialogBody as MaterialTailwindDialogBody,
-  DialogBodyProps as MaterialTailwindDialogBodyProps,
-  DialogFooter as MaterialTailwindDialogFooter,
-  DialogFooterProps as MaterialTailwindDialogFooterProps,
-  DialogHeader as MaterialTailwindDialogHeader,
-  DialogHeaderProps as MaterialTailwindDialogHeaderProps
-} from '@material-tailwind/react';
+  Dialog as MuiDialog,
+  DialogProps as MuiDialogProps,
+  DialogActions as MuiDialogActions,
+  DialogActionsProps as MuiDialogActionsProps,
+  DialogContent as MuiDialogContent,
+  DialogContentProps as MuiDialogContentProps,
+  DialogContentText as MuiDialogContentText,
+  DialogContentTextProps as MuiDialogContentTextProps,
+  DialogTitle as MuiDialogTitle,
+  DialogTitleProps as MuiDialogTitleProps
+} from '@mui/material';
 
-type DialogBodyBaseProps = Pick<
-  MaterialTailwindDialogBodyProps,
-  'divider' | 'className' | 'children'
->;
+type DialogActionsBaseProps = MuiDialogActionsProps;
 
-export interface DialogBodyProps extends DialogBodyBaseProps {}
+export interface DialogActionsProps extends DialogActionsBaseProps {}
 
-export const DialogBody = ({ ...rest }: DialogBodyBaseProps) => {
-  return <MaterialTailwindDialogBody {...rest} />;
+export const DialogActions = ({ ...rest }: DialogActionsProps) => {
+  return <MuiDialogActions {...rest} />;
 };
 
-type DialogFooterBaseProps = Pick<
-  MaterialTailwindDialogFooterProps,
-  'className' | 'children'
->;
+type DialogContentBaseProps = MuiDialogContentProps;
 
-export interface DialogFooterProps extends DialogFooterBaseProps {}
+export interface DialogContentProps extends DialogContentBaseProps {}
 
-export const DialogFooter = ({ ...rest }: DialogFooterProps) => {
-  return <MaterialTailwindDialogFooter {...rest} />;
+export const DialogContent = ({ ...rest }: DialogContentProps) => {
+  return <MuiDialogContent {...rest} />;
 };
 
-type DialogHeaderBaseProps = Pick<
-  MaterialTailwindDialogHeaderProps,
-  'className' | 'children'
->;
+type DialogContentTextBaseProps = MuiDialogContentTextProps;
 
-export interface DialogHeaderProps extends DialogHeaderBaseProps {}
+export interface DialogContentTextProps extends DialogContentTextBaseProps {}
 
-export const DialogHeader = ({ ...rest }: DialogHeaderProps) => {
-  return <MaterialTailwindDialogHeader {...rest} />;
+export const DialogContentText = ({ ...rest }: DialogContentTextProps) => {
+  return <MuiDialogContentText {...rest} />;
 };
 
-type DialogBaseProps = Pick<
-  MaterialTailwindDialogProps,
-  | 'open'
-  | 'handler'
-  | 'size'
-  | 'dismiss'
-  | 'animate'
-  | 'className'
-  | 'children'
-  | 'style'
->;
+type DialogTitleBaseProps = MuiDialogTitleProps;
+
+export interface DialogTitleProps extends DialogTitleBaseProps {}
+
+export const DialogTitle = ({ ...rest }: DialogTitleProps) => {
+  return <MuiDialogTitle {...rest} />;
+};
+
+type DialogBaseProps = MuiDialogProps;
 
 export interface DialogProps extends DialogBaseProps {}
 
 export const Dialog = ({ ...rest }: DialogProps) => {
-  return <MaterialTailwindDialog {...rest} />;
+  return <MuiDialog {...rest} />;
 };

@@ -22,9 +22,6 @@ export const Default: Story = {
         width: '1000px'
       }
     },
-    sx: {
-      width: '1000px'
-    },
     onTransitionEnter: fn()
   },
   render: function Render(args) {

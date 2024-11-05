@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Dialog, DialogBody, DialogFooter, DialogHeader } from './Dialog';
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle
+} from './Dialog';
 import { Button } from '../button/Button';
 
 const meta: Meta<typeof Dialog> = {
@@ -22,16 +28,22 @@ export const Confirm: Story = {
 
     return (
       <>
-        <Button onClick={handleOpen}>Open Dialog</Button>
-        <Dialog open={open} handler={handleOpen}>
-          <DialogHeader>This is the dialog header</DialogHeader>
-          <DialogBody>This is the dialog body.</DialogBody>
-          <DialogFooter>
-            <Button className='mr-1' onClick={handleOpen} variant='outlined'>
+        <Button onClick={handleOpen} variant='contained'>
+          Open Dialog
+        </Button>
+        <Dialog onClose={handleOpen} open={open}>
+          <DialogTitle>This is the dialog header</DialogTitle>
+          <DialogContent>
+            <DialogContentText>This is the dialog body.</DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleOpen} variant='outlined'>
               Cancel
             </Button>
-            <Button onClick={handleOpen}>OK</Button>
-          </DialogFooter>
+            <Button onClick={handleOpen} variant='contained'>
+              OK
+            </Button>
+          </DialogActions>
         </Dialog>
       </>
     );
