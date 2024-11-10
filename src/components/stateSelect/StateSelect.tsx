@@ -1,4 +1,3 @@
-import { MenuItem } from '../menu/Menu';
 import { Select, SelectProps } from '../select/Select';
 
 const states: { label: string; value: string }[] = [
@@ -200,23 +199,10 @@ const states: { label: string; value: string }[] = [
   }
 ];
 
-type StateSelectBaseProps = Omit<SelectProps, 'children'>;
+type StateSelectBaseProps = Omit<SelectProps, 'options'>;
 
-export interface StateSelectProps extends StateSelectBaseProps {}
+interface StateSelectProps extends StateSelectBaseProps {}
 
-export const StateSelect = ({
-  menuItemProps,
-  options = states,
-  ...rest
-}: StateSelectProps) => {
-  return (
-    <Select options={options} {...rest}>
-      {states &&
-        states.map((state) => (
-          <MenuItem {...menuItemProps} value={state.value}>
-            {state.label}
-          </MenuItem>
-        ))}
-    </Select>
-  );
+export const StateSelect = ({ ...rest }: StateSelectProps) => {
+  return <Select {...rest} options={states} />;
 };

@@ -3,18 +3,29 @@ import { Person } from '@microsoft/microsoft-graph-types';
 import { TextField } from '../textField/TextField';
 
 export interface PeoplePickerProps {
-  loading: boolean;
-  onChange: (event: React.SyntheticEvent, value: string) => void;
-  results: Person[];
+  disabled?: boolean;
+  loading?: boolean;
+  onInputChanged: (event: React.SyntheticEvent, value: string) => void;
+  onSelectionChanged: (
+    event: React.SyntheticEvent,
+    value: Person,
+    reason: string
+  ) => void;
+  options: Person[];
+  value: Person;
 }
 
 export const PeoplePicker = ({
+  disabled,
   loading,
-  onChange,
-  results
+  onInputChanged,
+  onSelectionChanged,
+  options,
+  value
 }: PeoplePickerProps) => {
   return (
     <Autocomplete
+      disabled={disabled}
       disableClearable
       filterOptions={(x) => x}
       freeSolo
@@ -27,8 +38,11 @@ export const PeoplePicker = ({
         option.userPrincipalName === value.userPrincipalName
       }
       loading={loading}
-      onInputChange={onChange}
-      options={results}
+      onChange={(event, value, reason) =>
+        onSelectionChanged(event, value as Person, reason as string)
+      }
+      onInputChange={onInputChanged}
+      options={options}
       renderInput={(params) => (
         <TextField
           {...params}
@@ -40,6 +54,7 @@ export const PeoplePicker = ({
           }}
         />
       )}
+      value={value}
     />
   );
 };
