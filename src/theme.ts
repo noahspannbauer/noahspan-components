@@ -75,15 +75,8 @@ const theme = createTheme({
         size: 'small'
       },
       styleOverrides: {
-        nativeInput: {
-          borderRadius: 9
-        }
-      }
-    },
-    MuiTableCell: {
-      styleOverrides: {
         root: {
-          borderBottom: 'none'
+          borderRadius: 9
         }
       }
     },

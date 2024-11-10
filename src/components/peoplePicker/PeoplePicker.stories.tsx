@@ -37,16 +37,9 @@ const people: Person[] = [
 
 export const Outlined: Story = {
   args: {
-    results: [],
-    loading: false
-    // listItemProps: {
-    //   children: null,
-    //   onClick: (event: React.MouseEvent<HTMLDivElement>) => {
-    //     const divElement: HTMLDivElement = event.target as HTMLDivElement;
-
-    //     console.log(divElement.id);
-    //   }
-    // }
+    options: [],
+    loading: false,
+    value: { userPrincipalName: '', displayName: '' }
   },
   parameters: {
     backgrounds: {
@@ -54,8 +47,8 @@ export const Outlined: Story = {
     },
     layout: 'padded'
   },
-  render: function Render(args) {
-    const [{ _results }, updateArgs] = useArgs();
+  render: () => {
+    const [{ options, value }, updateArgs] = useArgs();
 
     const handleOnChange = (
       _event: React.SyntheticEvent,
@@ -74,9 +67,24 @@ export const Outlined: Story = {
         results = [];
       }
 
-      updateArgs({ results: results });
+      updateArgs({ options: results });
     };
 
-    return <PeoplePicker {...args} onChange={handleOnChange} />;
+    const handleSelectionChanged = (
+      _event: React.SyntheticEvent,
+      value: Person,
+      _reason: string
+    ) => {
+      updateArgs({ value: value });
+    };
+
+    return (
+      <PeoplePicker
+        onInputChanged={handleOnChange}
+        onSelectionChanged={handleSelectionChanged}
+        options={options}
+        value={value}
+      />
+    );
   }
 };

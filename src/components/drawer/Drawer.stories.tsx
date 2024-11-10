@@ -40,20 +40,6 @@ export const Default: Story = {
           <Button onClick={onOpenCloseDrawer} variant='contained'>
             Close Drawer
           </Button>
-          {/* <DrawerHeader text='Drawer Header' onClose={onOpenCloseDrawer} />
-          <DrawerBody className='mb-6'>
-            Drawer Body content goes here
-          </DrawerBody>
-          <DrawerFooter>
-            <div className='mb-6 flex items-center justify-end gap-4'>
-              <Button variant='outlined' onClick={onOpenCloseDrawer}>
-                Cancel
-              </Button>
-              <Button variant='filled' onClick={onOpenCloseDrawer}>
-                Save
-              </Button>
-            </div>
-          </DrawerFooter> */}
         </Drawer>
       </>
     );
