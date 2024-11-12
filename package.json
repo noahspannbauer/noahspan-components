@@ -1,6 +1,6 @@
 {
   "name": "@noahspan/noahspan-components",
-  "version": "0.8.5",
+  "version": "0.8.7",
   "type": "module",
   "files": [
     "dist"
@@ -92,6 +92,7 @@
     "@mui/icons-material": "^6.1.2",
     "@mui/lab": "^6.0.0-beta.14",
     "@mui/material": "^6.1.2",
+    "@mui/x-data-grid": "^7.22.2",
     "@mui/x-date-pickers": "^7.21.0",
     "@storybook/addon-styling": "^1.3.7",
     "@storybook/addon-themes": "^8.3.5",

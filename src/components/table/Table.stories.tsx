@@ -1,11 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { DataTable, TableColumnDef } from './Table';
-import { Box } from '../box/Box';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow
+} from './Table';
 
-const meta: Meta<typeof DataTable> = {
+const meta: Meta<typeof Table> = {
   title: 'Components/Table',
-  component: DataTable
-} satisfies Meta<typeof DataTable>;
+  component: Table
+} satisfies Meta<typeof Table>;
 
 export default meta;
 
@@ -20,7 +26,7 @@ type Person = {
   progress: number;
 };
 
-const data: Person[] = [
+const people: Person[] = [
   {
     firstName: 'tanner',
     lastName: 'linsley',
@@ -47,63 +53,42 @@ const data: Person[] = [
   }
 ];
 
-const columns: TableColumnDef[] = [
-  {
-    id: 'people',
-    header: () => <Box sx={{ textAlign: 'center' }}>People</Box>,
-    columns: [
-      {
-        accessorKey: 'firstName',
-        header: 'First Name',
-        cell: ({ getValue }) => (
-          <div>
-            {getValue<string>().charAt(0).toUpperCase() +
-              getValue<string>().slice(1)}
-          </div>
-        )
-      },
-      {
-        accessorKey: 'lastName',
-        header: 'Last Name',
-        cell: ({ getValue }) => (
-          <div>
-            {getValue<string>().charAt(0).toUpperCase() +
-              getValue<string>().slice(1)}
-          </div>
-        )
-      },
-      {
-        accessorKey: 'age',
-        header: 'Age',
-        cell: ({ getValue }) => (
-          <Box sx={{ textAlign: 'right' }}>{getValue<number>()}</Box>
-        )
-      },
-      {
-        accessorKey: 'visits',
-        header: 'Visits',
-        cell: ({ getValue }) => (
-          <Box sx={{ textAlign: 'right' }}>{getValue<number>()}</Box>
-        )
-      },
-      {
-        accessorKey: 'status',
-        header: 'Status'
-      },
-      {
-        accessorKey: 'progress',
-        header: 'Progress',
-        cell: ({ getValue }) => (
-          <Box sx={{ textAlign: 'right' }}>{getValue<number>()}</Box>
-        )
-      }
-    ]
-  }
-];
-
 export const Basic: Story = {
-  args: {
-    defaultData: data,
-    columns: columns
+  render: () => {
+    return (
+      <TableContainer>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell align='center' colSpan={6}>
+                People
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell align='center'>First Name</TableCell>
+              <TableCell align='center'>Last Name</TableCell>
+              <TableCell align='center'>Age</TableCell>
+              <TableCell align='center'>Visits</TableCell>
+              <TableCell align='center'>Status</TableCell>
+              <TableCell align='center'>Progress</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {people.map((person: Person) => {
+              return (
+                <TableRow>
+                  <TableCell>{person.firstName}</TableCell>
+                  <TableCell>{person.lastName}</TableCell>
+                  <TableCell align='right'>{person.age}</TableCell>
+                  <TableCell align='right'>{person.visits}</TableCell>
+                  <TableCell>{person.status}</TableCell>
+                  <TableCell align='right'>{person.progress}</TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    );
   }
 };
