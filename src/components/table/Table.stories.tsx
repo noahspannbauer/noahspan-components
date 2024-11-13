@@ -1,12 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow
-} from './Table';
+import { ColumnDef, Table } from './Table';
 
 const meta: Meta<typeof Table> = {
   title: 'Components/Table',
@@ -53,42 +46,53 @@ const people: Person[] = [
   }
 ];
 
+const columns: ColumnDef<Person>[] = [
+  {
+    header: 'People',
+    meta: {
+      align: 'center'
+    },
+    columns: [
+      {
+        accessorKey: 'firstName',
+        header: 'First Name'
+      },
+      {
+        accessorKey: 'lastName',
+        header: 'Last Name'
+      },
+      {
+        accessorKey: 'age',
+        header: 'Age',
+        meta: {
+          align: 'right'
+        }
+      },
+      {
+        accessorKey: 'visits',
+        header: 'Visits',
+        meta: {
+          align: 'right'
+        }
+      },
+      {
+        accessorKey: 'status',
+        header: 'Status'
+      },
+      {
+        accessorKey: 'progress',
+        header: 'Progress',
+        meta: {
+          align: 'right'
+        }
+      }
+    ]
+  }
+];
+
 export const Basic: Story = {
-  render: () => {
-    return (
-      <TableContainer>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell align='center' colSpan={6}>
-                People
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell align='center'>First Name</TableCell>
-              <TableCell align='center'>Last Name</TableCell>
-              <TableCell align='center'>Age</TableCell>
-              <TableCell align='center'>Visits</TableCell>
-              <TableCell align='center'>Status</TableCell>
-              <TableCell align='center'>Progress</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {people.map((person: Person) => {
-              return (
-                <TableRow>
-                  <TableCell>{person.firstName}</TableCell>
-                  <TableCell>{person.lastName}</TableCell>
-                  <TableCell align='right'>{person.age}</TableCell>
-                  <TableCell align='right'>{person.visits}</TableCell>
-                  <TableCell>{person.status}</TableCell>
-                  <TableCell align='right'>{person.progress}</TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    );
+  args: {
+    columns: columns,
+    data: people
   }
 };

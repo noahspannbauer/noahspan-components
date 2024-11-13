@@ -9,11 +9,24 @@ import {
   TableContainerProps as MuiTableContainerProps,
   TableHead as MuiTableHead,
   TableHeadProps as MuiTableHeadProps,
+  TablePagination as MuiTablePagination,
+  TablePaginationProps as MuiTablePaginationProps,
   TableRow as MuiTableRow,
   TableRowProps as MuiTableRowProps
 } from '@mui/material';
+import { Paper } from '../paper/Paper';
+import { TablePaginationActions } from './TablePaginationActions';
+import {
+  ColumnDef,
+  flexRender,
+  getCoreRowModel,
+  getPaginationRowModel,
+  useReactTable
+} from '@tanstack/react-table';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../../theme';
+
+export type { ColumnDef };
 
 type TableBodyBaseProps = MuiTableBodyProps;
 
@@ -63,6 +76,18 @@ export const TableHead = ({ ...rest }: TableHeadProps) => {
   );
 };
 
+type TablePaginationBaseProps = MuiTablePaginationProps;
+
+export type TablePaginationProps = TablePaginationBaseProps;
+
+export const TablePagination = ({ ...rest }: TablePaginationProps) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <MuiTablePagination {...rest} />
+    </ThemeProvider>
+  );
+};
+
 type TableRowBaseProps = MuiTableRowProps;
 
 export interface TableRowProps extends TableRowBaseProps {}
@@ -75,14 +100,103 @@ export const TableRow = ({ ...rest }: TableRowProps) => {
   );
 };
 
+// type ColumnDefProps = {
+//   cellProps?: TableCellProps;
+// };
+// export type TableColumnDef = ColumnDef<unknown, unknown> & ColumnDefProps;
+
 type TableBaseProps = MuiTableProps;
 
-export interface TableProps extends TableBaseProps {}
+export interface TableProps extends TableBaseProps {
+  columns: any;
+  data: any;
+}
 
-export const Table = ({ ...rest }: TableProps) => {
+export const Table = ({ columns, data, ...rest }: TableProps) => {
+  const table = useReactTable({
+    data,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel()
+  });
+
+  const { pageSize, pageIndex } = table.getState().pagination;
+
   return (
     <ThemeProvider theme={theme}>
-      <MuiTable {...rest} />
+      <TableContainer component={Paper}>
+        <MuiTable {...rest}>
+          <TableHead>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => {
+                  return (
+                    <TableCell
+                      key={header.id}
+                      colSpan={header.colSpan}
+                      {...header.column.columnDef.meta}
+                    >
+                      {header.isPlaceholder ? null : (
+                        <div>
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                          {/* {header.column.getCanFilter() ? (
+                            <div>
+                              <Filter column={header.column} table={table} />
+                            </div>
+                          ) : null} */}
+                        </div>
+                      )}
+                    </TableCell>
+                  );
+                })}
+              </TableRow>
+            ))}
+          </TableHead>
+          <TableBody>
+            {table.getRowModel().rows.map((row) => {
+              return (
+                <TableRow key={row.id}>
+                  {row.getVisibleCells().map((cell) => {
+                    return (
+                      <TableCell key={cell.id} {...cell.column.columnDef.meta}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </MuiTable>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[10, 25, 50, { label: 'All', value: data.length }]}
+        component='div'
+        count={table.getFilteredRowModel().rows.length}
+        rowsPerPage={pageSize}
+        page={pageIndex}
+        slotProps={{
+          select: {
+            inputProps: { 'aria-label': 'rows per page' },
+            native: true
+          }
+        }}
+        onPageChange={(_, page) => {
+          table.setPageIndex(page);
+        }}
+        onRowsPerPageChange={(event) => {
+          const size = event.target.value ? Number(event.target.value) : 10;
+
+          table.setPageSize(size);
+        }}
+        ActionsComponent={TablePaginationActions}
+      />
     </ThemeProvider>
   );
 };
