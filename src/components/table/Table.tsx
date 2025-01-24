@@ -100,11 +100,6 @@ export const TableRow = ({ ...rest }: TableRowProps) => {
   );
 };
 
-// type ColumnDefProps = {
-//   cellProps?: TableCellProps;
-// };
-// export type TableColumnDef = ColumnDef<unknown, unknown> & ColumnDefProps;
-
 type TableBaseProps = MuiTableProps;
 
 export interface TableProps extends TableBaseProps {
@@ -134,7 +129,7 @@ export const Table = ({ columns, data, ...rest }: TableProps) => {
                     <TableCell
                       key={header.id}
                       colSpan={header.colSpan}
-                      {...header.column.columnDef.meta}
+                      align={header.column.columnDef.meta?.headerAlign}
                     >
                       {header.isPlaceholder ? null : (
                         <div>
@@ -161,7 +156,10 @@ export const Table = ({ columns, data, ...rest }: TableProps) => {
                 <TableRow key={row.id}>
                   {row.getVisibleCells().map((cell) => {
                     return (
-                      <TableCell key={cell.id} {...cell.column.columnDef.meta}>
+                      <TableCell
+                        key={cell.id}
+                        align={cell.column.columnDef.meta?.align}
+                      >
                         {flexRender(
                           cell.column.columnDef.cell,
                           cell.getContext()
