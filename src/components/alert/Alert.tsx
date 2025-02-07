@@ -4,10 +4,7 @@ import {
   AlertTitle as MuiAlertTitle,
   AlertTitleProps as MuiAlertTitleProps
 } from '@mui/material';
-import { TriangleExclamationIcon } from '../icons/triangleExclamation/TriangleExclamation';
-import { CircleInfoIcon } from '../icons/circleInfo/CircleInfo';
-import { CircleXmarkIcon } from '../icons/circleXmark/CircleXmark';
-import { CircleCheckIcon } from '../icons/circleCheck/CircleCheck';
+import { Icon } from '../icon/Icon';
 import { Typography } from '../typography/Typography';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../../theme';
@@ -30,7 +27,7 @@ export const Alert = ({ children, icon, severity, ...rest }: AlertProps) => {
       {severity === 'error' && (
         <MuiAlert
           color='error'
-          icon={<CircleXmarkIcon color='#b10e1c' size='1x' />}
+          icon={<Icon iconName='fa-circle-xmark' color='#b10e1c' size='1x' />}
           severity='info'
           {...rest}
         >
@@ -40,7 +37,7 @@ export const Alert = ({ children, icon, severity, ...rest }: AlertProps) => {
       {severity === 'info' && (
         <MuiAlert
           color='info'
-          icon={<CircleInfoIcon color='#616161' size='1x' />}
+          icon={<Icon iconName='fa-circle-info' color='#616161' size='1x' />}
           severity='info'
           {...rest}
         >
@@ -50,7 +47,7 @@ export const Alert = ({ children, icon, severity, ...rest }: AlertProps) => {
       {severity === 'success' && (
         <MuiAlert
           color='success'
-          icon={<CircleCheckIcon color='#0e700e' size='1x' />}
+          icon={<Icon iconName='fa-circle-check' color='#0e700e' size='1x' />}
           severity='info'
           {...rest}
         >
@@ -60,7 +57,13 @@ export const Alert = ({ children, icon, severity, ...rest }: AlertProps) => {
       {severity === 'warning' && (
         <MuiAlert
           color='warning'
-          icon={<TriangleExclamationIcon color='#bc4b09' size='1x' />}
+          icon={
+            <Icon
+              iconName='fa-triangle-exclamation'
+              color='#bc4b09'
+              size='1x'
+            />
+          }
           severity='info'
           {...rest}
         >

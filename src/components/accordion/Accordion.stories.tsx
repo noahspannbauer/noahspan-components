@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Accordion, AccordionDetails, AccordionSummary } from './Accordion';
 import { useArgs } from '@storybook/preview-api';
-import { ChevronDownIcon } from '../icons/chevronDown/ChevronDownIcon';
+import { Icon } from '../icon/Icon';
 import { Typography } from '../typography/Typography';
 
 const meta: Meta<typeof Accordion> = {
@@ -39,7 +39,7 @@ export const Default: Story = {
             handleChange(event, expanded, 'panel1')
           }
         >
-          <AccordionSummary expandIcon={<ChevronDownIcon />}>
+          <AccordionSummary expandIcon={<Icon iconName='fa-chevron-down' />}>
             Accordion 1 Header
           </AccordionSummary>
           <AccordionDetails>Accordion 1 Body</AccordionDetails>
@@ -50,7 +50,7 @@ export const Default: Story = {
             handleChange(event, expanded, 'panel2')
           }
         >
-          <AccordionSummary expandIcon={<ChevronDownIcon />}>
+          <AccordionSummary expandIcon={<Icon iconName='fa-chevron-down' />}>
             <Typography>Accordion 2 Header</Typography>
           </AccordionSummary>
           <AccordionDetails>
