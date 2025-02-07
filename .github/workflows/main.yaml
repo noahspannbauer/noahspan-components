@@ -1,9 +1,10 @@
-name: Pull Request
+name: Main
 
 on:
+  workflow_call:
   push:
-    tags:
-      - '*'
+    branches:
+      - main
 
 jobs:
   build-and-deploy:
