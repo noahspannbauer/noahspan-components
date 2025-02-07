@@ -20,6 +20,14 @@ jobs:
           version: 10
           run_install: true
 
+      - name: Install
+        run: |
+          pnpm install
+
+      - name: Build
+        run: |
+          pnpm build-storybook
+
       - name: Build and Deploy
         id: buildd-and-deploy
         uses: Azure/static-web-apps-deploy@v1
@@ -28,7 +36,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: 'upload'
           app_location: '/'
-          app_build_command: 'pnpm run build-storybook'
-          api_location: ''
+          skip_app_build: true
           output_location: 'storybook-static'
           deployment_environment: 'development'
