@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
-import { SaveIcon } from '../icons/save/SaveIcon';
-import { CircleXmarkIcon } from '../icons/circleXmark/CircleXmark';
+import { Icon } from '../icon/Icon';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
@@ -15,7 +14,7 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   args: {
     children: 'Save',
-    startIcon: <SaveIcon />,
+    startIcon: <Icon iconName='fa-save' />,
     variant: 'contained'
   }
 };
@@ -23,7 +22,7 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     children: 'Cancel',
-    startIcon: <CircleXmarkIcon />,
+    startIcon: <Icon iconName='fa-circle-xmark' />,
     variant: 'outlined'
   }
 };
