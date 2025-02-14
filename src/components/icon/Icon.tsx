@@ -3,6 +3,18 @@ import {
   FontAwesomeIconProps
 } from '@fortawesome/react-fontawesome';
 import {
+  faAngular,
+  faGithub,
+  faGolang,
+  faJava,
+  faJs,
+  faLinkedin,
+  faPython,
+  faVuejs
+} from '@fortawesome/free-brands-svg-icons';
+import {
+  faArrowUpRightFromSquare,
+  faBaseball,
   faCalendar,
   faChevronDown,
   faChevronLeft,
@@ -15,6 +27,8 @@ import {
   faEllipsisVertical,
   faEye,
   faGear,
+  faGlobe,
+  faHeart,
   faPen,
   faPlane,
   faPlus,
@@ -23,6 +37,7 @@ import {
   faSignOut,
   faTrash,
   faTriangleExclamation,
+  faTruckFast,
   faUserTie,
   faXmark
 } from '@fortawesome/free-solid-svg-icons';
@@ -72,6 +87,18 @@ export interface IconProps extends FontAwesomeIconBaseProps {
 export const Icon = ({ iconName, ...rest }: IconProps) => {
   const icons = [
     {
+      name: 'fa-angular',
+      icon: faAngular
+    },
+    {
+      name: 'fa-arrow-up-right-from-square',
+      icon: faArrowUpRightFromSquare
+    },
+    {
+      name: 'fa-baseball',
+      icon: faBaseball
+    },
+    {
       name: 'fa-calendar',
       icon: faCalendar
     },
@@ -120,6 +147,34 @@ export const Icon = ({ iconName, ...rest }: IconProps) => {
       icon: faGear
     },
     {
+      name: 'fa-github',
+      icon: faGithub
+    },
+    {
+      name: 'fa-globe',
+      icon: faGlobe
+    },
+    {
+      name: 'fa-golang',
+      icon: faGolang
+    },
+    {
+      name: 'fa-heart',
+      icon: faHeart
+    },
+    {
+      name: 'fa-java',
+      icon: faJava
+    },
+    {
+      name: 'fa-js',
+      icon: faJs
+    },
+    {
+      name: 'fa-linkedin',
+      icon: faLinkedin
+    },
+    {
       name: 'fa-pen',
       icon: faPen
     },
@@ -134,6 +189,10 @@ export const Icon = ({ iconName, ...rest }: IconProps) => {
     {
       name: 'fa-puzzle-piece',
       icon: faPuzzlePiece
+    },
+    {
+      name: 'fa-python',
+      icon: faPython
     },
     {
       name: 'fa-save',
@@ -152,8 +211,16 @@ export const Icon = ({ iconName, ...rest }: IconProps) => {
       icon: faTriangleExclamation
     },
     {
+      name: 'fa-truck-fast',
+      icon: faTruckFast
+    },
+    {
       name: 'fa-user-tie',
       icon: faUserTie
+    },
+    {
+      name: 'fa-vuejs',
+      icon: faVuejs
     },
     {
       name: 'fa-xmark',

@@ -10,6 +10,27 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+export const Angular: Story = {
+  args: {
+    size: '2xl',
+    iconName: 'fa-angular'
+  }
+};
+
+export const ArrowUpRightFromSquare: Story = {
+  args: {
+    size: '2xl',
+    iconName: 'fa-arrow-up-right-from-square'
+  }
+};
+
+export const Baseball: Story = {
+  args: {
+    size: '2xl',
+    iconName: 'fa-baseball'
+  }
+};
+
 export const Calendar: Story = {
   args: {
     size: '2xl',
@@ -94,6 +115,55 @@ export const Gear: Story = {
   }
 };
 
+export const GitHub: Story = {
+  args: {
+    size: '2xl',
+    iconName: 'fa-github'
+  }
+};
+
+export const Globe: Story = {
+  args: {
+    size: '2xl',
+    iconName: 'fa-globe'
+  }
+};
+
+export const GoLang: Story = {
+  args: {
+    size: '2xl',
+    iconName: 'fa-golang'
+  }
+};
+
+export const Heart: Story = {
+  args: {
+    size: '2xl',
+    iconName: 'fa-heart'
+  }
+};
+
+export const Java: Story = {
+  args: {
+    size: '2xl',
+    iconName: 'fa-java'
+  }
+};
+
+export const JavaScript: Story = {
+  args: {
+    size: '2xl',
+    iconName: 'fa-js'
+  }
+};
+
+export const LinkedIn: Story = {
+  args: {
+    size: '2xl',
+    iconName: 'fa-linkedin'
+  }
+};
+
 export const Pen: Story = {
   args: {
     size: '2xl',
@@ -122,6 +192,13 @@ export const PuzzlePiece: Story = {
   }
 };
 
+export const Python: Story = {
+  args: {
+    size: '2xl',
+    iconName: 'fa-python'
+  }
+};
+
 export const Save: Story = {
   args: {
     size: '2xl',
@@ -143,10 +220,17 @@ export const Trash: Story = {
   }
 };
 
-export const TrianngleExclamation: Story = {
+export const TriangleExclamation: Story = {
   args: {
     size: '2xl',
     iconName: 'fa-triangle-exclamation'
+  }
+};
+
+export const Truck: Story = {
+  args: {
+    size: '2xl',
+    iconName: 'fa-truck-fast'
   }
 };
 
@@ -154,6 +238,13 @@ export const UserTie: Story = {
   args: {
     size: '2xl',
     iconName: 'fa-user-tie'
+  }
+};
+
+export const Vue: Story = {
+  args: {
+    size: '2xl',
+    iconName: 'fa-vuejs'
   }
 };
 
