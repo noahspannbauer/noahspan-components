@@ -32,6 +32,9 @@ type FontAwesomeIconBaseProps = Pick<FontAwesomeIconProps, 'color' | 'size'>;
 
 export interface IconProps extends FontAwesomeIconBaseProps {
   iconName:
+    | 'fa-angular'
+    | 'fa-arrow-up-right-from-square'
+    | 'fa-baseball'
     | 'fa-calendar'
     | 'fa-chevron-down'
     | 'fa-chevron-left'
@@ -44,15 +47,25 @@ export interface IconProps extends FontAwesomeIconBaseProps {
     | 'fa-ellipsis-vertical'
     | 'fa-eye'
     | 'fa-gear'
+    | 'fa-github'
+    | 'fa-globe'
+    | 'fa-golang'
+    | 'fa-heart'
+    | 'fa-java'
+    | 'fa-js'
+    | 'fa-linkedin'
     | 'fa-pen'
     | 'fa-plane'
     | 'fa-plus'
     | 'fa-puzzle-piece'
+    | 'fa-python'
     | 'fa-save'
     | 'fa-sign-out'
     | 'fa-trash'
     | 'fa-triangle-exclamation'
+    | 'fa-truck-fast'
     | 'fa-user-tie'
+    | 'fa-vuejs'
     | 'fa-xmark';
 }
 
