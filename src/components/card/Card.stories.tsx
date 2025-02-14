@@ -1,6 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Card, CardContent } from './Card';
+import { Button } from '../button/Button';
+import { Card, CardActions, CardContent } from './Card';
+import { Icon } from '../icon/Icon';
 import { Typography } from '../typography/Typography';
+import { CardHeader } from '@mui/material';
 
 const meta: Meta<typeof Card> = {
   title: 'Components/Card',
@@ -15,12 +18,19 @@ export const Simple: Story = {
   render: function Render() {
     return (
       <Card>
+        <CardHeader
+          action={<Icon iconName='fa-ellipsis-vertical' />}
+          avatar={<Icon iconName='fa-heart' />}
+          subheader='Sub Heading'
+          title='Heading'
+        />
         <CardContent>
-          <Typography variant='h5' className='mb-2'>
-            Heading
-          </Typography>
           <Typography>Card content goes here</Typography>
         </CardContent>
+        <CardActions>
+          <Button>Click Me</Button>
+          <Button>Click Me</Button>
+        </CardActions>
       </Card>
     );
   }
