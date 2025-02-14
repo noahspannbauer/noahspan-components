@@ -10,5 +10,5 @@ jobs:
     name: build-and-deploy
     uses: ./.github/workflows/build-and-deploy.yaml
     with:
-      environment_name: development
+      environment_name: production
     secrets: inherit
