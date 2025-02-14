@@ -1,4 +1,4 @@
-name: Feature
+name: Production
 
 on:
   push:
