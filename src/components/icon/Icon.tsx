@@ -16,6 +16,7 @@ import {
   faArrowUpRightFromSquare,
   faBaseball,
   faCalendar,
+  faCamera,
   faChevronDown,
   faChevronLeft,
   faChevronRight,
@@ -29,12 +30,14 @@ import {
   faGear,
   faGlobe,
   faHeart,
+  faMapLocationDot,
   faPen,
   faPlane,
   faPlus,
   faPuzzlePiece,
   faSave,
   faSignOut,
+  faTicket,
   faTrash,
   faTriangleExclamation,
   faTruckFast,
@@ -43,187 +46,205 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
+export enum IconName {
+  ANGULAR = 'fa-angular',
+  ARROW_UP_RIGHT_FROM_SQUARE = 'fa-arrow-up-right-from-square',
+  BASEBALL = 'fa-baseball',
+  CALENDAR = 'fa-calendar',
+  CAMERA = 'fa-camera',
+  CHEVRON_DOWN = 'fa-chevron-down',
+  CHEVRON_LEFT = 'fa-chevron-left',
+  CHEVRON_RIGHT = 'fa-chevron-right',
+  CHEVRON_UP = 'fa-chevron-up',
+  CIRCLE_CHECK = 'fa-circle-check',
+  CIRCLE_INFO = 'fa-circle-info',
+  CIRCLE_XMARK = 'fa-circle-xmark',
+  EDIT = 'fa-edit',
+  ELLIPSIS_VERTICAL = 'fa-ellipsis-vertical',
+  EYE = 'fa-eye',
+  GEAR = 'fa-gear',
+  GITHUB = 'fa-github',
+  GLOBE = 'fa-globe',
+  GOLANG = 'fa-golang',
+  HEART = 'fa-heart',
+  JAVA = 'fa-java',
+  JAVASCRIPT = 'fa-js',
+  LINKEDIN = 'fa-linkedin',
+  MAP_LOCATION_DOT = 'fa-map-location-dot',
+  PLANE = 'fa-plane',
+  PLUS = 'fa-plus',
+  PEN = 'fa-pen',
+  PUZZLE_PIECE = 'fa-puzzle-piece',
+  PYTHON = 'fa-python',
+  SAVE = 'fa-save',
+  SIGN_OUT = 'fa-sign-out',
+  TICKET = 'fa-ticket',
+  TRASH = 'fa-trash',
+  TRANGLE_EXCLAMATION = 'fa-triangle-exclamation',
+  TRUCK_FAST = 'fa-truck-fast',
+  USER_TIE = 'fa-user-tie',
+  VUE = 'fa-vuejs',
+  XMARK = 'fa-xmark'
+}
+
 type FontAwesomeIconBaseProps = Pick<FontAwesomeIconProps, 'color' | 'size'>;
 
 export interface IconProps extends FontAwesomeIconBaseProps {
-  iconName:
-    | 'fa-angular'
-    | 'fa-arrow-up-right-from-square'
-    | 'fa-baseball'
-    | 'fa-calendar'
-    | 'fa-chevron-down'
-    | 'fa-chevron-left'
-    | 'fa-chevron-right'
-    | 'fa-chevron-up'
-    | 'fa-circle-check'
-    | 'fa-circle-info'
-    | 'fa-circle-xmark'
-    | 'fa-edit'
-    | 'fa-ellipsis-vertical'
-    | 'fa-eye'
-    | 'fa-gear'
-    | 'fa-github'
-    | 'fa-globe'
-    | 'fa-golang'
-    | 'fa-heart'
-    | 'fa-java'
-    | 'fa-js'
-    | 'fa-linkedin'
-    | 'fa-pen'
-    | 'fa-plane'
-    | 'fa-plus'
-    | 'fa-puzzle-piece'
-    | 'fa-python'
-    | 'fa-save'
-    | 'fa-sign-out'
-    | 'fa-trash'
-    | 'fa-triangle-exclamation'
-    | 'fa-truck-fast'
-    | 'fa-user-tie'
-    | 'fa-vuejs'
-    | 'fa-xmark';
+  iconName: IconName;
 }
 
 export const Icon = ({ iconName, ...rest }: IconProps) => {
   const icons = [
     {
-      name: 'fa-angular',
+      name: IconName.ANGULAR,
       icon: faAngular
     },
     {
-      name: 'fa-arrow-up-right-from-square',
+      name: IconName.ARROW_UP_RIGHT_FROM_SQUARE,
       icon: faArrowUpRightFromSquare
     },
     {
-      name: 'fa-baseball',
+      name: IconName.BASEBALL,
       icon: faBaseball
     },
     {
-      name: 'fa-calendar',
+      name: IconName.CALENDAR,
       icon: faCalendar
     },
     {
-      name: 'fa-chevron-down',
+      name: IconName.CAMERA,
+      icon: faCamera
+    },
+    {
+      name: IconName.CHEVRON_DOWN,
       icon: faChevronDown
     },
     {
-      name: 'fa-chevron-left',
+      name: IconName.CHEVRON_LEFT,
       icon: faChevronLeft
     },
     {
-      name: 'fa-chevron-right',
+      name: IconName.CHEVRON_RIGHT,
       icon: faChevronRight
     },
     {
-      name: 'fa-chevron-up',
+      name: IconName.CHEVRON_UP,
       icon: faChevronUp
     },
     {
-      name: 'fa-circle-check',
+      name: IconName.CIRCLE_CHECK,
       icon: faCircleCheck
     },
     {
-      name: 'fa-circle-info',
+      name: IconName.CIRCLE_INFO,
       icon: faCircleInfo
     },
     {
-      name: 'fa-circle-xmark',
+      name: IconName.CIRCLE_XMARK,
       icon: faCircleXmark
     },
     {
-      name: 'fa-edit',
+      name: IconName.EDIT,
       icon: faEdit
     },
     {
-      name: 'fa-ellipsis-vertical',
+      name: IconName.ELLIPSIS_VERTICAL,
       icon: faEllipsisVertical
     },
     {
-      name: 'fa-eye',
+      name: IconName.EYE,
       icon: faEye
     },
     {
-      name: 'fa-gear',
+      name: IconName.GEAR,
       icon: faGear
     },
     {
-      name: 'fa-github',
+      name: IconName.GITHUB,
       icon: faGithub
     },
     {
-      name: 'fa-globe',
+      name: IconName.GLOBE,
       icon: faGlobe
     },
     {
-      name: 'fa-golang',
+      name: IconName.GOLANG,
       icon: faGolang
     },
     {
-      name: 'fa-heart',
+      name: IconName.HEART,
       icon: faHeart
     },
     {
-      name: 'fa-java',
+      name: IconName.JAVA,
       icon: faJava
     },
     {
-      name: 'fa-js',
+      name: IconName.JAVASCRIPT,
       icon: faJs
     },
     {
-      name: 'fa-linkedin',
+      name: IconName.LINKEDIN,
       icon: faLinkedin
     },
     {
-      name: 'fa-pen',
+      name: IconName.MAP_LOCATION_DOT,
+      icon: faMapLocationDot
+    },
+    {
+      name: IconName.PEN,
       icon: faPen
     },
     {
-      name: 'fa-plane',
+      name: IconName.PLANE,
       icon: faPlane
     },
     {
-      name: 'fa-plus',
+      name: IconName.PLUS,
       icon: faPlus
     },
     {
-      name: 'fa-puzzle-piece',
+      name: IconName.PUZZLE_PIECE,
       icon: faPuzzlePiece
     },
     {
-      name: 'fa-python',
+      name: IconName.PYTHON,
       icon: faPython
     },
     {
-      name: 'fa-save',
+      name: IconName.SAVE,
       icon: faSave
     },
     {
-      name: 'fa-sign-out',
+      name: IconName.SIGN_OUT,
       icon: faSignOut
     },
     {
-      name: 'fa-trash',
+      name: IconName.TRASH,
       icon: faTrash
     },
     {
-      name: 'fa-triangle-exclamation',
+      name: IconName.TICKET,
+      icon: faTicket
+    },
+    {
+      name: IconName.TRANGLE_EXCLAMATION,
       icon: faTriangleExclamation
     },
     {
-      name: 'fa-truck-fast',
+      name: IconName.TRUCK_FAST,
       icon: faTruckFast
     },
     {
-      name: 'fa-user-tie',
+      name: IconName.USER_TIE,
       icon: faUserTie
     },
     {
-      name: 'fa-vuejs',
+      name: IconName.VUE,
       icon: faVuejs
     },
     {
-      name: 'fa-xmark',
+      name: IconName.XMARK,
       icon: faXmark
     }
   ];
