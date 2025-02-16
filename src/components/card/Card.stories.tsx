@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Button } from '../button/Button';
 import { Card, CardActions, CardContent } from './Card';
-import { Icon } from '../icon/Icon';
+import { Icon, IconName } from '../icon/Icon';
 import { Typography } from '../typography/Typography';
 import { CardHeader } from '@mui/material';
 
@@ -19,8 +19,8 @@ export const Simple: Story = {
     return (
       <Card>
         <CardHeader
-          action={<Icon iconName='fa-ellipsis-vertical' />}
-          avatar={<Icon iconName='fa-heart' />}
+          action={<Icon iconName={IconName.ELLIPSIS_VERTICAL} />}
+          avatar={<Icon iconName={IconName.HEART} />}
           subheader='Sub Heading'
           title='Heading'
         />
