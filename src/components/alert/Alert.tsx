@@ -4,7 +4,7 @@ import {
   AlertTitle as MuiAlertTitle,
   AlertTitleProps as MuiAlertTitleProps
 } from '@mui/material';
-import { Icon } from '../icon/Icon';
+import { Icon, IconName } from '../icon/Icon';
 import { Typography } from '../typography/Typography';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../../theme';
@@ -27,7 +27,9 @@ export const Alert = ({ children, icon, severity, ...rest }: AlertProps) => {
       {severity === 'error' && (
         <MuiAlert
           color='error'
-          icon={<Icon iconName='fa-circle-xmark' color='#b10e1c' size='1x' />}
+          icon={
+            <Icon iconName={IconName.CIRCLE_XMARK} color='#b10e1c' size='1x' />
+          }
           severity='info'
           {...rest}
         >
@@ -37,7 +39,9 @@ export const Alert = ({ children, icon, severity, ...rest }: AlertProps) => {
       {severity === 'info' && (
         <MuiAlert
           color='info'
-          icon={<Icon iconName='fa-circle-info' color='#616161' size='1x' />}
+          icon={
+            <Icon iconName={IconName.CIRCLE_INFO} color='#616161' size='1x' />
+          }
           severity='info'
           {...rest}
         >
@@ -47,7 +51,9 @@ export const Alert = ({ children, icon, severity, ...rest }: AlertProps) => {
       {severity === 'success' && (
         <MuiAlert
           color='success'
-          icon={<Icon iconName='fa-circle-check' color='#0e700e' size='1x' />}
+          icon={
+            <Icon iconName={IconName.CIRCLE_CHECK} color='#0e700e' size='1x' />
+          }
           severity='info'
           {...rest}
         >
@@ -59,7 +65,7 @@ export const Alert = ({ children, icon, severity, ...rest }: AlertProps) => {
           color='warning'
           icon={
             <Icon
-              iconName='fa-triangle-exclamation'
+              iconName={IconName.TRANGLE_EXCLAMATION}
               color='#bc4b09'
               size='1x'
             />

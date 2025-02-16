@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Navbar } from './Navbar';
 import { MenuItem } from '../menu/Menu';
-import { Icon } from '../icon/Icon';
+import { Icon, IconName } from '../icon/Icon';
 import { Typography } from '../typography/Typography';
 
 const meta: Meta<typeof Navbar> = {
@@ -39,7 +39,7 @@ export const Nav: Story = {
     const Settings = () => {
       return (
         <MenuItem>
-          <Icon iconName='fa-sign-out' />
+          <Icon iconName={IconName.SIGN_OUT} />
           <Typography sx={{ marginLeft: '10px', textAlign: 'center' }}>
             Sign Out
           </Typography>
@@ -51,7 +51,7 @@ export const Nav: Story = {
       <Navbar
         handleSignIn={() => null}
         isAuthenticated={true}
-        logo={<Icon iconName='fa-plane' size='2x' />}
+        logo={<Icon iconName={IconName.PLANE} size='2x' />}
         pages={pages}
         settings={<Settings />}
         userPhoto=''

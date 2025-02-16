@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { IconButton } from './IconButton';
-import { Icon } from '../icon/Icon';
+import { Icon, IconName } from '../icon/Icon';
 
 const meta: Meta<typeof IconButton> = {
   title: 'Components/IconButton',
@@ -15,7 +15,7 @@ export const Default: Story = {
   render: () => {
     return (
       <IconButton>
-        <Icon iconName='fa-plus' />
+        <Icon iconName={IconName.PLUS} />
       </IconButton>
     );
   }
