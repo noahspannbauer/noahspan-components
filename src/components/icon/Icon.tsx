@@ -14,6 +14,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import {
   faArrowUpRightFromSquare,
+  faBars,
   faBaseball,
   faCalendar,
   faCamera,
@@ -24,6 +25,8 @@ import {
   faCircleCheck,
   faCircleInfo,
   faCircleXmark,
+  faCloud,
+  faCubes,
   faEdit,
   faEllipsisVertical,
   faEye,
@@ -31,6 +34,7 @@ import {
   faGlobe,
   faHeart,
   faMapLocationDot,
+  faMobile,
   faPen,
   faPlane,
   faPlus,
@@ -49,6 +53,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 export enum IconName {
   ANGULAR = 'fa-angular',
   ARROW_UP_RIGHT_FROM_SQUARE = 'fa-arrow-up-right-from-square',
+  BARS = 'fa-bars',
   BASEBALL = 'fa-baseball',
   CALENDAR = 'fa-calendar',
   CAMERA = 'fa-camera',
@@ -59,6 +64,8 @@ export enum IconName {
   CIRCLE_CHECK = 'fa-circle-check',
   CIRCLE_INFO = 'fa-circle-info',
   CIRCLE_XMARK = 'fa-circle-xmark',
+  CLOUD = 'fa-cloud',
+  CUBES = 'fa-cubes',
   EDIT = 'fa-edit',
   ELLIPSIS_VERTICAL = 'fa-ellipsis-vertical',
   EYE = 'fa-eye',
@@ -71,6 +78,7 @@ export enum IconName {
   JAVASCRIPT = 'fa-js',
   LINKEDIN = 'fa-linkedin',
   MAP_LOCATION_DOT = 'fa-map-location-dot',
+  MOBILE = 'fa-mobile',
   PLANE = 'fa-plane',
   PLUS = 'fa-plus',
   PEN = 'fa-pen',
@@ -102,6 +110,10 @@ export const Icon = ({ iconName, ...rest }: IconProps) => {
     {
       name: IconName.ARROW_UP_RIGHT_FROM_SQUARE,
       icon: faArrowUpRightFromSquare
+    },
+    {
+      name: IconName.BARS,
+      icon: faBars
     },
     {
       name: IconName.BASEBALL,
@@ -142,6 +154,14 @@ export const Icon = ({ iconName, ...rest }: IconProps) => {
     {
       name: IconName.CIRCLE_XMARK,
       icon: faCircleXmark
+    },
+    {
+      name: IconName.CLOUD,
+      icon: faCloud
+    },
+    {
+      name: IconName.CUBES,
+      icon: faCubes
     },
     {
       name: IconName.EDIT,
@@ -190,6 +210,10 @@ export const Icon = ({ iconName, ...rest }: IconProps) => {
     {
       name: IconName.MAP_LOCATION_DOT,
       icon: faMapLocationDot
+    },
+    {
+      name: IconName.MOBILE,
+      icon: faMobile
     },
     {
       name: IconName.PEN,

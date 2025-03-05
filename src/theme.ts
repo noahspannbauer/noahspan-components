@@ -25,46 +25,24 @@ const theme = createTheme({
       light: '#C03E49',
       dark: '#7B0913',
       contrastText: '#FFFFFF'
+    },
+    background: {
+      default: '#efefef'
     }
   },
   components: {
-    // MuiAlert: {
-    //   styleOverrides: {
-    //     root: {
-    //       borderRadius: 9
-    //     }
-    //   }
-    // },
     MuiButton: {
       defaultProps: {
         size: 'small'
       }
-      // styleOverrides: {
-      //   root: {
-      //     borderRadius: 9
-      //   },
-      //   outlined: {
-      //     color: '#212121',
-      //     borderWidth: 2,
-      //     borderColor: '#212121'
-      //   }
-      // }
     },
     MuiAppBar: {
       styleOverrides: {
         root: {
           backgroundColor: '#FFFFFF'
-          // borderRadius: 9
         }
       }
     },
-    // MuiCard: {
-    //   styleOverrides: {
-    //     root: {
-    //       borderRadius: 9
-    //     }
-    //   }
-    // },
     MuiCircularProgress: {
       defaultProps: {
         color: 'primary'
@@ -74,23 +52,11 @@ const theme = createTheme({
       defaultProps: {
         size: 'small'
       }
-      // styleOverrides: {
-      //   root: {
-      //     borderRadius: 9
-      //   }
-      // }
     },
     MuiTextField: {
       defaultProps: {
         size: 'small'
       }
-      // styleOverrides: {
-      //   root: {
-      //     '& .MuiOutlinedInput-root': {
-      //       borderRadius: 9
-      //     }
-      //   }
-      // }
     }
   }
 });
