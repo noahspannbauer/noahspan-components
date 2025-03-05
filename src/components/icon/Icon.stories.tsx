@@ -24,6 +24,13 @@ export const ArrowUpRightFromSquare: Story = {
   }
 };
 
+export const Bars: Story = {
+  args: {
+    size: '2xl',
+    iconName: IconName.BARS
+  }
+};
+
 export const Baseball: Story = {
   args: {
     size: '2xl',
@@ -91,6 +98,20 @@ export const CircleXMark: Story = {
   args: {
     size: '2xl',
     iconName: IconName.CIRCLE_XMARK
+  }
+};
+
+export const Cloud: Story = {
+  args: {
+    size: '2xl',
+    iconName: IconName.CLOUD
+  }
+};
+
+export const Cubes: Story = {
+  args: {
+    size: '2xl',
+    iconName: IconName.CUBES
   }
 };
 
@@ -175,6 +196,13 @@ export const MapLocationDot: Story = {
   args: {
     size: '2xl',
     iconName: IconName.MAP_LOCATION_DOT
+  }
+};
+
+export const Mobile: Story = {
+  args: {
+    size: '2xl',
+    iconName: IconName.MOBILE
   }
 };
 
