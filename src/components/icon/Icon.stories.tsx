@@ -115,6 +115,13 @@ export const Cubes: Story = {
   }
 };
 
+export const Download: Story = {
+  args: {
+    size: '2xl',
+    iconName: IconName.DOWNLOAD
+  }
+};
+
 export const Edit: Story = {
   args: {
     size: '2xl',
@@ -280,6 +287,13 @@ export const Truck: Story = {
   args: {
     size: '2xl',
     iconName: IconName.TRUCK_FAST
+  }
+};
+
+export const Upload: Story = {
+  args: {
+    size: '2xl',
+    iconName: IconName.UPLOAD
   }
 };
 

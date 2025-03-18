@@ -30,6 +30,8 @@ import {
   faEdit,
   faEllipsisVertical,
   faEye,
+  faFileArrowDown,
+  faFileArrowUp,
   faGear,
   faGlobe,
   faHeart,
@@ -66,6 +68,7 @@ export enum IconName {
   CIRCLE_XMARK = 'fa-circle-xmark',
   CLOUD = 'fa-cloud',
   CUBES = 'fa-cubes',
+  DOWNLOAD = 'fa-file-arrow-down',
   EDIT = 'fa-edit',
   ELLIPSIS_VERTICAL = 'fa-ellipsis-vertical',
   EYE = 'fa-eye',
@@ -90,6 +93,7 @@ export enum IconName {
   TRASH = 'fa-trash',
   TRANGLE_EXCLAMATION = 'fa-triangle-exclamation',
   TRUCK_FAST = 'fa-truck-fast',
+  UPLOAD = 'fa-file-arrow-up',
   USER_TIE = 'fa-user-tie',
   VUE = 'fa-vuejs',
   XMARK = 'fa-xmark'
@@ -162,6 +166,10 @@ export const Icon = ({ iconName, ...rest }: IconProps) => {
     {
       name: IconName.CUBES,
       icon: faCubes
+    },
+    {
+      name: IconName.DOWNLOAD,
+      icon: faFileArrowDown
     },
     {
       name: IconName.EDIT,
@@ -258,6 +266,10 @@ export const Icon = ({ iconName, ...rest }: IconProps) => {
     {
       name: IconName.TRUCK_FAST,
       icon: faTruckFast
+    },
+    {
+      name: IconName.UPLOAD,
+      icon: faFileArrowUp
     },
     {
       name: IconName.USER_TIE,
