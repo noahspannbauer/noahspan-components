@@ -1,3 +1,4 @@
+import { useMediaQuery } from '@mui/material';
 import './styles.css';
 
 export * from './components/accordion/Accordion';
@@ -25,3 +26,7 @@ export * from './components/table/Table';
 export * from './components/tabs/Tabs';
 export * from './components/textField/TextField';
 export * from './components/typography/Typography';
+
+export { useMediaQuery };
+
+export * from './theme';
