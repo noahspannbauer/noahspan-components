@@ -1,10 +1,14 @@
 import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel';
 import './Carousel.css';
 
+export interface Slide {
+  slide: React.ReactNode;
+}
+
 export interface CarouselProps {
   slideHeight: number;
   slideWidth: number;
-  slides: { slide: React.ReactNode }[];
+  slides: Slide[];
   totalSlides: number;
   visibleSlides?: number;
 }
@@ -24,7 +28,7 @@ export const Carousel = ({
       totalSlides={totalSlides}
     >
       <Slider>
-        {slides.map((slide, index) => {
+        {slides.map((slide: Slide, index: number) => {
           return <Slide index={index}>{slide.slide}</Slide>;
         })}
       </Slider>
