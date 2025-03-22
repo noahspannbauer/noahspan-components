@@ -1,5 +1,6 @@
 import { useMediaQuery } from '@mui/material';
 import './styles.css';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 
 export * from './components/accordion/Accordion';
 export * from './components/alert/Alert';
@@ -8,6 +9,7 @@ export * from './components/box/Box';
 export * from './components/button/Button';
 export * from './components/card/Card';
 export * from './components/container/Container';
+export * from './components/carousel/Carousel';
 export * from './components/datePicker/DatePicker';
 export * from './components/dataGrid/DataGrid';
 export * from './components/dialog/Dialog';

@@ -76,6 +76,9 @@ importers:
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
+      pure-react-carousel:
+        specifier: ^1.32.0
+        version: 1.32.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -85,6 +88,12 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
+      react-slick:
+        specifier: ^0.30.3
+        version: 0.30.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      slick-carousel:
+        specifier: ^1.8.1
+        version: 1.8.1(jquery@3.7.1)
     devDependencies:
       '@azure/static-web-apps-cli':
         specifier: ^2.0.2
@@ -128,6 +137,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.2.19
         version: 18.3.5(@types/react@18.2.39)
+      '@types/react-slick':
+        specifier: ^0.23.13
+        version: 0.23.13
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.8.0
         version: 7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)
@@ -3426,6 +3438,12 @@ packages:
     peerDependencies:
       '@types/react': 18.2.39
 
+  '@types/react-slick@0.23.13':
+    resolution:
+      {
+        integrity: sha512-bNZfDhe/L8t5OQzIyhrRhBr/61pfBcWaYJoq6UDqFtv5LMwfg4NsVDD2J8N01JqdAdxLjOt66OZEp6PX+dGs/A==
+      }
+
   '@types/react-transition-group@4.4.12':
     resolution:
       {
@@ -4761,11 +4779,24 @@ packages:
       }
     engines: { node: '>=4.0.0' }
 
+  deep-freeze@0.0.1:
+    resolution:
+      {
+        integrity: sha512-Z+z8HiAvsGwmjqlphnHW5oz6yWlOwu6EQfFTjmeTWlDeda3FS2yv3jhq35TX/ewmsnqB+RX2IdsIOyjJCQN5tg==
+      }
+
   deep-is@0.1.4:
     resolution:
       {
         integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==
       }
+
+  deepmerge@2.2.1:
+    resolution:
+      {
+        integrity: sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==
+      }
+    engines: { node: '>=0.10.0' }
 
   deepmerge@4.2.2:
     resolution:
@@ -5044,6 +5075,12 @@ packages:
       }
     engines: { node: '>=10.13.0' }
 
+  enquire.js@2.1.6:
+    resolution:
+      {
+        integrity: sha512-/KujNpO+PT63F7Hlpu4h3pE3TokKRHN26JYmQpPyjkRD/N57R7bPDNojMXdi7uveAKjYB7yQnartCxZnFWr0Xw==
+      }
+
   entities@4.5.0:
     resolution:
       {
@@ -5062,6 +5099,12 @@ packages:
     resolution:
       {
         integrity: sha512-Ds/TEoZjwggRoz/Q2O7SE3i4Jm66mqTDfmdHdq/7DKVk3bro9Q8h6WdXKdPqFLMoqxrDK5SVRzHVPOS6uuGtrg==
+      }
+
+  equals@1.0.5:
+    resolution:
+      {
+        integrity: sha512-wI15a6ZoaaXPv+55+Vh2Kqn3+efKRv8QPtcGTjW5xmanMnQzESdAt566jevtMZyt3W/jwLDTzXpMph5ECDJ2zg==
       }
 
   errno@0.1.8:
@@ -6437,10 +6480,22 @@ packages:
         integrity: sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==
       }
 
+  jkroso-type@1.1.1:
+    resolution:
+      {
+        integrity: sha512-zZgay+fPG6PgMUrpyFADmQmvLo39+AZa7Gc5pZhev2RhDxwANEq2etwD8d0e6rTg5NkwOIlQmaEmns3draC6Ng==
+      }
+
   joi@17.13.3:
     resolution:
       {
         integrity: sha512-otDA4ldcIx+ZXsKHWmp0YizCweVRZG96J10b0FevjfuncLO1oX59THoAmHkNubYJ+9gWsYsp5k8v4ib6oDv1fA==
+      }
+
+  jquery@3.7.1:
+    resolution:
+      {
+        integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==
       }
 
   js-tokens@4.0.0:
@@ -6511,6 +6566,12 @@ packages:
     resolution:
       {
         integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==
+      }
+
+  json2mq@0.2.0:
+    resolution:
+      {
+        integrity: sha512-SzoRg7ux5DWTII9J2qkrZrqV1gt+rTaoufMxEzXbS26Uid0NwaJd123HcoB80TgubEppxxIGdNxCx50fEoEWQA==
       }
 
   json5@1.0.2:
@@ -6718,6 +6779,12 @@ packages:
         integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==
       }
     engines: { node: '>=10' }
+
+  lodash.debounce@4.0.8:
+    resolution:
+      {
+        integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==
+      }
 
   lodash.get@4.4.2:
     resolution:
@@ -7841,6 +7908,15 @@ packages:
       }
     engines: { node: '>=12.20' }
 
+  pure-react-carousel@1.32.0:
+    resolution:
+      {
+        integrity: sha512-RW0zKjjId1Xmspcqdu3v0pmlce3BVDACJ0fzt1+ZPJ4GxqJbIqt2kPAh1e5M19S5BDewihnq6kz4kIaGXleO3w==
+      }
+    peerDependencies:
+      react: 15.x || 16.x || 17.x || 18.x
+      react-dom: 15.x || 16.x || 17.x || 18.x
+
   qs@6.14.0:
     resolution:
       {
@@ -7985,6 +8061,15 @@ packages:
       '@types/react':
         optional: true
 
+  react-slick@0.30.3:
+    resolution:
+      {
+        integrity: sha512-B4x0L9GhkEWUMApeHxr/Ezp2NncpGc+5174R02j+zFiWuYboaq98vmxwlpafZfMjZic1bjdIqqmwLDcQY0QaFA==
+      }
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
   react-style-singleton@2.2.3:
     resolution:
       {
@@ -8126,6 +8211,12 @@ packages:
     resolution:
       {
         integrity: sha512-K/BG6eIky/SBpzfHZv/dd+9JBFiS4SWV7FIujVyJRux6e45+73RaUHXLmIR1f7WOMaQ0U1km6qwklRQxpJJY0w==
+      }
+
+  resize-observer-polyfill@1.5.1:
+    resolution:
+      {
+        integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
       }
 
   resolve-from@4.0.0:
@@ -8534,6 +8625,14 @@ packages:
       }
     engines: { node: '>=18' }
 
+  slick-carousel@1.8.1:
+    resolution:
+      {
+        integrity: sha512-XB9Ftrf2EEKfzoQXt3Nitrt/IPbT+f1fgqBdoxO3W/+JYvtEOW6EgxnWfr9GH6nmULv7Y2tPmEX3koxThVmebA==
+      }
+    peerDependencies:
+      jquery: '>=1.8.0'
+
   smtp-address-parser@1.0.10:
     resolution:
       {
@@ -8618,6 +8717,12 @@ packages:
         integrity: sha512-aqD2Q0144Z+/RqG52NeHEkZauTAUWJO8c6yTftGJKO3Tja5tUgIfmIl6kExvhtxSDP7fXB6DvzkfMpCd/F3G+Q==
       }
     engines: { node: '>=0.6.19' }
+
+  string-convert@0.2.1:
+    resolution:
+      {
+        integrity: sha512-u/1tdPl4yQnPBjnVrmdLo9gtuLvELKsAoRapekWggdiQNvvvum+jYF329d84NAa660KQw7pB2n36KrIKVoXa3A==
+      }
 
   string-width@4.2.3:
     resolution:
@@ -11819,6 +11924,10 @@ snapshots:
     dependencies:
       '@types/react': 18.2.39
 
+  '@types/react-slick@0.23.13':
+    dependencies:
+      '@types/react': 18.2.39
+
   '@types/react-transition-group@4.4.12(@types/react@18.2.39)':
     dependencies:
       '@types/react': 18.2.39
@@ -12689,7 +12798,11 @@ snapshots:
 
   deep-extend@0.6.0: {}
 
+  deep-freeze@0.0.1: {}
+
   deep-is@0.1.4: {}
+
+  deepmerge@2.2.1: {}
 
   deepmerge@4.2.2: {}
 
@@ -12836,11 +12949,17 @@ snapshots:
       graceful-fs: 4.2.11
       tapable: 2.2.1
 
+  enquire.js@2.1.6: {}
+
   entities@4.5.0: {}
 
   environment@1.1.0: {}
 
   eol@0.9.1: {}
+
+  equals@1.0.5:
+    dependencies:
+      jkroso-type: 1.1.1
 
   errno@0.1.8:
     dependencies:
@@ -13813,6 +13932,8 @@ snapshots:
 
   jju@1.4.0: {}
 
+  jkroso-type@1.1.1: {}
+
   joi@17.13.3:
     dependencies:
       '@hapi/hoek': 9.3.0
@@ -13820,6 +13941,8 @@ snapshots:
       '@sideway/address': 4.1.5
       '@sideway/formula': 3.0.1
       '@sideway/pinpoint': 2.0.0
+
+  jquery@3.7.1: {}
 
   js-tokens@4.0.0: {}
 
@@ -13852,6 +13975,10 @@ snapshots:
   json-source-map@0.6.1: {}
 
   json-stable-stringify-without-jsonify@1.0.1: {}
+
+  json2mq@0.2.0:
+    dependencies:
+      string-convert: 0.2.1
 
   json5@1.0.2:
     dependencies:
@@ -14011,6 +14138,8 @@ snapshots:
   locate-path@6.0.0:
     dependencies:
       p-locate: 5.0.0
+
+  lodash.debounce@4.0.8: {}
 
   lodash.get@4.4.2: {}
 
@@ -14618,6 +14747,16 @@ snapshots:
     dependencies:
       escape-goat: 4.0.0
 
+  pure-react-carousel@1.32.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      '@babel/runtime': 7.26.7
+      deep-freeze: 0.0.1
+      deepmerge: 2.2.1
+      equals: 1.0.5
+      prop-types: 15.8.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   qs@6.14.0:
     dependencies:
       side-channel: 1.1.0
@@ -14707,6 +14846,16 @@ snapshots:
       use-sidecar: 1.1.3(@types/react@18.2.39)(react@18.3.1)
     optionalDependencies:
       '@types/react': 18.2.39
+
+  react-slick@0.30.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      classnames: 2.3.2
+      enquire.js: 2.1.6
+      json2mq: 0.2.0
+      lodash.debounce: 4.0.8
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      resize-observer-polyfill: 1.5.1
 
   react-style-singleton@2.2.3(@types/react@18.2.39)(react@18.3.1):
     dependencies:
@@ -14799,6 +14948,8 @@ snapshots:
   requires-port@1.0.0: {}
 
   reselect@5.1.1: {}
+
+  resize-observer-polyfill@1.5.1: {}
 
   resolve-from@4.0.0: {}
 
@@ -15090,6 +15241,10 @@ snapshots:
       ansi-styles: 6.2.1
       is-fullwidth-code-point: 5.0.0
 
+  slick-carousel@1.8.1(jquery@3.7.1):
+    dependencies:
+      jquery: 3.7.1
+
   smtp-address-parser@1.0.10:
     dependencies:
       nearley: 2.20.1
@@ -15126,6 +15281,8 @@ snapshots:
       - utf-8-validate
 
   string-argv@0.3.2: {}
+
+  string-convert@0.2.1: {}
 
   string-width@4.2.3:
     dependencies:
