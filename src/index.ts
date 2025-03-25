@@ -15,6 +15,7 @@ export * from './components/drawer/Drawer';
 export * from './components/grid/Grid';
 export * from './components/icon/Icon';
 export * from './components/iconButton/IconButton';
+export * from './components/linearProgress/LinearProgress';
 export * from './components/menu/Menu';
 export * from './components/navbar/Navbar';
 export * from './components/paper/Paper';
