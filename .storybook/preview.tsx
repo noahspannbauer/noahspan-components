@@ -8,7 +8,6 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import '@fontsource/material-icons';
 import '../src/styles.css';
-import 'pure-react-carousel/dist/react-carousel.es.css';
 
 const preview: Preview = {
   decorators: [(Story) => <Story />],
