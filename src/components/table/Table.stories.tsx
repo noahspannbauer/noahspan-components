@@ -55,7 +55,8 @@ const columns: ColumnDef<Person>[] = [
     columns: [
       {
         accessorKey: 'firstName',
-        header: 'First Name'
+        header: 'First Name',
+        footer: 'TOTALS'
       },
       {
         accessorKey: 'lastName',
@@ -71,6 +72,10 @@ const columns: ColumnDef<Person>[] = [
       {
         accessorKey: 'visits',
         header: 'Visits',
+        footer: (info) =>
+          info.table
+            .getFilteredRowModel()
+            .rows.reduce((total, row) => total + row.getValue('visits'), 0),
         meta: {
           align: 'right'
         }

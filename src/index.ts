@@ -24,6 +24,7 @@ export * from './components/select/Select';
 export * from './components/skeleton/Skeleton';
 export * from './components/spinner/Spinner';
 export * from './components/stateSelect/StateSelect';
+export * from './components/stack/Stack';
 export * from './components/table/Table';
 export * from './components/tabs/Tabs';
 export * from './components/textField/TextField';
