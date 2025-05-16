@@ -129,7 +129,7 @@ export const Table = ({ columns, data, ...rest }: TableProps) => {
                     <TableCell
                       key={header.id}
                       colSpan={header.colSpan}
-                      // align={header.column.columnDef.meta?.headerAlign}
+                      align={header.column.columnDef.meta?.headerAlign}
                     >
                       {header.isPlaceholder ? null : (
                         <div>
@@ -151,26 +151,53 @@ export const Table = ({ columns, data, ...rest }: TableProps) => {
             ))}
           </TableHead>
           <TableBody>
-            {table.getRowModel().rows.map((row) => {
-              return (
-                <TableRow key={row.id}>
-                  {row.getVisibleCells().map((cell) => {
-                    return (
-                      <TableCell
-                        key={cell.id}
-                        // align={cell.column.columnDef.meta?.align}
-                      >
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
-                        )}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
-              );
-            })}
+            <>
+              {table.getRowModel().rows.map((row) => {
+                return (
+                  <TableRow key={row.id}>
+                    {row.getVisibleCells().map((cell) => {
+                      return (
+                        <TableCell
+                          key={cell.id}
+                          align={cell.column.columnDef.meta?.align}
+                        >
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
+            </>
           </TableBody>
+          <TableHead>
+            {table.getFooterGroups().map((footerGroup, index) => {
+              if (index === 0) {
+                return (
+                  <TableRow key={footerGroup.id}>
+                    {footerGroup.headers.map((header) => {
+                      return (
+                        <TableCell
+                          key={header.id}
+                          align={header.column.columnDef.meta?.align}
+                        >
+                          {header.isPlaceholder
+                            ? null
+                            : flexRender(
+                                header.column.columnDef.footer,
+                                header.getContext()
+                              )}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              }
+            })}
+          </TableHead>
         </MuiTable>
       </TableContainer>
       <TablePagination
