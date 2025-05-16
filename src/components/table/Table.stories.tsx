@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ColumnDef, Table } from './Table';
+import { HeaderContext } from '@tanstack/react-table';
 
 const meta: Meta<typeof Table> = {
   title: 'Components/Table',
@@ -72,7 +73,7 @@ const columns: ColumnDef<Person>[] = [
       {
         accessorKey: 'visits',
         header: 'Visits',
-        footer: (info) =>
+        footer: (info: HeaderContext<Person, any>) =>
           info.table
             .getFilteredRowModel()
             .rows.reduce(

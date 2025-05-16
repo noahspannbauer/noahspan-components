@@ -17,16 +17,20 @@ import {
 import { Paper } from '../paper/Paper';
 import { TablePaginationActions } from './TablePaginationActions';
 import {
+  CellContext,
   ColumnDef,
   flexRender,
   getCoreRowModel,
   getPaginationRowModel,
+  HeaderContext,
   useReactTable
 } from '@tanstack/react-table';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../../theme';
 
+export type { CellContext };
 export type { ColumnDef };
+export type { HeaderContext };
 
 type TableBodyBaseProps = MuiTableBodyProps;
 
