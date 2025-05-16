@@ -75,7 +75,10 @@ const columns: ColumnDef<Person>[] = [
         footer: (info) =>
           info.table
             .getFilteredRowModel()
-            .rows.reduce((total, row) => total + row.getValue('visits'), 0),
+            .rows.reduce(
+              (total, row) => total + (row.getValue('visits') as number),
+              0
+            ),
         meta: {
           align: 'right'
         }
