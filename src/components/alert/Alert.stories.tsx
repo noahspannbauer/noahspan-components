@@ -13,27 +13,27 @@ type Story = StoryObj<typeof Alert>;
 export const Info: Story = {
   args: {
     children: 'This is an info alert',
-    severity: 'info'
+    color: 'default'
   }
 };
 
 export const Warning: Story = {
   args: {
     children: 'This is a warning alert',
-    severity: 'warning'
+    color: 'warning'
   }
 };
 
 export const Error: Story = {
   args: {
     children: 'This is an error alert',
-    severity: 'error'
+    color: 'danger'
   }
 };
 
 export const Success: Story = {
   args: {
     children: 'This is a success alert',
-    severity: 'success'
+    color: 'success'
   }
 };
