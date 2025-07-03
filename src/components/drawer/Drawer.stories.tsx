@@ -1,8 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useArgs } from '@storybook/preview-api';
-import { Drawer } from './Drawer';
+import {
+  Drawer,
+  DrawerBody,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader
+} from './Drawer';
 import { Button } from '../button/Button';
-import { fn } from '@storybook/test';
 
 const meta: Meta<typeof Drawer> = {
   title: 'Components/Drawer',
@@ -15,14 +20,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    open: false,
-    anchor: 'right',
-    PaperProps: {
-      sx: {
-        width: '1000px'
-      }
-    },
-    onTransitionEnter: fn()
+    isOpen: false
   },
   render: function Render(args) {
     const [{ open }, updateArgs] = useArgs();
@@ -33,13 +31,46 @@ export const Default: Story = {
 
     return (
       <>
-        <Button variant='contained' onClick={onOpenCloseDrawer}>
-          Open Drawer
-        </Button>
-        <Drawer onClose={onOpenCloseDrawer} {...args}>
-          <Button onClick={onOpenCloseDrawer} variant='contained'>
-            Close Drawer
-          </Button>
+        <Button onPress={onOpenCloseDrawer}>Open Drawer</Button>
+        <Drawer isOpen={args.isOpen} onOpenChange={onOpenCloseDrawer}>
+          <DrawerContent>
+            {(onOpenCloseDrawer) => (
+              <>
+                <DrawerHeader className='flex flex-col gap-1'>
+                  Drawer Title
+                </DrawerHeader>
+                <DrawerBody>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Nullam pulvinar risus non risus hendrerit venenatis.
+                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Nullam pulvinar risus non risus hendrerit venenatis.
+                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
+                  </p>
+                  <p>
+                    Magna exercitation reprehenderit magna aute tempor cupidatat
+                    consequat elit dolor adipisicing. Mollit dolor eiusmod sunt
+                    ex incididunt cillum quis. Velit duis sit officia eiusmod
+                    Lorem aliqua enim laboris do dolor eiusmod. Et mollit
+                    incididunt nisi consectetur esse laborum eiusmod pariatur
+                    proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
+                  </p>
+                </DrawerBody>
+                <DrawerFooter>
+                  <Button
+                    color='danger'
+                    variant='light'
+                    onPress={onOpenCloseDrawer}
+                  >
+                    Close
+                  </Button>
+                </DrawerFooter>
+              </>
+            )}
+          </DrawerContent>
         </Drawer>
       </>
     );
