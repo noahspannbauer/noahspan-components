@@ -1,8 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Accordion, AccordionDetails, AccordionSummary } from './Accordion';
-import { useArgs } from '@storybook/preview-api';
-import { Icon, IconName } from '../icon/Icon';
-import { Typography } from '../typography/Typography';
+import { Accordion, AccordionItem } from './Accordion';
 
 const meta: Meta<typeof Accordion> = {
   title: 'Components/Accordion',
@@ -14,54 +11,22 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    expanded: false
-  },
-  parameters: {
-    layout: 'padded'
-  },
   render: function Render() {
-    const [{ expanded }, updateArgs] = useArgs();
-
-    const handleChange = (
-      _event: React.SyntheticEvent,
-      expanded: boolean,
-      panel: string
-    ) => {
-      updateArgs({ expanded: expanded ? panel : false });
-    };
+    const defaultContent =
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
 
     return (
-      <>
-        <Accordion
-          expanded={expanded === 'panel1'}
-          onChange={(event, expanded) =>
-            handleChange(event, expanded, 'panel1')
-          }
-        >
-          <AccordionSummary
-            expandIcon={<Icon iconName={IconName.CHEVRON_DOWN} />}
-          >
-            Accordion 1 Header
-          </AccordionSummary>
-          <AccordionDetails>Accordion 1 Body</AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded === 'panel2'}
-          onChange={(event, expanded) =>
-            handleChange(event, expanded, 'panel2')
-          }
-        >
-          <AccordionSummary
-            expandIcon={<Icon iconName={IconName.CHEVRON_DOWN} />}
-          >
-            <Typography>Accordion 2 Header</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>Accordion 2 Body</Typography>
-          </AccordionDetails>
-        </Accordion>
-      </>
+      <Accordion>
+        <AccordionItem key='1' aria-label='Accordion 1' title='Accordion 1'>
+          {defaultContent}
+        </AccordionItem>
+        <AccordionItem key='2' aria-label='Accordion 2' title='Accordion 2'>
+          {defaultContent}
+        </AccordionItem>
+        <AccordionItem key='3' aria-label='Accordion 3' title='Accordion 3'>
+          {defaultContent}
+        </AccordionItem>
+      </Accordion>
     );
   }
 };
