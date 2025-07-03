@@ -1,34 +1,19 @@
 import {
-  DatePicker as MuiDatePicker,
-  DatePickerProps as MuiDatePickerProps
-} from '@mui/x-date-pickers/DatePicker';
-import dayjs, { Dayjs } from 'dayjs';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider/LocalizationProvider';
-import { PickerValidDate } from '@mui/x-date-pickers/models';
+  DatePicker as HeroUIDatePicker,
+  DatePickerProps as HeroUIDatePickerProps,
+  HeroUIProvider
+} from '@heroui/react';
 
-type DatePickerBaseProps = Omit<
-  MuiDatePickerProps<PickerValidDate, boolean>,
-  'onChange' | 'value'
->;
+export { parseDate } from '@internationalized/date';
 
-export interface DatePickerProps extends DatePickerBaseProps {
-  onChange: (newValue: string) => void;
-  value: string;
-}
+type DatePickerBaseProps = HeroUIDatePickerProps;
 
-export const DatePicker = ({ onChange, value, ...rest }: DatePickerProps) => {
-  const handleDateChanged = (date: Dayjs | null) => {
-    onChange(date !== null ? date!.format('MM/DD/YYYY') : '');
-  };
+export interface DatePickerProps extends DatePickerBaseProps {}
 
+export const DatePicker = ({ ...rest }: DatePickerProps) => {
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <MuiDatePicker
-        onChange={handleDateChanged}
-        value={value !== '' ? dayjs(value) : null}
-        {...rest}
-      />
-    </LocalizationProvider>
+    <HeroUIProvider>
+      <HeroUIDatePicker {...rest} />
+    </HeroUIProvider>
   );
 };

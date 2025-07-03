@@ -88,6 +88,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@heroui/react": "^2.7.10",
+    "@internationalized/date": "^3.8.2",
     "@material-tailwind/react": "^2.1.9",
     "@microsoft/microsoft-graph-types": "^2.40.0",
     "@mui/icons-material": "^6.1.2",
