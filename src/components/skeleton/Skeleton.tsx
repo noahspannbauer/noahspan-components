@@ -1,12 +1,17 @@
 import {
-  Skeleton as MuiSkeleton,
-  SkeletonProps as MuiSkeletonProps
-} from '@mui/material';
+  Skeleton as HeroUISkeleton,
+  SkeletonProps as HeroUISkeletonProps,
+  HeroUIProvider
+} from '@heroui/react';
 
-type SkeletonBaseProps = MuiSkeletonProps;
+type SkeletonBaseProps = HeroUISkeletonProps;
 
 export interface SkeletonProps extends SkeletonBaseProps {}
 
 export const Skeleton = ({ ...rest }: SkeletonProps) => {
-  return <MuiSkeleton {...rest} />;
+  return (
+    <HeroUIProvider>
+      <HeroUISkeleton {...rest} />
+    </HeroUIProvider>
+  );
 };

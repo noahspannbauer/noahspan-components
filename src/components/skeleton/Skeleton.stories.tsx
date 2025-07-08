@@ -12,34 +12,18 @@ type Story = StoryObj<typeof meta>;
 
 export const Circular: Story = {
   args: {
-    height: 40,
-    width: 40,
-    variant: 'circular'
+    className: 'rounded-full w-24 h-24'
   }
 };
 
 export const Rectangular: Story = {
   args: {
-    height: 60,
-    width: 210,
-    variant: 'rectangular'
-  }
-};
-
-export const Rounded: Story = {
-  args: {
-    height: 60,
-    width: 210,
-    variant: 'rounded'
+    className: 'h-24 w-24 rounded-lg'
   }
 };
 
 export const Text: Story = {
   args: {
-    sx: {
-      fontSize: '2rem'
-    },
-    variant: 'text',
-    width: 200
+    className: 'h-3 w-24 rounded-lg'
   }
 };
