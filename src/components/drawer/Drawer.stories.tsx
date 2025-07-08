@@ -23,10 +23,10 @@ export const Default: Story = {
     isOpen: false
   },
   render: function Render(args) {
-    const [{ open }, updateArgs] = useArgs();
+    const [{ isOpen }, updateArgs] = useArgs();
 
     const onOpenCloseDrawer = () => {
-      updateArgs({ open: !open });
+      updateArgs({ isOpen: !isOpen });
     };
 
     return (

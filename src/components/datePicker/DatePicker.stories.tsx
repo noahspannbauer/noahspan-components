@@ -13,7 +13,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    defaultValue: parseDate('10/24/2024')
+    defaultValue: parseDate('2024-10-24')
   },
   render: (args: any) => {
     const [{ value }, updateArgs] = useArgs();
