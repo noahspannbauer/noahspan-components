@@ -11,28 +11,29 @@ export default meta;
 
 type Story = StoryObj<typeof Select>;
 
-const fruits: { label: string; value: string }[] = [
+const fruits: { key: string; label: string }[] = [
   {
-    label: 'Apples',
-    value: 'Apples'
+    key: 'Apples',
+    label: 'Apples'
   },
   {
-    label: 'Blueberries',
-    value: 'Blueberries'
+    key: 'Blueberries',
+    label: 'Blueberries'
   },
   {
-    label: 'Cranberries',
-    value: 'Cranberries'
+    key: 'Cranberries',
+    label: 'Cranberries'
   },
   {
-    label: 'Dragonfruit',
-    value: 'Dragonfruit'
+    key: 'Dragonfruit',
+    label: 'Dragonfruit'
   }
 ];
 
 export const Default: Story = {
   args: {
     options: fruits,
+    placeholder: 'Select a fruit',
     value: ''
   },
   render: (args) => {
@@ -42,6 +43,6 @@ export const Default: Story = {
       updateArgs({ value: event.target.value });
     };
 
-    return <Select options={args.options} onChange={onChange} value={value} />;
+    return <Select onChange={onChange} value={value} {...args} />;
   }
 };
