@@ -1,12 +1,17 @@
 import {
-  CircularProgress as MuiCircularProgress,
-  CircularProgressProps as MuiCircularProgressProps
-} from '@mui/material';
+  Spinner as HeroUISpinner,
+  SpinnerProps as HeroUISpinnerProps,
+  HeroUIProvider
+} from '@heroui/react';
 
-type SpinnerBaseProps = MuiCircularProgressProps;
+type SpinnerBaseProps = HeroUISpinnerProps;
 
 export interface SpinnerProps extends SpinnerBaseProps {}
 
 export const Spinner = ({ ...rest }: SpinnerProps) => {
-  return <MuiCircularProgress {...rest} />;
+  return (
+    <HeroUIProvider>
+      <HeroUISpinner {...rest} />
+    </HeroUIProvider>
+  );
 };
