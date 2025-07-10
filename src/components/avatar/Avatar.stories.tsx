@@ -16,20 +16,21 @@ export const Circular: Story = {
     imgProps: {
       height: 40,
       width: 40
-    }
+    },
+    variant: 'circular'
   }
 };
 
 export const Rounded: Story = {
   args: {
     src: '/avatar.png',
-    radius: 'lg'
+    variant: 'rounded'
   }
 };
 
 export const Square: Story = {
   args: {
     src: '/avatar.png',
-    radius: 'sm'
+    variant: 'square'
   }
 };

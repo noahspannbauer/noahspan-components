@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useArgs } from '@storybook/preview-api';
-import { DatePicker, parseDate } from './DatePicker';
+import { DatePicker } from './DatePicker';
 
 const meta: Meta<typeof DatePicker> = {
   title: 'Components/DatePicker',
@@ -13,7 +13,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    defaultValue: parseDate('10/24/2024')
+    slotProps: {
+      textField: {
+        size: 'small'
+      }
+    },
+    value: '10/24/2024'
   },
   render: (args: any) => {
     const [{ value }, updateArgs] = useArgs();

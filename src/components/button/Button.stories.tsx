@@ -14,15 +14,15 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   args: {
     children: 'Save',
-    color: 'primary',
-    startContent: <Icon iconName={IconName.SAVE} />
+    startIcon: <Icon iconName={IconName.SAVE} />,
+    variant: 'contained'
   }
 };
 
 export const Secondary: Story = {
   args: {
     children: 'Cancel',
-    color: 'secondary',
-    startContent: <Icon iconName={IconName.CIRCLE_XMARK} />
+    startIcon: <Icon iconName={IconName.CIRCLE_XMARK} />,
+    variant: 'outlined'
   }
 };
