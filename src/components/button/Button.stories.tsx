@@ -12,17 +12,17 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
-  args: {
-    children: 'Save',
-    startIcon: <Icon iconName={IconName.SAVE} />,
-    variant: 'contained'
-  }
+  // args: {
+  //   children: 'Save',
+  //   startIcon: <Icon iconName={IconName.SAVE} />,
+  //   variant: 'contained'
+  // }
 };
 
-export const Secondary: Story = {
-  args: {
-    children: 'Cancel',
-    startIcon: <Icon iconName={IconName.CIRCLE_XMARK} />,
-    variant: 'outlined'
-  }
-};
+// export const Secondary: Story = {
+//   args: {
+//     children: 'Cancel',
+//     startIcon: <Icon iconName={IconName.CIRCLE_XMARK} />,
+//     variant: 'outlined'
+//   }
+// };

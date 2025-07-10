@@ -16,7 +16,7 @@ export default defineConfig({
     dts({
       exclude: ['**/*.stories.tsx'],
       insertTypesEntry: true
-    })
+    }),
   ],
   build: {
     lib: {
