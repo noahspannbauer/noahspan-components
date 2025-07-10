@@ -5,6 +5,8 @@ import { fileURLToPath } from 'node:url';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import dts from 'vite-plugin-dts';
+import tailwindcss from '@tailwindcss/vite';
+import flowbiteReact from 'flowbite-react/plugin/vite';
 
 const packageName = 'noahspan-components';
 
@@ -16,7 +18,9 @@ export default defineConfig({
     dts({
       exclude: ['**/*.stories.tsx'],
       insertTypesEntry: true
-    })
+    }),
+    tailwindcss(),
+    flowbiteReact()
   ],
   build: {
     lib: {
