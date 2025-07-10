@@ -1,17 +1,20 @@
 import {
-  Button as HeroUIButton,
-  ButtonProps as HeroUIButtonProps,
-  HeroUIProvider
-} from '@heroui/react';
+  Button as MuiButton,
+  ButtonProps as MuiButtonProps
+} from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '../../theme';
 
-type ButtonBaseProps = HeroUIButtonProps;
+type ButtonBaseProps = MuiButtonProps;
 
-export interface ButtonProps extends ButtonBaseProps {}
+export interface ButtonProps extends ButtonBaseProps {
+  loading?: boolean;
+}
 
-export const Button = ({ ...rest }: ButtonProps) => {
+export const Button = ({ loading, ...rest }: ButtonProps) => {
   return (
-    <HeroUIProvider>
-      <HeroUIButton {...rest} />
-    </HeroUIProvider>
+    <ThemeProvider theme={theme}>
+      <MuiButton {...rest} />
+    </ThemeProvider>
   );
 };
